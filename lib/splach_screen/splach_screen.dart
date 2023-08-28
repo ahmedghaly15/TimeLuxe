@@ -37,7 +37,7 @@ class _SplachScreenState extends State<SplachScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Green,
+      backgroundColor: green,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

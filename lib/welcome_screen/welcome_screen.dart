@@ -66,7 +66,7 @@ class WelcomeScreen extends StatelessWidget {
                             color: Colors.green,
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          child: Divider(color: Colors.green),
+                          child: const Divider(color: Colors.green),
                         ),
                         const SizedBox(
                           height: 26,
@@ -77,10 +77,9 @@ class WelcomeScreen extends StatelessWidget {
                             CustomButton(
                               onTap: () {
                                 // Got To Sign In Screen
-                                print("Sign In"); // For Test
                               },
                               text: "Sign In",
-                              color: White,
+                              color: white,
                               textColor: Colors.black,
                             ),
                             const SizedBox(
@@ -89,10 +88,9 @@ class WelcomeScreen extends StatelessWidget {
                             CustomButton(
                               onTap: () {
                                 // Got To Register Screen
-                                print("Get Started"); // For Test
                               },
                               text: "Get Started",
-                              color: Green,
+                              color: green,
                               textColor: Colors.white,
                             ),
                           ],

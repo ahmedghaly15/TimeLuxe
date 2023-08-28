@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "507041746157",
+    "project_id": "timeluxe-app",
+    "storage_bucket": "timeluxe-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:507041746157:android:054eceb0e9e9d6cb6850e4",
+        "android_client_info": {
+          "package_name": "com.example.time_luxe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "507041746157-1025bp8e3ak4u0aq1ab2e808lg7ha9us.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAY7iDOG_GTd2dx-mKZLqp1fcGFJmU-drM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "507041746157-1025bp8e3ak4u0aq1ab2e808lg7ha9us.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
