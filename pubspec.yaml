@@ -31,3 +31,12 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/app_icons/
+
+flutter_assets:
+  assets_path: assets/
+  output_path: core/global/
+  filename: app_assets.dart
+  field_prefix:
