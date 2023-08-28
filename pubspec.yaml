@@ -7,22 +7,26 @@ environment:
   sdk: ">=3.0.5 <4.0.0"
 
 dependencies:
-  bloc: ^8.1.2
-  cloud_firestore: ^4.8.3
-  conditional_builder_null_safety: ^0.0.6
-  firebase_auth: ^4.7.1
-  firebase_core: ^2.15.0
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.3
+  flutter_svg: ^2.0.7
   get: ^4.6.5
   get_it: ^7.6.0
   google_fonts: ^5.1.0
   google_sign_in: ^6.1.4
+  shared_preferences: ^2.2.0
+  conditional_builder_null_safety: ^0.0.6
+  bloc: ^8.1.2
+
   reusable_components:
     git:
       url: https://github.com/ahmedghaly15/Reusable-Components-Package
-  shared_preferences: ^2.2.0
+
+  # Firebase
+  firebase_auth: ^4.7.1
+  firebase_core: ^2.15.0
+  cloud_firestore: ^4.8.3
 
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -32,11 +36,17 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: fonts/Inter-VariableFont_slnt,wght.ttf
+          weight: 900
   assets:
-    - assets/app_icons/
+    - assets/icons/
+    - assets/images/
 
 flutter_assets:
   assets_path: assets/
-  output_path: core/global/
+  output_path: lib/core/global/
   filename: app_assets.dart
   field_prefix:

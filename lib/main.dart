@@ -5,14 +5,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/core/global/app_theme.dart';
-import 'package:time_luxe/features/auth/sign_in/presentation/views/sign_in_view.dart';
+import 'package:time_luxe/splash_screen/splash_screen.dart';
 
 import 'core/network/local/cache_helper.dart';
 import 'core/utils/firebase_options.dart';
 import 'core/utils/my_bloc_observer.dart';
 import 'core/utils/service_locator.dart';
-
-// TODO: Look at how to use sign in with google to look at how use SHA1
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,9 +19,9 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  ServiceLocator().setupServiceLocators();
-
   Bloc.observer = MyBlocObserver();
+
+  ServiceLocator().setupServiceLocators();
 
   await CacheHelper.initSharedPref();
 
@@ -41,7 +39,7 @@ class TimeLuxeApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.appTheme(),
-      home: const SignInView(),
+      home: const SplashScreen(),
     );
   }
 }
