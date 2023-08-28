@@ -1,14 +1,20 @@
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/core/global/app_colors.dart';
+import 'package:time_luxe/core/global/app_text_styles.dart';
 import 'package:time_luxe/features/auth/sign_in/presentation/cubit/sign_in_cubit.dart';
+import 'package:time_luxe/features/auth/sign_in/presentation/cubit/sign_in_states.dart';
 
+import '../../../../../core/global/app_assets.dart';
 import 'visibility_icon_button.dart';
 
 class SignInForm extends StatefulWidget {
-  const SignInForm({super.key, required this.cubit});
+  const SignInForm({super.key, required this.cubit, required this.state});
 
   final SignInViewCubit cubit;
+  final SignInViewStates state;
 
   @override
   State<SignInForm> createState() => _SignInFormState();
@@ -40,6 +46,7 @@ class _SignInFormState extends State<SignInForm> {
         key: formKey,
         child: Column(
           children: <Widget>[
+            SizedBox(height: SizeConfig.screenHeight! * 0.035),
             CustomTextFormField(
               backgroundColor: AppColors.authScaffoldBackgroundColor,
               height: 50,
@@ -51,8 +58,12 @@ class _SignInFormState extends State<SignInForm> {
               focusedBorderColor: AppColors.primaryColor,
               enabledBorderColor: Colors.white,
               enabledBorderWidth: 2,
-              hint: "Enter your Email",
+              hint: "Enter your e-mail",
               hintStyle: const TextStyle(color: Color(0xFFD9D9D9)),
+              prefixIcon: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SvgPicture.asset(AppAssets.iconsDashiconsEmailAlt),
+              ),
               controller: emailController,
               focusNode: emailFocusNode,
               textCapitalization: TextCapitalization.none,
@@ -65,7 +76,7 @@ class _SignInFormState extends State<SignInForm> {
               onEditingComplete: () =>
                   FocusScope.of(context).requestFocus(passwordFocusNode),
             ),
-            SizedBox(height: SizeConfig.screenHeight! * 0.015),
+            SizedBox(height: SizeConfig.screenHeight! * 0.05),
             CustomTextFormField(
               backgroundColor: AppColors.authScaffoldBackgroundColor,
               height: 50,
@@ -79,6 +90,11 @@ class _SignInFormState extends State<SignInForm> {
               enabledBorderWidth: 2,
               hint: "Enter your Password",
               hintStyle: const TextStyle(color: Color(0xFFD9D9D9)),
+              prefixIcon: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SvgPicture.asset(AppAssets.iconsMdiPassword),
+              ),
+              prefixIconColor: Colors.white,
               controller: passwordController,
               focusNode: passwordFocusNode,
               textCapitalization: TextCapitalization.none,
@@ -100,6 +116,41 @@ class _SignInFormState extends State<SignInForm> {
               },
               onSubmit: (String value) => signIn(context),
             ),
+            SizedBox(height: SizeConfig.screenHeight! * 0.013),
+            Align(
+              alignment: Alignment.centerRight,
+              child: CustomTextButton(
+                onTap: () {
+                  // TODO: Forgot Password Logic
+                },
+                text: "Forgot Password?",
+                textStyle: AppTextStyles.textStyle14,
+              ),
+            ),
+            SizedBox(height: SizeConfig.screenHeight! * 0.035),
+            ConditionalBuilder(
+              condition: widget.state is! SignInLoadingState,
+              builder: (context) => MyCustomButton(
+                backgroundColor: AppColors.primaryColor,
+                height: 59,
+                width: 375,
+                radius: 14,
+                hasPrefix: false,
+                onPressed: () => signIn(context),
+                child: Center(
+                  child: Text(
+                    "Sign in",
+                    style: AppTextStyles.textStyle32.copyWith(
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+              fallback: (context) => const CustomCircularProgressIndicator(
+                color: AppColors.primaryColor,
+                backgroundColor: Colors.white,
+              ),
+            ),
           ],
         ),
       ),
@@ -108,8 +159,7 @@ class _SignInFormState extends State<SignInForm> {
 
   void signIn(BuildContext context) {
     if (formKey.currentState!.validate()) {
-      // TODO: Use CustomHelper.keyboardUnfocus
-      FocusScope.of(context);
+      CustomHelper.keyboardUnfocus(context);
       widget.cubit.userSignIn(
         context: context,
         email: emailController.text.trim(),
