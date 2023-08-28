@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:time_luxe/splach_screen/splach_screen.dart';
 
 void main() {
   runApp(const TimeLuxeApp());
@@ -10,11 +11,8 @@ class TimeLuxeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+      debugShowCheckedModeBanner: false,
+      home: SplachScreen(),
     );
   }
 }
