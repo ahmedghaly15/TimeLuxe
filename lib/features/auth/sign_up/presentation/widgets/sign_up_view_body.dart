@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reusable_components/reusable_components.dart';
+import 'package:time_luxe/features/auth/sign_in/presentation/views/sign_in_view.dart';
 import 'package:time_luxe/features/auth/sign_up/presentation/cubit/sign_up_view_cubit.dart';
 import 'package:time_luxe/features/auth/sign_up/presentation/widgets/sign_up_form.dart';
 
+import '../../../../../core/global/app_colors.dart';
+import '../../../../../core/global/app_text_styles.dart';
 import '../../../../../core/network/local/cache_helper.dart';
+import '../../../../home/home_view.dart';
+import '../../../sign_in/presentation/widgets/or_login_with.dart';
+import '../../../sign_in/presentation/widgets/social_buttons.dart';
 import '../../../sign_in/presentation/widgets/title_text.dart';
 
 class SignUpViewBody extends StatelessWidget {
@@ -13,6 +19,7 @@ class SignUpViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<SignUpViewCubit, SignUpViewStates>(
+      listener: (context, state) => controlSignUpViewStates(state, context),
       builder: (context, state) {
         SignUpViewCubit cubit = SignUpViewCubit.getObject(context);
 
@@ -25,14 +32,46 @@ class SignUpViewBody extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                const TitleText(title: "Let's Get Started"),
+                TitleText(
+                  title: "Let's Get Started",
+                  bottomPadding: SizeConfig.screenHeight! * 0.03,
+                ),
                 SignUpForm(cubit: cubit, state: state),
+                SizedBox(height: SizeConfig.screenHeight! * 0.035),
+                const OrLoginWith(),
+                SizedBox(height: SizeConfig.screenHeight! * 0.025),
+                SocialButtons(signUpViewCubit: cubit),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    const Text(
+                      "Do you have an account?",
+                      style: AppTextStyles.textStyle13,
+                    ),
+                    const CustomVerticalDivider(
+                      width: 1,
+                      height: 16,
+                      margin: EdgeInsets.symmetric(horizontal: 4),
+                      color: Colors.black,
+                    ),
+                    CustomTextButton(
+                      onTap: () => CustomNavigator.navigateAndFinishAll(
+                        screen: () => const SignInView(),
+                      ),
+                      text: "Sign in",
+                      textStyle: AppTextStyles.textStyle13.copyWith(
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.primaryColor,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: SizeConfig.screenHeight! * 0.025),
               ],
             ),
           ),
         );
       },
-      listener: (context, state) => controlSignUpViewStates(state, context),
     );
   }
 
@@ -57,8 +96,7 @@ class SignUpViewBody extends StatelessWidget {
 
     if (state is SignUpSuccessState) {
       CacheHelper.saveData(key: 'uId', value: state.uId).then((value) {
-        // Todo: Navigate to HomeView
-        // CustomNavigator.navigateAndFinishAll(screen: () => const LayoutView());
+        CustomNavigator.navigateAndFinishAll(screen: () => const HomeView());
       });
       CustomHelper.buildSnackBar(
         title: "Success",
@@ -69,8 +107,13 @@ class SignUpViewBody extends StatelessWidget {
     }
 
     if (state is CreateUserSuccessState) {
-      // Todo: Navigate to HomeView
-      // CustomNavigator.navigateAndFinishAll(screen: () => const LayoutView());
+      CustomNavigator.navigateAndFinishAll(screen: () => const HomeView());
+    }
+
+    if (state is SignInWithGoogleSuccessState) {
+      CacheHelper.saveData(key: 'uId', value: state.uId).then((value) {
+        CustomNavigator.navigateAndFinishAll(screen: () => const HomeView());
+      });
     }
   }
 }

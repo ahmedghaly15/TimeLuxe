@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:time_luxe/features/auth/sign_up/presentation/cubit/sign_up_view_cubit.dart';
 
 import '../../../../../core/global/app_assets.dart';
 import '../cubit/sign_in_cubit.dart';
@@ -7,10 +8,12 @@ import 'login_with_social_button.dart';
 class SocialButtons extends StatefulWidget {
   const SocialButtons({
     super.key,
-    required this.cubit,
+    this.signInViewCubit,
+    this.signUpViewCubit,
   });
 
-  final SignInViewCubit cubit;
+  final SignInViewCubit? signInViewCubit;
+  final SignUpViewCubit? signUpViewCubit;
 
   @override
   State<SocialButtons> createState() => _SocialButtonsState();
@@ -54,7 +57,11 @@ class _SocialButtonsState extends State<SocialButtons> {
             Future.delayed(
               const Duration(seconds: 1),
               () {
-                widget.cubit.signInWithGoogle();
+                if (widget.signInViewCubit == null) {
+                  widget.signUpViewCubit!.signInWithGoogle();
+                } else {
+                  widget.signInViewCubit!.signInWithGoogle();
+                }
                 setState(() {
                   isGoogleButtonClicked = false;
                 });

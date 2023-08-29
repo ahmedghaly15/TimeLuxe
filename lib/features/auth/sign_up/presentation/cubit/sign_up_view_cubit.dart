@@ -68,6 +68,18 @@ class SignUpViewCubit extends Cubit<SignUpViewStates> {
     });
   }
 
+  signInWithGoogle() {
+    emit(SignInWithGoogleLoadingState());
+    signUpViewRepo.signInWithGoogle().then((value) {
+      emit(SignInWithGoogleSuccessState(value.user!.uid));
+      CacheHelper.saveData(key: 'uId', value: value.user!.uid);
+      // TODO: Do getUserData method
+      // DelibirdAppCubit.getObject(context).getUserData(value.user!.uid);
+    }).catchError((error) {
+      emit(SignInWithGoogleErrorState(error.toString()));
+    });
+  }
+
   void switchPassVisibility() {
     passVisibility = !passVisibility;
     emit(SwitchPassVisibleState());

@@ -14,4 +14,6 @@ abstract class SignUpViewRepo {
     String? email,
     String? uId,
   });
+
+  Future<UserCredential> signInWithGoogle();
 }

@@ -26,3 +26,15 @@ class CreateUserErrorState extends SignUpViewStates {
 class SwitchPassVisibleState extends SignUpViewStates {}
 
 class SwitchConfirmPassVisibleState extends SignUpViewStates {}
+
+class SignInWithGoogleLoadingState extends SignUpViewStates {}
+
+class SignInWithGoogleSuccessState extends SignUpViewStates {
+  final String uId;
+  SignInWithGoogleSuccessState(this.uId);
+}
+
+class SignInWithGoogleErrorState extends SignUpViewStates {
+  final String error;
+  SignInWithGoogleErrorState(this.error);
+}

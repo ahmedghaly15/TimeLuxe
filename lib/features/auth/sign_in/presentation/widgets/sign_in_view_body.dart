@@ -4,6 +4,7 @@ import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/core/global/app_text_styles.dart';
 import 'package:time_luxe/features/auth/sign_in/presentation/widgets/sign_in_form.dart';
 import 'package:time_luxe/features/auth/sign_up/presentation/views/sign_up_view.dart';
+import 'package:time_luxe/features/home/home_view.dart';
 
 import '../../../../../core/global/app_colors.dart';
 import '../../../../../core/network/local/cache_helper.dart';
@@ -30,14 +31,15 @@ class SignInViewBody extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                const TitleText(
+                TitleText(
                   title: "Please Sign in",
+                  bottomPadding: SizeConfig.screenHeight! * 0.05,
                 ),
                 SignInForm(cubit: cubit, state: state),
                 SizedBox(height: SizeConfig.screenHeight! * 0.05),
                 const OrLoginWith(),
                 SizedBox(height: SizeConfig.screenHeight! * 0.025),
-                SocialButtons(cubit: cubit),
+                SocialButtons(signInViewCubit: cubit),
                 const Spacer(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -46,10 +48,10 @@ class SignInViewBody extends StatelessWidget {
                       "Don't have an account?",
                       style: AppTextStyles.textStyle13,
                     ),
-                    Container(
+                    const CustomVerticalDivider(
                       width: 1,
                       height: 16,
-                      margin: const EdgeInsets.symmetric(horizontal: 4),
+                      margin: EdgeInsets.symmetric(horizontal: 4),
                       color: Colors.black,
                     ),
                     CustomTextButton(
@@ -94,15 +96,13 @@ class SignInViewBody extends StatelessWidget {
 
     if (state is SignInSuccessState) {
       CacheHelper.saveData(key: 'uId', value: state.uId).then((value) {
-        //TODO: navigate to Home
-        // CustomNavigator.navigateAndFinish(screen: () => const LayoutView());
+        CustomNavigator.navigateAndFinishAll(screen: () => const HomeView());
       });
     }
 
     if (state is SignInWithGoogleSuccessState) {
       CacheHelper.saveData(key: 'uId', value: state.uId).then((value) {
-        //TODO: navigate to Home
-        // CustomNavigator.navigateAndFinish(screen: () => const LayoutView());
+        CustomNavigator.navigateAndFinishAll(screen: () => const HomeView());
       });
     }
   }

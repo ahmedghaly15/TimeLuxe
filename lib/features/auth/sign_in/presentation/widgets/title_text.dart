@@ -7,9 +7,11 @@ class TitleText extends StatelessWidget {
   const TitleText({
     super.key,
     required this.title,
+    required this.bottomPadding,
   });
 
   final String title;
+  final double bottomPadding;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +19,7 @@ class TitleText extends StatelessWidget {
       padding: EdgeInsets.only(
         top: SizeConfig.screenHeight! * 0.15,
         left: 24,
-        bottom: SizeConfig.screenHeight! * 0.05,
+        bottom: bottomPadding,
       ),
       child: Text(
         title,

@@ -48,7 +48,7 @@ class _SignUpFormState extends State<SignUpForm> {
         key: _formKey,
         child: Column(
           children: <Widget>[
-            SizedBox(height: SizeConfig.screenHeight! * 0.035),
+            SizedBox(height: SizeConfig.screenHeight! * 0.02),
             ReusableTextFormField(
               controller: nameController,
               thisFocusNode: nameFocusNode,
@@ -68,7 +68,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 FocusScope.of(context).requestFocus(emailFocusNode);
               },
             ),
-            SizedBox(height: SizeConfig.screenHeight! * 0.025),
+            SizedBox(height: SizeConfig.screenHeight! * 0.02),
             ReusableTextFormField(
               controller: emailController,
               thisFocusNode: emailFocusNode,
@@ -88,7 +88,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 FocusScope.of(context).requestFocus(passwordFocusNode);
               },
             ),
-            SizedBox(height: SizeConfig.screenHeight! * 0.025),
+            SizedBox(height: SizeConfig.screenHeight! * 0.02),
             ReusablePassTextField(
               controller: passwordController,
               thisFocusNode: passwordFocusNode,
@@ -111,7 +111,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 FocusScope.of(context).requestFocus(confirmPassFocusNode);
               },
             ),
-            SizedBox(height: SizeConfig.screenHeight! * 0.025),
+            SizedBox(height: SizeConfig.screenHeight! * 0.02),
             ReusablePassTextField(
               controller: confirmPassController,
               thisFocusNode: confirmPassFocusNode,
@@ -133,7 +133,7 @@ class _SignUpFormState extends State<SignUpForm> {
               },
               onSubmit: (String? value) => signUp(context),
             ),
-            SizedBox(height: SizeConfig.screenHeight! * 0.04),
+            SizedBox(height: SizeConfig.screenHeight! * 0.03),
             ConditionalBuilder(
               condition: widget.state is! SignUpLoadingState,
               builder: (context) => MyCustomButton(
