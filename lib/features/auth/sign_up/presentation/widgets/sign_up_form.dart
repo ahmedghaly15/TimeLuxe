@@ -163,6 +163,20 @@ class _SignUpFormState extends State<SignUpForm> {
     );
   }
 
+  void signUp(BuildContext context) {
+    if (_formKey.currentState!.validate()) {
+      CustomHelper.keyboardUnfocus(context);
+      if (passwordController.text == confirmPassController.text) {
+        widget.cubit.userSignUp(
+          context: context,
+          email: emailController.text.trim(),
+          username: nameController.text.trim(),
+          password: passwordController.text,
+        );
+      }
+    }
+  }
+
   void disposeControllers() {
     nameController.dispose();
     emailController.dispose();
@@ -175,17 +189,5 @@ class _SignUpFormState extends State<SignUpForm> {
     emailFocusNode.dispose();
     passwordFocusNode.dispose();
     confirmPassFocusNode.dispose();
-  }
-
-  void signUp(BuildContext context) {
-    if (_formKey.currentState!.validate()) {
-      CustomHelper.keyboardUnfocus(context);
-      widget.cubit.userSignUp(
-        context: context,
-        email: emailController.text,
-        username: nameController.text,
-        password: passwordController.text,
-      );
-    }
   }
 }
