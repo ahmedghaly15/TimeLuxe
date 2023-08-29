@@ -5,6 +5,7 @@ import 'package:time_luxe/core/global/app_colors.dart';
 import 'package:time_luxe/core/global/app_text_styles.dart';
 import 'package:time_luxe/features/auth/sign_in/presentation/cubit/sign_in_cubit.dart';
 import 'package:time_luxe/features/auth/sign_in/presentation/cubit/sign_in_states.dart';
+import 'package:time_luxe/features/auth/forgot_password/presentation/views/forgot_password_view.dart';
 import 'package:time_luxe/features/auth/sign_in/presentation/widgets/reusable_pass_text_field.dart';
 
 import '../../../../../core/global/app_assets.dart';
@@ -89,11 +90,11 @@ class _SignInFormState extends State<SignInForm> {
             ),
             SizedBox(height: SizeConfig.screenHeight! * 0.013),
             Align(
-              alignment: Alignment.centerRight,
+              alignment: AlignmentDirectional.centerEnd,
               child: CustomTextButton(
-                onTap: () {
-                  // TODO: Forgot Password Logic
-                },
+                onTap: () => CustomNavigator.navigateTo(
+                  screen: () => const ForgotPasswordView(),
+                ),
                 text: "Forgot Password?",
                 textStyle: AppTextStyles.textStyle14,
               ),

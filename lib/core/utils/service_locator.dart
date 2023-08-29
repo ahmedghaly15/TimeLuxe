@@ -1,4 +1,7 @@
 import 'package:get_it/get_it.dart';
+import 'package:time_luxe/features/auth/forgot_password/data/forgot_password_repo_impl.dart';
+import 'package:time_luxe/features/auth/forgot_password/domain/forgot_password_repo.dart';
+import 'package:time_luxe/features/auth/forgot_password/presentation/cubit/forgot_password_view_cubit.dart';
 
 import 'package:time_luxe/features/auth/sign_in/data/sign_in_repo_impl.dart';
 import 'package:time_luxe/features/auth/sign_in/domain/sign_in_repo.dart';
@@ -26,6 +29,14 @@ class ServiceLocator {
 
     serviceLocator.registerFactory<SignUpViewCubit>(
       () => SignUpViewCubit(serviceLocator.get<SignUpViewRepo>()),
+    );
+
+    serviceLocator.registerLazySingleton<ForgotPasswordRepo>(
+      () => ForgotPasswordRepoImpl(),
+    );
+
+    serviceLocator.registerFactory<ForgotPasswordViewCubit>(
+      () => ForgotPasswordViewCubit(serviceLocator.get<ForgotPasswordRepo>()),
     );
   }
 }

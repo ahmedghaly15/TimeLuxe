@@ -9,20 +9,20 @@ class ReusableTextFormField extends StatelessWidget {
   const ReusableTextFormField({
     super.key,
     required this.controller,
-    required this.thisFocusNode,
     required this.hint,
     required this.icon,
-    this.validating,
-    required this.onEditingComplete,
     required this.keyboardType,
     required this.textCapitalization,
+    this.thisFocusNode,
+    this.validating,
+    this.onEditingComplete,
   });
 
   final TextEditingController controller;
-  final FocusNode thisFocusNode;
+  final FocusNode? thisFocusNode;
   final String hint, icon;
   final String? Function(String?)? validating;
-  final VoidCallback onEditingComplete;
+  final VoidCallback? onEditingComplete;
   final TextInputType keyboardType;
   final TextCapitalization textCapitalization;
 
@@ -40,8 +40,11 @@ class ReusableTextFormField extends StatelessWidget {
       enabledBorderColor: Colors.white,
       enabledBorderWidth: 2,
       hint: hint,
-      hintStyle: AppTextStyles.hintStyle,
-      style: AppTextStyles.textFieldStyle,
+      hintStyle: AppTextStyles.textStyle16.copyWith(
+        color: const Color(0xFF676161).withOpacity(0.88),
+        fontWeight: FontWeight.w600,
+      ),
+      style: AppTextStyles.textStyle16.copyWith(fontWeight: FontWeight.w600),
       prefixIcon: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SvgPicture.asset(icon),
