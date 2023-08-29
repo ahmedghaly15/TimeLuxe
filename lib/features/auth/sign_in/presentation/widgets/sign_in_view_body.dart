@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/core/global/app_text_styles.dart';
 import 'package:time_luxe/features/auth/sign_in/presentation/widgets/sign_in_form.dart';
+import 'package:time_luxe/features/auth/sign_up/presentation/views/sign_up_view.dart';
 
 import '../../../../../core/global/app_colors.dart';
 import '../../../../../core/network/local/cache_helper.dart';
@@ -52,9 +53,9 @@ class SignInViewBody extends StatelessWidget {
                       color: Colors.black,
                     ),
                     CustomTextButton(
-                      onTap: () {
-                        //TODO: navigate to SignUnView
-                      },
+                      onTap: () => CustomNavigator.navigateTo(
+                        screen: () => const SignUpView(),
+                      ),
                       text: "Sign up",
                       textStyle: AppTextStyles.textStyle13.copyWith(
                         fontWeight: FontWeight.bold,
