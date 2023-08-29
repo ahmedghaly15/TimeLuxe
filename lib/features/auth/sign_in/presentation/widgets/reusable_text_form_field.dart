@@ -16,6 +16,7 @@ class ReusableTextFormField extends StatelessWidget {
     this.thisFocusNode,
     this.validating,
     this.onEditingComplete,
+    this.onSubmit,
   });
 
   final TextEditingController controller;
@@ -23,6 +24,7 @@ class ReusableTextFormField extends StatelessWidget {
   final String hint, icon;
   final String? Function(String?)? validating;
   final VoidCallback? onEditingComplete;
+  final void Function(String)? onSubmit;
   final TextInputType keyboardType;
   final TextCapitalization textCapitalization;
 
@@ -55,6 +57,7 @@ class ReusableTextFormField extends StatelessWidget {
       keyboardType: keyboardType,
       validating: validating,
       onEditingComplete: onEditingComplete,
+      onSubmit: onSubmit,
     );
   }
 }
