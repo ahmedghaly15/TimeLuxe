@@ -1,51 +1,51 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reusable_components/reusable_components.dart';
-import 'package:time_luxe/core/global/app_text_styles.dart';
-import 'package:time_luxe/features/auth/sign_in/presentation/widgets/sign_in_form.dart';
-import 'package:time_luxe/features/auth/sign_up/presentation/views/sign_up_view.dart';
-import 'package:time_luxe/features/home/home_view.dart';
+import 'package:time_luxe/features/auth/sign_in/presentation/views/sign_in_view.dart';
+import 'package:time_luxe/features/auth/sign_up/presentation/cubit/sign_up_view_cubit.dart';
+import 'package:time_luxe/features/auth/sign_up/presentation/widgets/sign_up_form.dart';
 
 import '../../../../../core/global/app_colors.dart';
+import '../../../../../core/global/app_text_styles.dart';
 import '../../../../../core/network/local/cache_helper.dart';
-import '../cubit/sign_in_cubit.dart';
-import '../cubit/sign_in_states.dart';
-import 'or_login_with.dart';
-import 'social_buttons.dart';
-import 'title_text.dart';
+import '../../../../home/home_view.dart';
+import '../../../sign_in/presentation/widgets/or_login_with.dart';
+import '../../../sign_in/presentation/widgets/social_buttons.dart';
+import '../../../sign_in/presentation/widgets/title_text.dart';
 
-class SignInViewBody extends StatelessWidget {
-  const SignInViewBody({super.key});
+class SignUpViewBody extends StatelessWidget {
+  const SignUpViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<SignInViewCubit, SignInViewStates>(
-      listener: (context, state) => controlSignInViewStates(state, context),
+    return BlocConsumer<SignUpViewCubit, SignUpViewStates>(
+      listener: (context, state) => controlSignUpViewStates(state, context),
       builder: (context, state) {
-        SignInViewCubit cubit = SignInViewCubit.getObject(context);
+        SignUpViewCubit cubit = SignUpViewCubit.getObject(context);
+
         return SingleChildScrollView(
           child: SizedBox(
             // To allow using SingleChildScrollView Widget
             height: SizeConfig.screenHeight,
             width: SizeConfig.screenWidth,
+
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 TitleText(
-                  title: "Please Sign in",
-                  bottomPadding: SizeConfig.screenHeight! * 0.05,
+                  title: "Let's Get Started",
+                  bottomPadding: SizeConfig.screenHeight! * 0.03,
                 ),
-                SignInForm(cubit: cubit, state: state),
-                SizedBox(height: SizeConfig.screenHeight! * 0.05),
+                SignUpForm(cubit: cubit, state: state),
+                SizedBox(height: SizeConfig.screenHeight! * 0.035),
                 const OrLoginWith(),
                 SizedBox(height: SizeConfig.screenHeight! * 0.025),
-                SocialButtons(signInViewCubit: cubit),
-                const Spacer(),
+                SocialButtons(signUpViewCubit: cubit),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     const Text(
-                      "Don't have an account?",
+                      "Do you have an account?",
                       style: AppTextStyles.textStyle13,
                     ),
                     const CustomVerticalDivider(
@@ -55,10 +55,10 @@ class SignInViewBody extends StatelessWidget {
                       color: Colors.black,
                     ),
                     CustomTextButton(
-                      onTap: () => CustomNavigator.navigateTo(
-                        screen: () => const SignUpView(),
+                      onTap: () => CustomNavigator.navigateAndFinishAll(
+                        screen: () => const SignInView(),
                       ),
-                      text: "Sign up",
+                      text: "Sign in",
                       textStyle: AppTextStyles.textStyle13.copyWith(
                         fontWeight: FontWeight.bold,
                         color: AppColors.primaryColor,
@@ -75,29 +75,39 @@ class SignInViewBody extends StatelessWidget {
     );
   }
 
-  void controlSignInViewStates(SignInViewStates state, BuildContext context) {
-    if (state is SignInErrorState) {
-      if (state.error == 'user-not-found') {
+  void controlSignUpViewStates(SignUpViewStates state, BuildContext context) {
+    if (state is SignUpErrorState) {
+      if (state.error == 'weak-password') {
         CustomHelper.buildSnackBar(
           title: "Warning",
-          message: "No user found for that email",
+          message: "Password is too weak",
           state: SnackBarStates.error,
           context: context,
         );
-      } else if (state.error == 'wrong-password') {
+      } else if (state.error == 'email-already-in-use') {
         CustomHelper.buildSnackBar(
           title: "Warning",
-          message: "Wrong Password",
+          message: "Account already exists",
           state: SnackBarStates.error,
           context: context,
         );
       }
     }
 
-    if (state is SignInSuccessState) {
+    if (state is SignUpSuccessState) {
       CacheHelper.saveData(key: 'uId', value: state.uId).then((value) {
         CustomNavigator.navigateAndFinishAll(screen: () => const HomeView());
       });
+      CustomHelper.buildSnackBar(
+        title: "Success",
+        message: "Account Created Successfully",
+        state: SnackBarStates.success,
+        context: context,
+      );
+    }
+
+    if (state is CreateUserSuccessState) {
+      CustomNavigator.navigateAndFinishAll(screen: () => const HomeView());
     }
 
     if (state is SignInWithGoogleSuccessState) {

@@ -4,6 +4,7 @@ import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/component/custom_button.dart';
 import 'package:time_luxe/constants.dart';
 import 'package:time_luxe/features/auth/sign_in/presentation/views/sign_in_view.dart';
+import 'package:time_luxe/features/auth/sign_up/presentation/views/sign_up_view.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -91,9 +92,9 @@ class WelcomeScreen extends StatelessWidget {
                               width: 24,
                             ),
                             CustomButton(
-                              onTap: () {
-                                // TODO: navigate to SignUpView
-                              },
+                              onTap: () => CustomNavigator.navigateTo(
+                                screen: () => const SignUpView(),
+                              ),
                               text: "Get Started",
                               color: green,
                               textColor: Colors.white,
