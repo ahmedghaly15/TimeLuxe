@@ -1,0 +1,57 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:reusable_components/reusable_components.dart';
+
+import '../../../../../core/global/app_colors.dart';
+import '../../../../../core/global/app_text_styles.dart';
+
+class ReusableTextFormField extends StatelessWidget {
+  const ReusableTextFormField({
+    super.key,
+    required this.controller,
+    required this.thisFocusNode,
+    required this.hint,
+    required this.icon,
+    this.validating,
+    required this.onEditingComplete,
+    required this.keyboardType,
+    required this.textCapitalization,
+  });
+
+  final TextEditingController controller;
+  final FocusNode thisFocusNode;
+  final String hint, icon;
+  final String? Function(String?)? validating;
+  final VoidCallback onEditingComplete;
+  final TextInputType keyboardType;
+  final TextCapitalization textCapitalization;
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomTextFormField(
+      backgroundColor: AppColors.authScaffoldBackgroundColor,
+      height: 50,
+      contentPadding: const EdgeInsets.symmetric(
+        horizontal: 16,
+        vertical: 8,
+      ),
+      cursorColor: AppColors.primaryColor,
+      focusedBorderColor: AppColors.primaryColor,
+      enabledBorderColor: Colors.white,
+      enabledBorderWidth: 2,
+      hint: hint,
+      hintStyle: AppTextStyles.hintStyle,
+      style: AppTextStyles.textFieldStyle,
+      prefixIcon: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: SvgPicture.asset(icon),
+      ),
+      controller: controller,
+      focusNode: thisFocusNode,
+      textCapitalization: textCapitalization,
+      keyboardType: keyboardType,
+      validating: validating,
+      onEditingComplete: onEditingComplete,
+    );
+  }
+}

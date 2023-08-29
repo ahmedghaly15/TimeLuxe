@@ -20,4 +20,15 @@ abstract class AppTextStyles {
     fontSize: 13,
     fontWeight: FontWeight.normal,
   );
+
+  static TextStyle hintStyle = TextStyle(
+    fontSize: 16,
+    color: const Color(0xFF676161).withOpacity(0.88),
+    fontWeight: FontWeight.w600,
+  );
+
+  static TextStyle textFieldStyle = const TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+  );
 }

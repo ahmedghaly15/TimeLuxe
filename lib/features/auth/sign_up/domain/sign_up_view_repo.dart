@@ -6,14 +6,12 @@ abstract class SignUpViewRepo {
     required String username,
     required String email,
     required String password,
-    required String phone,
     required BuildContext context,
   });
 
   Future<void> firestoreCreateUSer({
     String? name,
     String? email,
-    String? phone,
     String? uId,
   });
 }

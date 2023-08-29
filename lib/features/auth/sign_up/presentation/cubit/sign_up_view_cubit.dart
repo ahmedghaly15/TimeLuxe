@@ -21,7 +21,6 @@ class SignUpViewCubit extends Cubit<SignUpViewStates> {
     required String username,
     required String email,
     required String password,
-    required String phone,
     required BuildContext context,
   }) {
     emit(SignUpLoadingState());
@@ -31,14 +30,12 @@ class SignUpViewCubit extends Cubit<SignUpViewStates> {
       username: username,
       email: email,
       password: password,
-      phone: phone,
       context: context,
     )
         .then((value) {
       firestoreCreateUser(
         name: username,
         email: email,
-        phone: phone,
         uId: value.user!.uid,
       );
       CacheHelper.saveData(key: 'uId', value: value.user!.uid);
@@ -55,14 +52,12 @@ class SignUpViewCubit extends Cubit<SignUpViewStates> {
   void firestoreCreateUser({
     String? name,
     String? email,
-    String? phone,
     String? uId,
   }) {
     signUpViewRepo
         .firestoreCreateUSer(
       name: name,
       email: email,
-      phone: phone,
       uId: uId,
     )
         .then((value) {

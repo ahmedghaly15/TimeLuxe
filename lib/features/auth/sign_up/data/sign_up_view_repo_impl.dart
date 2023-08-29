@@ -11,7 +11,6 @@ class SignUpViewRepoImpl extends SignUpViewRepo {
     required String username,
     required String email,
     required String password,
-    required String phone,
     required BuildContext context,
   }) async {
     return await FirebaseAuth.instance.createUserWithEmailAndPassword(
@@ -24,7 +23,6 @@ class SignUpViewRepoImpl extends SignUpViewRepo {
   Future<void> firestoreCreateUSer({
     String? name,
     String? email,
-    String? phone,
     String? uId,
   }) async {
     UserModel userModel = UserModel(
