@@ -1,3 +1,3 @@
-# time_luxe
+# TimeLuxe-App
 
-A new Flutter project.
+README coming soon
