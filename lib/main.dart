@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/core/global/app_theme.dart';
 import 'package:time_luxe/features/home/home_view.dart';
+import 'package:time_luxe/features/splash/splash_screen.dart';
 import 'core/network/local/cache_helper.dart';
 import 'core/utils/firebase_options.dart';
 import 'core/utils/my_bloc_observer.dart';
@@ -38,7 +39,7 @@ class TimeLuxeApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.appTheme(),
-      home: const HomeView(),
+      home: const SplashScreen(),
     );
   }
 }
