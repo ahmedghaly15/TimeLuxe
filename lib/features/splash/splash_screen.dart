@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:time_luxe/constants.dart';
-import 'package:time_luxe/welcome_screen/welcome_screen.dart';
+import 'package:time_luxe/features/welcome/welcome_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

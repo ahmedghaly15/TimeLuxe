@@ -1,0 +1,24 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="noto:fire">
+<path id="Vector" d="M8.89 10.1825C8.7475 11.7025 8.6475 14.3925 9.545 15.5375C9.545 15.5375 9.1225 12.5825 12.91 8.87497C14.435 7.38247 14.7875 5.35248 14.255 3.82997C13.9525 2.96747 13.4 2.25497 12.92 1.75747C12.64 1.46497 12.855 0.982475 13.2625 0.999975C15.7275 1.10997 19.7225 1.79497 21.42 6.05497C22.165 7.92497 22.22 9.85748 21.865 11.8225C21.64 13.0775 20.84 15.8675 22.665 16.21C23.9675 16.455 24.5975 15.42 24.88 14.675C24.9975 14.365 25.405 14.2875 25.625 14.535C27.825 17.0375 28.0125 19.985 27.5575 22.5225C26.6775 27.4275 21.71 30.9975 16.775 30.9975C10.61 30.9975 5.7025 27.47 4.43 21.085C3.9175 18.5075 4.1775 13.4075 8.1525 9.80748C8.4475 9.53747 8.93 9.77748 8.89 10.1825Z" fill="url(#paint0_radial_184_285)"/>
+<path id="Vector_2" d="M19.0275 19.355C16.755 16.43 17.7725 13.0925 18.33 11.7625C18.405 11.5875 18.205 11.4225 18.0475 11.53C17.07 12.195 15.0675 13.76 14.135 15.9625C12.8725 18.94 12.9625 20.3975 13.71 22.1775C14.16 23.25 13.6375 23.4775 13.375 23.5175C13.12 23.5575 12.885 23.3875 12.6975 23.21C12.1581 22.6922 11.7737 22.0342 11.5875 21.31C11.5475 21.155 11.345 21.1125 11.2525 21.24C10.5525 22.2075 10.19 23.76 10.1725 24.8575C10.1175 28.25 12.92 31 16.31 31C20.5825 31 23.695 26.275 21.24 22.325C20.5275 21.175 19.8575 20.4225 19.0275 19.355Z" fill="url(#paint1_radial_184_285)"/>
+</g>
+<defs>
+<radialGradient id="paint0_radial_184_285" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(15.5539 31.0752) rotate(-179.751) scale(17.6469 28.9551)">
+<stop offset="0.314" stop-color="#FF9800"/>
+<stop offset="0.662" stop-color="#FF6D00"/>
+<stop offset="0.972" stop-color="#F44336"/>
+</radialGradient>
+<radialGradient id="paint1_radial_184_285" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(16.545 13.5146) rotate(90.5787) scale(18.4641 13.8956)">
+<stop offset="0.214" stop-color="#FFF176"/>
+<stop offset="0.328" stop-color="#FFF27D"/>
+<stop offset="0.487" stop-color="#FFF48F"/>
+<stop offset="0.672" stop-color="#FFF7AD"/>
+<stop offset="0.793" stop-color="#FFF9C4"/>
+<stop offset="0.822" stop-color="#FFF8BD" stop-opacity="0.804"/>
+<stop offset="0.863" stop-color="#FFF6AB" stop-opacity="0.529"/>
+<stop offset="0.91" stop-color="#FFF38D" stop-opacity="0.209"/>
+<stop offset="0.941" stop-color="#FFF176" stop-opacity="0"/>
+</radialGradient>
+</defs>
+</svg>

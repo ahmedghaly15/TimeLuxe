@@ -37,7 +37,7 @@ class ReusablePassTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomTextFormField(
-      backgroundColor: AppColors.authScaffoldBackgroundColor,
+      backgroundColor: Colors.white.withOpacity(0),
       height: 50,
       contentPadding: const EdgeInsets.symmetric(
         horizontal: 16,
