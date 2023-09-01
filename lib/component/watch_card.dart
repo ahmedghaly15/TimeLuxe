@@ -1,32 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class WatchCard extends StatelessWidget {
-  const WatchCard({super.key, required this.onTap});
+class WatchCard extends StatefulWidget {
+  WatchCard({super.key, required this.onTap, required this.imageUrl});
 
   final VoidCallback onTap;
+  final String imageUrl;
+
+  @override
+  State<WatchCard> createState() => _WatchCardState();
+}
+
+class _WatchCardState extends State<WatchCard> {
+  Color favIconColor = Colors.white;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: widget.onTap,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Stack(
             children: [
               Container(
-                width: 189,
+                width: 180,
                 height: 170,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(
-                      18), // Adjust this radius to match the border radius
+                  borderRadius: BorderRadius.circular(18),
                   child: Image.asset(
-                    "assets/images/watch1.jpg",
-                    fit: BoxFit.cover, // Adjust the image fit as needed
+                    widget.imageUrl,
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
@@ -34,8 +41,19 @@ class WatchCard extends StatelessWidget {
                 top: 0,
                 right: 7,
                 child: IconButton(
-                  onPressed: () {},
-                  icon: SvgPicture.asset('assets/icons/fac_icon.svg'),
+                  onPressed: () {
+                    setState(() {
+                      if (favIconColor == Colors.white) {
+                        favIconColor = Colors.red;
+                      } else {
+                        favIconColor = Colors.white;
+                      }
+                    });
+                  },
+                  icon: Icon(
+                    Icons.favorite,
+                    color: favIconColor,
+                  ),
                 ),
               ),
             ],

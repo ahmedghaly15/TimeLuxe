@@ -29,30 +29,52 @@ class SellingFast extends StatelessWidget {
                 onTap: () {
                   // To Do
                 },
+                imageUrl: 'assets/images/watch1.jpg',
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               WatchCard(
                 onTap: () {
                   // To Do
                 },
+                imageUrl: 'assets/images/watch2.jpg',
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               WatchCard(
                 onTap: () {
                   // To Do
                 },
+                imageUrl: 'assets/images/watch3.jpg',
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               WatchCard(
                 onTap: () {
                   // To Do
                 },
+                imageUrl: 'assets/images/watch4.jpg',
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              WatchCard(
+                onTap: () {
+                  // To Do
+                },
+                imageUrl: 'assets/images/watch5.jpg',
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              WatchCard(
+                onTap: () {
+                  // To Do
+                },
+                imageUrl: 'assets/images/watch6.jpg',
               ),
             ],
           ),
