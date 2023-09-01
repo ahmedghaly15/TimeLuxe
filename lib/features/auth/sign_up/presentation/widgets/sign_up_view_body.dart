@@ -8,7 +8,7 @@ import 'package:time_luxe/features/auth/sign_up/presentation/widgets/sign_up_for
 import '../../../../../core/global/app_colors.dart';
 import '../../../../../core/global/app_text_styles.dart';
 import '../../../../../core/network/local/cache_helper.dart';
-import '../../../../home/home_view.dart';
+import '../../../../home/presentation/views/home_view.dart';
 import '../../../sign_in/presentation/widgets/or_login_with.dart';
 import '../../../sign_in/presentation/widgets/social_buttons.dart';
 import '../../../sign_in/presentation/widgets/title_text.dart';
