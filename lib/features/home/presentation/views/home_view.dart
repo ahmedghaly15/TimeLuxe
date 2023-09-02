@@ -19,33 +19,35 @@ class _HomeViewState extends State<HomeView> {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
         showSelectedLabels: true,
-        showUnselectedLabels: false,
+        showUnselectedLabels: true,
         type: BottomNavigationBarType.fixed,
         selectedItemColor: AppColors.primaryColor,
-        selectedIconTheme: const IconThemeData(size: 25),
-        unselectedIconTheme: const IconThemeData(size: 22),
+        selectedIconTheme: const IconThemeData(size: 29),
+        unselectedIconTheme: const IconThemeData(size: 24),
         currentIndex: _currentIndex,
         onTap: (index) {
           setState(() {
             _currentIndex = index;
           });
         },
-        items: [
+        items: const [
           BottomNavigationBarItem(
             label: 'Home',
-            icon: SvgPicture.asset('assets/icons/home.svg'),
+            icon: Icon(
+              Icons.home,
+            ),
           ),
           BottomNavigationBarItem(
             label: 'Search',
-            icon: SvgPicture.asset('assets/icons/search.svg'),
+            icon: Icon(Icons.search),
           ),
           BottomNavigationBarItem(
             label: 'Bag',
-            icon: SvgPicture.asset('assets/icons/bag.svg'),
+            icon: Icon(Icons.shopping_bag),
           ),
           BottomNavigationBarItem(
             label: 'Profile',
-            icon: SvgPicture.asset('assets/icons/person.svg'),
+            icon: Icon(Icons.person),
           ),
         ],
       ),
