@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class WatchCard extends StatefulWidget {
-  WatchCard({super.key, required this.onTap, required this.imageUrl});
+  const WatchCard({super.key, required this.onTap, required this.imageUrl});
 
   final VoidCallback onTap;
   final String imageUrl;

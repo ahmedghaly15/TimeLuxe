@@ -4,11 +4,12 @@ import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/features/auth/sign_in/presentation/views/sign_in_view.dart';
 import 'package:time_luxe/features/auth/sign_up/presentation/cubit/sign_up_view_cubit.dart';
 import 'package:time_luxe/features/auth/sign_up/presentation/widgets/sign_up_form.dart';
+import 'package:time_luxe/features/notifications/presentation/views/notifications_view.dart';
 
 import '../../../../../core/global/app_colors.dart';
 import '../../../../../core/global/app_text_styles.dart';
 import '../../../../../core/network/local/cache_helper.dart';
-import '../../../../home/presentation/views/home_view.dart';
+
 import '../../../sign_in/presentation/widgets/or_login_with.dart';
 import '../../../sign_in/presentation/widgets/social_buttons.dart';
 import '../../../sign_in/presentation/widgets/title_text.dart';
@@ -96,7 +97,9 @@ class SignUpViewBody extends StatelessWidget {
 
     if (state is SignUpSuccessState) {
       CacheHelper.saveData(key: 'uId', value: state.uId).then((value) {
-        CustomNavigator.navigateAndFinishAll(screen: () => const HomeView());
+        CustomNavigator.navigateAndFinishAll(
+          screen: () => const NotificationsView(),
+        );
       });
       CustomHelper.buildSnackBar(
         title: "Success",
@@ -107,12 +110,16 @@ class SignUpViewBody extends StatelessWidget {
     }
 
     if (state is CreateUserSuccessState) {
-      CustomNavigator.navigateAndFinishAll(screen: () => const HomeView());
+      CustomNavigator.navigateAndFinishAll(
+        screen: () => const NotificationsView(),
+      );
     }
 
     if (state is SignInWithGoogleSuccessState) {
       CacheHelper.saveData(key: 'uId', value: state.uId).then((value) {
-        CustomNavigator.navigateAndFinishAll(screen: () => const HomeView());
+        CustomNavigator.navigateAndFinishAll(
+          screen: () => const NotificationsView(),
+        );
       });
     }
   }

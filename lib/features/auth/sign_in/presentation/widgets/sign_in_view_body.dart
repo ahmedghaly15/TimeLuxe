@@ -4,7 +4,8 @@ import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/core/global/app_text_styles.dart';
 import 'package:time_luxe/features/auth/sign_in/presentation/widgets/sign_in_form.dart';
 import 'package:time_luxe/features/auth/sign_up/presentation/views/sign_up_view.dart';
-import 'package:time_luxe/features/home/presentation/views/home_view.dart';
+
+import 'package:time_luxe/features/notifications/presentation/views/notifications_view.dart';
 
 import '../../../../../core/global/app_colors.dart';
 import '../../../../../core/network/local/cache_helper.dart';
@@ -96,13 +97,17 @@ class SignInViewBody extends StatelessWidget {
 
     if (state is SignInSuccessState) {
       CacheHelper.saveData(key: 'uId', value: state.uId).then((value) {
-        CustomNavigator.navigateAndFinishAll(screen: () => const HomeView());
+        CustomNavigator.navigateAndFinishAll(
+          screen: () => const NotificationsView(),
+        );
       });
     }
 
     if (state is SignInWithGoogleSuccessState) {
       CacheHelper.saveData(key: 'uId', value: state.uId).then((value) {
-        CustomNavigator.navigateAndFinishAll(screen: () => const HomeView());
+        CustomNavigator.navigateAndFinishAll(
+          screen: () => const NotificationsView(),
+        );
       });
     }
   }

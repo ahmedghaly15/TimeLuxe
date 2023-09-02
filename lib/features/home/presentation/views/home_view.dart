@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+
 import 'package:time_luxe/constants.dart';
 
 import '../../../../core/global/app_colors.dart';

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:time_luxe/constants.dart';
+import 'package:time_luxe/core/global/helper.dart';
+import 'package:time_luxe/features/home/presentation/views/home_view.dart';
 import 'package:time_luxe/features/welcome/presentation/views/welcome_view.dart';
 
+import '../../../../core/network/local/cache_helper.dart';
 import '../widgets/seconds_circles.dart';
 
 class SplashView extends StatefulWidget {
@@ -31,7 +34,6 @@ class _SplashViewState extends State<SplashView> {
               "Time",
               style: TextStyle(
                 color: Colors.white,
-                // fontFamily: 'Inter',
                 shadows: [
                   Shadow(
                     color: Colors.black.withOpacity(0.2),
@@ -47,7 +49,6 @@ class _SplashViewState extends State<SplashView> {
               "Luxe",
               style: TextStyle(
                 color: Colors.white,
-                // fontFamily: 'Inter',
                 shadows: [
                   Shadow(
                     color: Colors.black.withOpacity(0.19),
@@ -70,21 +71,29 @@ class _SplashViewState extends State<SplashView> {
 
   Future<void> moveToNextView() {
     return Future.delayed(const Duration(seconds: 3), () {
-      // TODO: edit this navigation, if there's a user logged in, move to HomeView, else move to WelcomeView
-      Navigator.pushReplacement(
-        context,
-        PageRouteBuilder(
-          transitionDuration: const Duration(milliseconds: 500),
-          pageBuilder: (_, __, ___) => const WelcomeView(),
-          transitionsBuilder:
-              (_, Animation<double> animation, __, Widget child) {
-            return FadeTransition(
-              opacity: animation,
-              child: child,
-            );
-          },
-        ),
-      );
+      Helper.uId = CacheHelper.getStringData(key: 'uId');
+
+      if (Helper.uId != null) {
+        navigateAndReplace(const HomeView());
+      } else {
+        navigateAndReplace(const WelcomeView());
+      }
     });
+  }
+
+  Future<dynamic> navigateAndReplace(Widget screen) {
+    return Navigator.pushReplacement(
+      context,
+      PageRouteBuilder(
+        transitionDuration: const Duration(milliseconds: 500),
+        pageBuilder: (_, __, ___) => screen,
+        transitionsBuilder: (_, Animation<double> animation, __, Widget child) {
+          return FadeTransition(
+            opacity: animation,
+            child: child,
+          );
+        },
+      ),
+    );
   }
 }

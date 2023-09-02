@@ -62,4 +62,12 @@ class AppAssets {
   /// assets/images/watch_background.png
   static const String imagesWatchBackground =
       "assets/images/watch_background.png";
+
+  static const String hat = "assets/icons/hat.svg";
+  static const String roundaboutRight = "assets/icons/roundabout_right.svg";
+  static const String roundaboutLeft = "assets/icons/roundabout_left.svg";
+  static const String ok = "assets/icons/ok.svg";
+  static const String car = "assets/icons/car.svg";
+  static const String homeFlat = "assets/icons/home_flat.svg";
+  static const String group1 = "assets/icons/Group 1.svg";
 }

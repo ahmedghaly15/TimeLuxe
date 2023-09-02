@@ -23,6 +23,10 @@ abstract class AppTextStyles {
     fontWeight: FontWeight.w500,
   );
 
+  static const TextStyle textStyle15 = TextStyle(
+    fontSize: 15,
+  );
+
   static const TextStyle textStyle14 = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w600,
