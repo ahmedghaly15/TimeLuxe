@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 
 import 'package:time_luxe/constants.dart';
 
-import '../../../../core/global/app_colors.dart';
+import '../../../core/global/app_colors.dart';
 
-class HomeView extends StatefulWidget {
-  const HomeView({super.key});
+class TimeLuxeAppView extends StatefulWidget {
+  const TimeLuxeAppView({super.key});
 
   @override
-  State<HomeView> createState() => _HomeViewState();
+  State<TimeLuxeAppView> createState() => _TimeLuxeAppViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _TimeLuxeAppViewState extends State<TimeLuxeAppView> {
   int _currentIndex = 0;
 
   @override

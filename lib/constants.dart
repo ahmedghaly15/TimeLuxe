@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:time_luxe/features/bag/bag_screen.dart';
 import 'package:time_luxe/features/home/presentation/widgets/home_body.dart';
 import 'package:time_luxe/features/profile/profile_screen.dart';
-import 'package:time_luxe/features/search/search_screen.dart';
+import 'package:time_luxe/features/search/presentation/widgets/search_view_body.dart';
 
 Color green = const Color(0xFF0B832D);
 Color white = const Color(0xffd9d9d9);
@@ -15,7 +15,7 @@ List<Color> gradientBackGroundColors = [
 
 List<Widget> body = const [
   HomeBody(),
-  SearchScreen(),
+  SearchViewBody(),
   BagScreen(),
   ProfileScreen(),
 ];

@@ -70,4 +70,8 @@ class AppAssets {
   static const String car = "assets/icons/car.svg";
   static const String homeFlat = "assets/icons/home_flat.svg";
   static const String group1 = "assets/icons/Group 1.svg";
+  static const String breitling = 'assets/logos/breitling.png';
+  static const String rolex = 'assets/logos/rolex.png';
+  static const String omega = 'assets/logos/omega.png';
+  static const String swatch = 'assets/logos/swatch.png';
 }

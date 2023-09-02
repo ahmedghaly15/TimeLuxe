@@ -44,6 +44,7 @@ flutter:
   assets:
     - assets/icons/
     - assets/images/
+    - assets/logos/
 
 flutter_assets:
   assets_path: assets/

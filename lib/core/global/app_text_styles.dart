@@ -6,6 +6,11 @@ abstract class AppTextStyles {
     fontWeight: FontWeight.w600,
   );
 
+  static const TextStyle textStyle24 = TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.normal,
+  );
+
   static const TextStyle textStyle20 = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.bold,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:time_luxe/constants.dart';
 import 'package:time_luxe/core/global/helper.dart';
-import 'package:time_luxe/features/home/presentation/views/home_view.dart';
+import 'package:time_luxe/TimeLuxe/presentation/view/time_luxe_app_view.dart';
 import 'package:time_luxe/features/welcome/presentation/views/welcome_view.dart';
 
 import '../../../../core/network/local/cache_helper.dart';
@@ -74,7 +74,7 @@ class _SplashViewState extends State<SplashView> {
       Helper.uId = CacheHelper.getStringData(key: 'uId');
 
       if (Helper.uId != null) {
-        navigateAndReplace(const HomeView());
+        navigateAndReplace(const TimeLuxeAppView());
       } else {
         navigateAndReplace(const WelcomeView());
       }

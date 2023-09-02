@@ -18,52 +18,49 @@ class PopularProducts extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 18),
-        SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  WatchCard(
-                    onTap: () {
-                      // To Do
-                    },
-                    imageUrl: 'assets/images/product1.jpg',
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  WatchCard(
-                    onTap: () {
-                      // To Do
-                    },
-                    imageUrl: 'assets/images/product2.jpg',
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  WatchCard(
-                    onTap: () {
-                      // To Do
-                    },
-                    imageUrl: 'assets/images/product2.jpg',
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  WatchCard(
-                    onTap: () {
-                      // To Do
-                    },
-                    imageUrl: 'assets/images/product1.jpg',
-                  ),
-                ],
-              ),
-            ],
-          ),
+        Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                WatchCard(
+                  onTap: () {
+                    // To Do
+                  },
+                  imageUrl: 'assets/images/product1.jpg',
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                WatchCard(
+                  onTap: () {
+                    // To Do
+                  },
+                  imageUrl: 'assets/images/product2.jpg',
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                WatchCard(
+                  onTap: () {
+                    // To Do
+                  },
+                  imageUrl: 'assets/images/product2.jpg',
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                WatchCard(
+                  onTap: () {
+                    // To Do
+                  },
+                  imageUrl: 'assets/images/product1.jpg',
+                ),
+              ],
+            ),
+          ],
         ),
       ],
     );

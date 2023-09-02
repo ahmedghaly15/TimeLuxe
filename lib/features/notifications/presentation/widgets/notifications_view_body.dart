@@ -5,7 +5,7 @@ import 'package:time_luxe/constants.dart';
 import 'package:time_luxe/core/global/app_colors.dart';
 
 import 'package:time_luxe/core/global/app_text_styles.dart';
-import 'package:time_luxe/features/home/presentation/views/home_view.dart';
+import 'package:time_luxe/TimeLuxe/presentation/view/time_luxe_app_view.dart';
 
 import '../../../../core/global/app_assets.dart';
 
@@ -50,9 +50,20 @@ class NotificationsViewBody extends StatelessWidget {
             height: 59,
             radius: 14,
             backgroundColor: AppColors.darkGreen,
-            onPressed: () => CustomNavigator.navigateAndFinish(
-              screen: () => const HomeView(),
-            ),
+            onPressed: () {
+              CustomHelper.buildSnackBar(
+                context: context,
+                message: "Notifications are turned on",
+                state: SnackBarStates.success,
+                title: "Success",
+              );
+              Future.delayed(
+                const Duration(milliseconds: 400),
+                () => CustomNavigator.navigateAndFinish(
+                  screen: () => const TimeLuxeAppView(),
+                ),
+              );
+            },
             hasPrefix: false,
             child: Center(
               child: Text(
@@ -76,7 +87,7 @@ class NotificationsViewBody extends StatelessWidget {
               width: 2,
             ),
             onPressed: () => CustomNavigator.navigateAndFinish(
-              screen: () => const HomeView(),
+              screen: () => const TimeLuxeAppView(),
             ),
             hasPrefix: false,
             child: Center(

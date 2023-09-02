@@ -34,14 +34,14 @@ class HomeBody extends StatelessWidget {
               SizedBox(height: 18),
               // ********************************************
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.0),
+                padding: EdgeInsets.only(left: 16.0),
                 child: SellingFast(),
               ),
               // ********************************************
               SizedBox(height: 18),
               // ********************************************
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.0),
+                padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
                 child: PopularProducts(),
               ),
             ],
