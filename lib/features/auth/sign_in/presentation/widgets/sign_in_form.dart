@@ -1,7 +1,6 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:reusable_components/reusable_components.dart';
-import 'package:time_luxe/constants.dart';
 import 'package:time_luxe/core/global/app_colors.dart';
 import 'package:time_luxe/core/global/app_text_styles.dart';
 import 'package:time_luxe/features/auth/sign_in/presentation/cubit/sign_in_cubit.dart';
@@ -104,7 +103,7 @@ class _SignInFormState extends State<SignInForm> {
             ConditionalBuilder(
               condition: widget.state is! SignInLoadingState,
               builder: (context) => MyCustomButton(
-                backgroundColor: green,
+                backgroundColor: AppColors.primaryColor,
                 height: 59,
                 width: 375,
                 radius: 14,

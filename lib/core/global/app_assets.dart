@@ -74,4 +74,9 @@ class AppAssets {
   static const String rolex = 'assets/logos/rolex.png';
   static const String omega = 'assets/logos/omega.png';
   static const String swatch = 'assets/logos/swatch.png';
+  static const String ladyDateJust =
+      'assets/images/trending_products/ladyDateJust.svg';
+  static const String product1908 = 'assets/images/trending_products/1908.svg';
+  static const String yachtMaster =
+      'assets/images/trending_products/yachtMaster.svg';
 }

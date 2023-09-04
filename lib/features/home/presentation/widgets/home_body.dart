@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/component/app_bar.dart';
 import 'package:time_luxe/component/custom_banner.dart';
-import 'package:time_luxe/constants.dart';
+import 'package:time_luxe/core/global/app_colors.dart';
 import 'package:time_luxe/features/home/presentation/widgets/popular_product.dart';
 import 'package:time_luxe/features/home/presentation/widgets/selling_fast.dart';
 
@@ -16,7 +16,7 @@ class HomeBody extends StatelessWidget {
         width: SizeConfig.screenWidth,
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: gradientBackGroundColors,
+            colors: AppColors.gradientBackGroundColors,
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),

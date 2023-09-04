@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:reusable_components/reusable_components.dart';
+import 'package:time_luxe/core/global/app_colors.dart';
 
 import '../../../../component/custom_button.dart';
-import '../../../../constants.dart';
 import '../../../auth/sign_in/presentation/views/sign_in_view.dart';
 import '../../../auth/sign_up/presentation/views/sign_up_view.dart';
 
@@ -23,7 +23,7 @@ class SignInOrGetStartedButtons extends StatelessWidget {
             );
           },
           text: "Sign In",
-          color: white,
+          color: AppColors.white,
           textColor: Colors.black,
         ),
         const SizedBox(
@@ -34,7 +34,7 @@ class SignInOrGetStartedButtons extends StatelessWidget {
             screen: () => const SignUpView(),
           ),
           text: "Get Started",
-          color: green,
+          color: AppColors.primaryColor,
           textColor: Colors.white,
         ),
       ],

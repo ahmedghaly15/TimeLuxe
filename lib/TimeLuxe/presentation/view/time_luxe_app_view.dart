@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:time_luxe/constants.dart';
+import 'package:time_luxe/core/global/app_constants.dart';
 
 import '../../../core/global/app_colors.dart';
 
@@ -51,8 +50,8 @@ class _TimeLuxeAppViewState extends State<TimeLuxeAppView> {
           ),
         ],
       ),
-      backgroundColor: backGroundColor,
-      body: body[_currentIndex],
+      backgroundColor: AppColors.backGroundColor,
+      body: AppConstants.body[_currentIndex],
     );
   }
 }

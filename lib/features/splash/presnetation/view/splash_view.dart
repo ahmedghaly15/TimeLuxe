@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:time_luxe/constants.dart';
+import 'package:time_luxe/core/global/app_colors.dart';
 import 'package:time_luxe/core/global/helper.dart';
 import 'package:time_luxe/TimeLuxe/presentation/view/time_luxe_app_view.dart';
 import 'package:time_luxe/features/welcome/presentation/views/welcome_view.dart';
@@ -25,7 +25,7 @@ class _SplashViewState extends State<SplashView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: green,
+      backgroundColor: AppColors.primaryColor,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

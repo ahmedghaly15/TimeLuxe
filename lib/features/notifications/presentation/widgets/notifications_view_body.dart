@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:reusable_components/reusable_components.dart';
-import 'package:time_luxe/constants.dart';
 import 'package:time_luxe/core/global/app_colors.dart';
 
 import 'package:time_luxe/core/global/app_text_styles.dart';
@@ -20,7 +19,7 @@ class NotificationsViewBody extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: gradientBackGroundColors,
+          colors: AppColors.gradientBackGroundColors,
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
         ),

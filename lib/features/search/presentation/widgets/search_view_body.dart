@@ -4,8 +4,6 @@ import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/core/global/app_colors.dart';
 import 'package:time_luxe/core/global/app_text_styles.dart';
 
-import '../../../../constants.dart';
-
 import 'brands_list.dart';
 import 'search_text_field.dart';
 import 'title_text.dart';
@@ -21,7 +19,7 @@ class SearchViewBody extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 32),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: gradientBackGroundColors,
+          colors: AppColors.gradientBackGroundColors,
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
         ),
