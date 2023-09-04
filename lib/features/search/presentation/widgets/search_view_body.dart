@@ -40,7 +40,7 @@ class SearchViewBody extends StatelessWidget {
               children: <Widget>[
                 const TitleText(title: "Featured brands"),
                 CustomTextButton(
-                  splashColor: AppColors.lightGreen,
+                  splashColor: AppColors.lightYellow,
                   onTap: () {},
                   text: "view more",
                   textStyle: AppTextStyles.textStyle24.copyWith(

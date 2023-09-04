@@ -6,7 +6,7 @@ import '../../../../core/global/app_colors.dart';
 import '../../../../core/global/app_text_styles.dart';
 import '../../../../core/models/watch_model.dart';
 
-class TrendingProductItem extends StatelessWidget {
+class TrendingProductItem extends StatefulWidget {
   const TrendingProductItem({
     super.key,
     required this.model,
@@ -15,13 +15,20 @@ class TrendingProductItem extends StatelessWidget {
   final WatchModel model;
 
   @override
+  State<TrendingProductItem> createState() => _TrendingProductItemState();
+}
+
+class _TrendingProductItemState extends State<TrendingProductItem> {
+  Color favIconColor = Colors.white;
+  Color cartIconColor = Colors.white;
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => CustomNavigator.navigateTo(
-        screen: () => ProductDetailsView(model: model),
+        screen: () => ProductDetailsView(model: widget.model),
       ),
       child: Hero(
-        tag: model.id!,
+        tag: widget.model.id!,
         child: Container(
           height: 172,
           width: 115,
@@ -37,12 +44,12 @@ class TrendingProductItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Image.asset(
-                model.imageUrl!,
+                widget.model.imageUrl!,
                 fit: BoxFit.cover,
               ),
               const SizedBox(height: 8),
               Text(
-                model.name!,
+                widget.model.name!,
                 style: AppTextStyles.textStyle15.copyWith(
                   color: Colors.white,
                   fontWeight: FontWeight.w600,
@@ -54,7 +61,7 @@ class TrendingProductItem extends StatelessWidget {
                 child: Row(
                   children: <Widget>[
                     Text(
-                      "\$${model.price!}",
+                      "\$${widget.model.price!}",
                       style: AppTextStyles.textStyle15.copyWith(
                         color: Colors.white,
                         fontWeight: FontWeight.normal,
@@ -62,18 +69,36 @@ class TrendingProductItem extends StatelessWidget {
                     ),
                     const Spacer(),
                     GestureDetector(
-                      onTap: () {},
-                      child: const Icon(
+                      onTap: () {
+                        setState(() {
+                          if (cartIconColor == Colors.white) {
+                            cartIconColor = AppColors.lightGreen;
+                          } else {
+                            cartIconColor = Colors.white;
+                          }
+                        });
+                      },
+                      child: Icon(
                         Icons.shopping_cart_rounded,
-                        color: Colors.white,
+                        color: cartIconColor,
                         size: 19,
                       ),
                     ),
                     GestureDetector(
-                      onTap: () {},
-                      child: const Icon(
-                        Icons.favorite_border,
-                        color: Colors.white,
+                      onTap: () {
+                        setState(() {
+                          if (favIconColor == Colors.white) {
+                            favIconColor = AppColors.lightGreen;
+                          } else {
+                            favIconColor = Colors.white;
+                          }
+                        });
+                      },
+                      child: Icon(
+                        favIconColor == Colors.white
+                            ? Icons.favorite_border
+                            : Icons.favorite,
+                        color: favIconColor,
                         size: 19,
                       ),
                     ),
