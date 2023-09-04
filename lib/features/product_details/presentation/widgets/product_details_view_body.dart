@@ -23,12 +23,14 @@ class ProductDetailsViewBody extends StatelessWidget {
           end: Alignment.bottomCenter,
         ),
       ),
-      child: Column(
-        children: <Widget>[
-          ProductInfo(model: model),
-          const SizedBox(height: 64),
-          const ChatAndAddToCartButton(),
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            ProductInfo(model: model),
+            const SizedBox(height: 64),
+            const ChatAndAddToCartButton(),
+          ],
+        ),
       ),
     );
   }

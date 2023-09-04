@@ -27,87 +27,86 @@ class _TrendingProductItemState extends State<TrendingProductItem> {
       onTap: () => CustomNavigator.navigateTo(
         screen: () => ProductDetailsView(model: widget.model),
       ),
-      child: Hero(
-        tag: widget.model.id!,
-        child: Container(
-          height: 172,
-          width: 115,
-          decoration: BoxDecoration(
-            color: Colors.transparent,
-            border: Border.all(
-              color: AppColors.primaryColor,
-              width: 3,
-            ),
-            borderRadius: const BorderRadius.all(Radius.circular(25)),
+      child: Container(
+        height: 173,
+        width: 115,
+        decoration: BoxDecoration(
+          color: Colors.transparent,
+          border: Border.all(
+            color: AppColors.primaryColor,
+            width: 3,
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Image.asset(
+          borderRadius: const BorderRadius.all(Radius.circular(25)),
+        ),
+        child: Column(
+          children: <Widget>[
+            Hero(
+              tag: widget.model.id!,
+              child: Image.asset(
                 widget.model.imageUrl!,
                 fit: BoxFit.cover,
               ),
-              const SizedBox(height: 8),
-              Text(
-                widget.model.name!,
-                style: AppTextStyles.textStyle15.copyWith(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w600,
-                ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              widget.model.name!,
+              style: AppTextStyles.textStyle15.copyWith(
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
               ),
-              const Spacer(flex: 2),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                child: Row(
-                  children: <Widget>[
-                    Text(
-                      "\$${widget.model.price!}",
-                      style: AppTextStyles.textStyle15.copyWith(
-                        color: Colors.white,
-                        fontWeight: FontWeight.normal,
-                      ),
+            ),
+            const Spacer(flex: 2),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Row(
+                children: <Widget>[
+                  Text(
+                    "\$${widget.model.price!}",
+                    style: AppTextStyles.textStyle15.copyWith(
+                      color: Colors.white,
+                      fontWeight: FontWeight.normal,
                     ),
-                    const Spacer(),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          if (cartIconColor == Colors.white) {
-                            cartIconColor = AppColors.lightGreen;
-                          } else {
-                            cartIconColor = Colors.white;
-                          }
-                        });
-                      },
-                      child: Icon(
-                        Icons.shopping_cart_rounded,
-                        color: cartIconColor,
-                        size: 19,
-                      ),
+                  ),
+                  const Spacer(),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        if (cartIconColor == Colors.white) {
+                          cartIconColor = AppColors.lightGreen;
+                        } else {
+                          cartIconColor = Colors.white;
+                        }
+                      });
+                    },
+                    child: Icon(
+                      Icons.shopping_cart_rounded,
+                      color: cartIconColor,
+                      size: 19,
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          if (favIconColor == Colors.white) {
-                            favIconColor = AppColors.lightGreen;
-                          } else {
-                            favIconColor = Colors.white;
-                          }
-                        });
-                      },
-                      child: Icon(
-                        favIconColor == Colors.white
-                            ? Icons.favorite_border
-                            : Icons.favorite,
-                        color: favIconColor,
-                        size: 19,
-                      ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        if (favIconColor == Colors.white) {
+                          favIconColor = AppColors.lightGreen;
+                        } else {
+                          favIconColor = Colors.white;
+                        }
+                      });
+                    },
+                    child: Icon(
+                      favIconColor == Colors.white
+                          ? Icons.favorite_border
+                          : Icons.favorite,
+                      color: favIconColor,
+                      size: 19,
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              const Spacer(),
-            ],
-          ),
+            ),
+            const Spacer(flex: 2),
+          ],
         ),
       ),
     );
