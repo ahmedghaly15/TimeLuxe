@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:reusable_components/reusable_components.dart';
+import 'package:time_luxe/features/product_details/presentation/views/product_details_view.dart';
 
 import '../../../../core/global/app_colors.dart';
 import '../../../../core/global/app_text_styles.dart';
@@ -14,66 +16,74 @@ class TrendingProductItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 172,
-      width: 115,
-      decoration: BoxDecoration(
-        color: Colors.transparent,
-        border: Border.all(
-          color: AppColors.primaryColor,
-          width: 3,
-        ),
-        borderRadius: const BorderRadius.all(Radius.circular(25)),
+    return GestureDetector(
+      onTap: () => CustomNavigator.navigateTo(
+        screen: () => ProductDetailsView(model: model),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Image.asset(
-            model.imageUrl!,
-            fit: BoxFit.cover,
-          ),
-          const SizedBox(height: 8),
-          Text(
-            model.name!,
-            style: AppTextStyles.textStyle15.copyWith(
-              color: Colors.white,
-              fontWeight: FontWeight.w600,
+      child: Hero(
+        tag: model.id!,
+        child: Container(
+          height: 172,
+          width: 115,
+          decoration: BoxDecoration(
+            color: Colors.transparent,
+            border: Border.all(
+              color: AppColors.primaryColor,
+              width: 3,
             ),
+            borderRadius: const BorderRadius.all(Radius.circular(25)),
           ),
-          const Spacer(flex: 2),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Row(
-              children: <Widget>[
-                Text(
-                  "\$${model.price!}",
-                  style: AppTextStyles.textStyle15.copyWith(
-                    color: Colors.white,
-                    fontWeight: FontWeight.normal,
-                  ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Image.asset(
+                model.imageUrl!,
+                fit: BoxFit.cover,
+              ),
+              const SizedBox(height: 8),
+              Text(
+                model.name!,
+                style: AppTextStyles.textStyle15.copyWith(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
                 ),
-                const Spacer(),
-                GestureDetector(
-                  onTap: () {},
-                  child: const Icon(
-                    Icons.shopping_cart_rounded,
-                    color: Colors.white,
-                    size: 19,
-                  ),
+              ),
+              const Spacer(flex: 2),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: Row(
+                  children: <Widget>[
+                    Text(
+                      "\$${model.price!}",
+                      style: AppTextStyles.textStyle15.copyWith(
+                        color: Colors.white,
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                    const Spacer(),
+                    GestureDetector(
+                      onTap: () {},
+                      child: const Icon(
+                        Icons.shopping_cart_rounded,
+                        color: Colors.white,
+                        size: 19,
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {},
+                      child: const Icon(
+                        Icons.favorite_border,
+                        color: Colors.white,
+                        size: 19,
+                      ),
+                    ),
+                  ],
                 ),
-                GestureDetector(
-                  onTap: () {},
-                  child: const Icon(
-                    Icons.favorite_border,
-                    color: Colors.white,
-                    size: 19,
-                  ),
-                ),
-              ],
-            ),
+              ),
+              const Spacer(),
+            ],
           ),
-          const Spacer(),
-        ],
+        ),
       ),
     );
   }

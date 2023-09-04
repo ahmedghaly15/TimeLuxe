@@ -68,6 +68,9 @@ class AppAssets {
   static const String roundaboutLeft = "assets/icons/roundabout_left.svg";
   static const String ok = "assets/icons/ok.svg";
   static const String car = "assets/icons/car.svg";
+  static const String chat = "assets/icons/chat.svg";
+  static const String back = "assets/icons/back.svg";
+  static const String bag = "assets/icons/bag.svg";
   static const String homeFlat = "assets/icons/home_flat.svg";
   static const String group1 = "assets/icons/Group 1.svg";
   static const String breitling = 'assets/logos/breitling.png';

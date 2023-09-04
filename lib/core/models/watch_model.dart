@@ -1,25 +1,15 @@
 class WatchModel {
+  int? id;
   String? name;
   String? imageUrl;
+  String? description;
   double? price;
 
   WatchModel({
+    this.id,
     this.name,
     this.imageUrl,
+    this.description,
     this.price,
   });
-
-  WatchModel.fromJson(Map<String, dynamic> json) {
-    name = json['name'];
-    imageUrl = json['imageUrl'];
-    price = json['price'];
-  }
-
-  Map<String, dynamic> toJson() {
-    return {
-      'name': name,
-      'imageUrl': imageUrl,
-      'price': price,
-    };
-  }
 }
