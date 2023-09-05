@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:time_luxe/core/global/app_assets.dart';
+import 'package:time_luxe/features/profile/presentation/widgets/profile_view_body.dart';
 
 import '../../features/bag/bag_screen.dart';
 import '../../features/home/presentation/widgets/home_body.dart';
-import '../../features/profile/profile_screen.dart';
 import '../../features/search/presentation/widgets/search_view_body.dart';
 import '../models/watch_model.dart';
 
@@ -12,7 +12,7 @@ abstract class AppConstants {
     HomeBody(),
     SearchViewBody(),
     BagScreen(),
-    ProfileScreen(),
+    ProfileViewBody(),
   ];
 
   static List<WatchModel> trendingProducts = <WatchModel>[

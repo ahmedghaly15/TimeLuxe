@@ -19,7 +19,7 @@ class NotificationsViewBody extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: AppColors.gradientBackGroundColors,
+          colors: AppColors.firstGradientColors,
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
         ),

@@ -4,9 +4,9 @@ import '../../../../core/global/app_text_styles.dart';
 
 class SearchTextField extends StatelessWidget {
   const SearchTextField({
-    super.key,
+    Key? key,
     required this.onTap,
-  });
+  }) : super(key: key);
 
   final VoidCallback onTap;
 

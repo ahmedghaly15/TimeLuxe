@@ -18,7 +18,7 @@ class ProductDetailsViewBody extends StatelessWidget {
       width: SizeConfig.screenWidth,
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: AppColors.gradientBackGroundColors,
+          colors: AppColors.firstGradientColors,
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
         ),

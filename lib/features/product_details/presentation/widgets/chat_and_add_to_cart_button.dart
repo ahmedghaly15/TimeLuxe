@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../../core/global/app_assets.dart';
 import '../../../../core/global/app_colors.dart';
-import '../../../../core/global/app_text_styles.dart';
+import 'details_icon_text_button.dart';
 
 class ChatAndAddToCartButton extends StatelessWidget {
   const ChatAndAddToCartButton({
@@ -22,31 +22,19 @@ class ChatAndAddToCartButton extends StatelessWidget {
       ),
       child: Row(
         children: <Widget>[
-          TextButton.icon(
+          DetailsIconTextButton(
             onPressed: () {},
+            text: 'Chat',
             icon: SvgPicture.asset(AppAssets.chat),
-            label: Text(
-              "Chat",
-              style: AppTextStyles.textStyle16.copyWith(
-                fontWeight: FontWeight.w600,
-                color: Colors.white,
-              ),
-            ),
           ),
           const Spacer(),
-          TextButton.icon(
+          DetailsIconTextButton(
             onPressed: () {},
+            text: "Add to Cart",
             icon: SvgPicture.asset(
               AppAssets.bag,
               height: 24,
               color: Colors.white,
-            ),
-            label: Text(
-              "Add to Cart",
-              style: AppTextStyles.textStyle16.copyWith(
-                fontWeight: FontWeight.w600,
-                color: Colors.white,
-              ),
             ),
           ),
         ],

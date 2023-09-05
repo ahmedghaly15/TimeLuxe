@@ -22,7 +22,7 @@ class SearchViewBody extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 32),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: AppColors.gradientBackGroundColors,
+          colors: AppColors.secondGradientColors,
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
         ),
