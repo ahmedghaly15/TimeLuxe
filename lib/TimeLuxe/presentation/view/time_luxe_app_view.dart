@@ -1,57 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:time_luxe/core/global/app_constants.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:time_luxe/TimeLuxe/presentation/view/manager/time_luxe_cubit.dart';
+import 'package:time_luxe/TimeLuxe/presentation/view/manager/time_luxe_states.dart';
+import 'package:time_luxe/TimeLuxe/presentation/widgets/time_luxe_app_view_body.dart';
 
 import '../../../core/global/app_colors.dart';
+import '../widgets/bottom_nav_bar.dart';
 
-class TimeLuxeAppView extends StatefulWidget {
+class TimeLuxeAppView extends StatelessWidget {
   const TimeLuxeAppView({super.key});
 
   @override
-  State<TimeLuxeAppView> createState() => _TimeLuxeAppViewState();
-}
-
-class _TimeLuxeAppViewState extends State<TimeLuxeAppView> {
-  int _currentIndex = 0;
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        showSelectedLabels: true,
-        showUnselectedLabels: true,
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: AppColors.primaryColor,
-        selectedIconTheme: const IconThemeData(size: 29),
-        unselectedIconTheme: const IconThemeData(size: 24),
-        currentIndex: _currentIndex,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-        items: const [
-          BottomNavigationBarItem(
-            label: 'Home',
-            icon: Icon(
-              Icons.home,
-            ),
-          ),
-          BottomNavigationBarItem(
-            label: 'Search',
-            icon: Icon(Icons.search),
-          ),
-          BottomNavigationBarItem(
-            label: 'Bag',
-            icon: Icon(Icons.shopping_bag),
-          ),
-          BottomNavigationBarItem(
-            label: 'Profile',
-            icon: Icon(Icons.person),
-          ),
-        ],
-      ),
-      backgroundColor: AppColors.backGroundColor,
-      body: AppConstants.body[_currentIndex],
-    );
+    return BlocBuilder<TimeLuxeCubit, TimeLuxeStates>(
+        builder: (context, state) {
+      TimeLuxeCubit cubit = TimeLuxeCubit.getObject(context);
+
+      return Scaffold(
+        bottomNavigationBar: BottomNavBar(cubit: cubit),
+        backgroundColor: AppColors.backGroundColor,
+        body: TimeLuxeAppViewBody(cubit: cubit, state: state),
+      );
+    });
   }
 }
