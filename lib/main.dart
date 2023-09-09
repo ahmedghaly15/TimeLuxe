@@ -4,8 +4,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:reusable_components/reusable_components.dart';
-import 'package:time_luxe/core/global/app_theme.dart';
-import 'package:time_luxe/features/splash/presnetation/view/splash_view.dart';
+
+import '/TimeLuxe/presentation/view/manager/time_luxe_cubit.dart';
+import '/core/global/app_theme.dart';
+import '/features/splash/presnetation/view/splash_view.dart';
+import 'core/global/helper.dart';
 import 'core/network/local/cache_helper.dart';
 import 'core/utils/firebase_options.dart';
 import 'core/utils/my_bloc_observer.dart';
@@ -35,10 +38,14 @@ class TimeLuxeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: AppTheme.appTheme(),
-      home: const SplashView(),
+    return BlocProvider(
+      create: (context) =>
+          serviceLocator.get<TimeLuxeCubit>()..getUserData(Helper.uId),
+      child: GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: AppTheme.appTheme(),
+        home: const SplashView(),
+      ),
     );
   }
 }
