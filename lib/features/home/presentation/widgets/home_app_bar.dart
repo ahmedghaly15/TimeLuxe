@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:time_luxe/core/global/app_assets.dart';
 
-class MyAppBar extends StatelessWidget {
-  const MyAppBar({super.key});
+class HomeAppBar extends StatelessWidget {
+  const HomeAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +24,11 @@ class MyAppBar extends StatelessWidget {
             children: [
               IconButton(
                 onPressed: () {},
-                icon: SvgPicture.asset('assets/icons/email-thin.svg'),
+                icon: SvgPicture.asset(AppAssets.thinEmail),
               ),
               IconButton(
                 onPressed: () {},
-                icon: SvgPicture.asset('assets/icons/lucide_bell-ring.svg'),
+                icon: SvgPicture.asset(AppAssets.bellRing),
               ),
             ],
           ),

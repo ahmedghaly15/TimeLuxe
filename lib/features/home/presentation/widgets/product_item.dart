@@ -1,27 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:reusable_components/reusable_components.dart';
 
-class WatchCard extends StatefulWidget {
-  const WatchCard({super.key, required this.onTap, required this.imageUrl});
+import 'package:time_luxe/core/models/watch_model.dart';
+import 'package:time_luxe/features/product_details/presentation/views/product_details_view.dart';
 
-  final VoidCallback onTap;
-  final String imageUrl;
+import '../../../../TimeLuxe/presentation/view/manager/time_luxe_cubit.dart';
 
-  @override
-  State<WatchCard> createState() => _WatchCardState();
-}
+class ProductItem extends StatelessWidget {
+  const ProductItem({
+    super.key,
+    required this.cubit,
+    required this.model,
+  });
 
-class _WatchCardState extends State<WatchCard> {
-  Color favIconColor = Colors.white;
+  final WatchModel model;
+  final TimeLuxeCubit cubit;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: widget.onTap,
+      onTap: () => CustomNavigator.navigateTo(
+        screen: () => ProductDetailsView(model: model),
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        children: <Widget>[
           Stack(
-            children: [
+            children: <Widget>[
               Container(
                 width: 180,
                 height: 170,
@@ -30,9 +35,12 @@ class _WatchCardState extends State<WatchCard> {
                 ),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(18),
-                  child: Image.asset(
-                    widget.imageUrl,
-                    fit: BoxFit.cover,
+                  child: Hero(
+                    tag: model.id!,
+                    child: Image.asset(
+                      model.image!,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
@@ -40,38 +48,32 @@ class _WatchCardState extends State<WatchCard> {
                 top: 0,
                 right: 7,
                 child: IconButton(
-                  onPressed: () {
-                    setState(() {
-                      if (favIconColor == Colors.white) {
-                        favIconColor = Colors.red;
-                      } else {
-                        favIconColor = Colors.white;
-                      }
-                    });
-                  },
+                  onPressed: () => cubit.addToFav(model),
                   icon: Icon(
                     Icons.favorite,
-                    color: favIconColor,
+                    color: cubit.favorites.any((element) => element == model)
+                        ? Colors.red
+                        : Colors.white,
                   ),
                 ),
               ),
             ],
           ),
           const SizedBox(height: 10),
-          const Column(
+          Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children: <Widget>[
               Text(
-                "Tangomat",
-                style: TextStyle(
+                model.name!,
+                style: const TextStyle(
                   fontSize: 15,
                   color: Colors.white,
                   fontWeight: FontWeight.w400,
                 ),
               ),
               Text(
-                "\$30.17",
-                style: TextStyle(
+                "\$${model.price!}",
+                style: const TextStyle(
                   fontSize: 15,
                   color: Colors.white,
                   fontWeight: FontWeight.w400,

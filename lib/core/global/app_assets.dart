@@ -9,6 +9,23 @@ class AppAssets {
   /// assets/icons/dashicons_email-alt.svg
   static const String iconsDashiconsEmailAlt = "assets/icons/email-alt.svg";
 
+  static const String thinEmail = 'assets/icons/email-thin.svg';
+  static const String bellRing = 'assets/icons/lucide_bell-ring.svg';
+  static const String homeBanner = 'assets/images/home_watch_image.jpg';
+  static const String sellingFastWatch1 = 'assets/images/watch1.jpg';
+  static const String sellingFastWatch2 = 'assets/images/watch2.jpg';
+  static const String sellingFastWatch3 = 'assets/images/watch3.jpg';
+  static const String sellingFastWatch4 = 'assets/images/watch4.jpg';
+  static const String sellingFastWatch5 = 'assets/images/watch5.jpg';
+  static const String sellingFastWatch6 = 'assets/images/watch6.jpg';
+  static const String popularProduct1 = 'assets/images/product1.jpg';
+  static const String popularProduct2 = 'assets/images/product2.jpg';
+  static const String popularProduct3 = 'assets/images/product3.jpeg';
+  static const String popularProduct4 = 'assets/images/product4.jpeg';
+  static const String popularProduct5 = 'assets/images/product5.jpeg';
+  static const String popularProduct6 = 'assets/images/product6.jpeg';
+  static const String fireEmoji = 'assets/icons/noto_fire.svg';
+
   /// Assets for iconsGgGoogle
   /// assets/icons/gg_google.svg
   static const String iconsGgGoogle = "assets/icons/gg_google.svg";

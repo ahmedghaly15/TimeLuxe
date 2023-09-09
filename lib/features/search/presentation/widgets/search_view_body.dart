@@ -8,7 +8,7 @@ import 'package:time_luxe/core/global/app_text_styles.dart';
 
 import 'brands_list.dart';
 import 'explore_recommendations.dart';
-import 'search_text_field.dart';
+import '../../../../core/widgets/search_text_field.dart';
 import 'title_text.dart';
 import 'trending_products_list.dart';
 
@@ -28,46 +28,51 @@ class SearchViewBody extends StatelessWidget {
           end: Alignment.bottomCenter,
         ),
       ),
-      child: FadeInUp(
-        from: 20,
-        duration: const Duration(milliseconds: 500),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            SizedBox(height: SizeConfig.screenHeight! * 0.05),
-            SearchTextField(onTap: () {}),
-            SizedBox(height: SizeConfig.screenHeight! * 0.03),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  const TitleText(title: "Featured brands"),
-                  CustomTextButton(
-                    splashColor: AppColors.lightYellow,
-                    onTap: () {},
-                    text: "view more",
-                    textStyle: AppTextStyles.textStyle24.copyWith(
-                      color: AppColors.darkGreen,
-                    ),
-                  ),
-                ],
+      child: SingleChildScrollView(
+        child: FadeInUp(
+          from: 20,
+          duration: const Duration(milliseconds: 500),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              SizedBox(height: SizeConfig.screenHeight! * 0.05),
+              SearchTextField(
+                onTap: () {},
+                hint: "Search",
               ),
-            ),
-            SizedBox(height: SizeConfig.screenHeight! * 0.05),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: BrandsList(),
-            ),
-            SizedBox(height: SizeConfig.screenHeight! * 0.03),
-            const Padding(
-              padding: EdgeInsets.only(left: 16, bottom: 16),
-              child: TitleText(title: "Trending Product"),
-            ),
-            const TrendingProductsList(),
-            const SizedBox(height: 61),
-            const ExploreRecommendations(),
-          ],
+              SizedBox(height: SizeConfig.screenHeight! * 0.03),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    const TitleText(title: "Featured brands"),
+                    CustomTextButton(
+                      splashColor: AppColors.lightYellow,
+                      onTap: () {},
+                      text: "view more",
+                      textStyle: AppTextStyles.textStyle24.copyWith(
+                        color: AppColors.darkGreen,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: SizeConfig.screenHeight! * 0.05),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: BrandsList(),
+              ),
+              SizedBox(height: SizeConfig.screenHeight! * 0.03),
+              const Padding(
+                padding: EdgeInsets.only(left: 16, bottom: 16),
+                child: TitleText(title: "Trending Product"),
+              ),
+              const TrendingProductsList(),
+              const SizedBox(height: 61),
+              const ExploreRecommendations(),
+            ],
+          ),
         ),
       ),
     );

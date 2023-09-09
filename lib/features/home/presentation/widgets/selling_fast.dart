@@ -1,82 +1,45 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:time_luxe/component/watch_card.dart';
+import 'package:reusable_components/reusable_components.dart';
+import 'package:time_luxe/TimeLuxe/presentation/view/manager/time_luxe_cubit.dart';
+
+import 'package:time_luxe/core/global/app_assets.dart';
+import 'package:time_luxe/core/global/app_constants.dart';
+import 'package:time_luxe/core/global/app_text_styles.dart';
+
+import 'product_item.dart';
 
 class SellingFast extends StatelessWidget {
-  const SellingFast({super.key});
+  const SellingFast({super.key, required this.cubit});
+
+  final TimeLuxeCubit cubit;
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [
+      children: <Widget>[
         Row(
-          children: [
-            const Text("Selling fast ",
-                style: TextStyle(
-                  fontSize: 27,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w600,
-                )),
-            SvgPicture.asset('assets/icons/noto_fire.svg'),
+          children: <Widget>[
+            Text(
+              "Selling fast ",
+              style: AppTextStyles.textStyle27.copyWith(color: Colors.white),
+            ),
+            SvgPicture.asset(AppAssets.fireEmoji),
           ],
         ),
         const SizedBox(height: 18),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: [
-              WatchCard(
-                onTap: () {
-                  // To Do
-                },
-                imageUrl: 'assets/images/watch1.jpg',
-              ),
-              const SizedBox(
-                width: 10,
-              ),
-              WatchCard(
-                onTap: () {
-                  // To Do
-                },
-                imageUrl: 'assets/images/watch2.jpg',
-              ),
-              const SizedBox(
-                width: 10,
-              ),
-              WatchCard(
-                onTap: () {
-                  // To Do
-                },
-                imageUrl: 'assets/images/watch3.jpg',
-              ),
-              const SizedBox(
-                width: 10,
-              ),
-              WatchCard(
-                onTap: () {
-                  // To Do
-                },
-                imageUrl: 'assets/images/watch4.jpg',
-              ),
-              const SizedBox(
-                width: 10,
-              ),
-              WatchCard(
-                onTap: () {
-                  // To Do
-                },
-                imageUrl: 'assets/images/watch5.jpg',
-              ),
-              const SizedBox(
-                width: 10,
-              ),
-              WatchCard(
-                onTap: () {
-                  // To Do
-                },
-                imageUrl: 'assets/images/watch6.jpg',
-              ),
-            ],
+        SizedBox(
+          height: SizeConfig.screenHeight! * 0.26,
+          child: ListView.separated(
+            padding: EdgeInsets.zero,
+            physics: const BouncingScrollPhysics(),
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, index) => ProductItem(
+              cubit: cubit,
+              model: AppConstants.sellingFast[index],
+            ),
+            separatorBuilder: (context, index) => const SizedBox(width: 10),
+            itemCount: AppConstants.sellingFast.length,
           ),
         ),
       ],

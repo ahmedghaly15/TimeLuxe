@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:time_luxe/features/splash/presnetation/widgets/seconds_circles.dart';
 
 import '../../../../core/network/local/cache_helper.dart';
-import '../widgets/seconds_circles.dart';
+
 import '/TimeLuxe/presentation/view/time_luxe_app_view.dart';
 import '/core/global/app_colors.dart';
 import '/core/global/helper.dart';
@@ -70,7 +71,7 @@ class _SplashViewState extends State<SplashView> {
   }
 
   Future<void> moveToNextView() {
-    return Future.delayed(const Duration(seconds: 3), () {
+    return Future.delayed(const Duration(seconds: 5), () {
       Helper.uId = CacheHelper.getStringData(key: 'uId');
 
       if (Helper.uId != null) {

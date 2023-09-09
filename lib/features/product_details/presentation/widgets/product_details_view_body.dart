@@ -3,13 +3,14 @@ import 'package:reusable_components/reusable_components.dart';
 
 import '../../../../core/global/app_colors.dart';
 
+import '../../../../core/models/watch_model.dart';
 import 'chat_and_add_to_cart_button.dart';
 import 'product_info.dart';
 
 class ProductDetailsViewBody extends StatelessWidget {
   const ProductDetailsViewBody({super.key, required this.model});
 
-  final dynamic model;
+  final WatchModel model;
 
   @override
   Widget build(BuildContext context) {

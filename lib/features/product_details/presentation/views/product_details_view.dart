@@ -7,11 +7,12 @@ import 'package:time_luxe/core/global/app_text_styles.dart';
 import 'package:time_luxe/features/product_details/presentation/widgets/product_details_view_body.dart';
 
 import '../../../../core/global/app_colors.dart';
+import '../../../../core/models/watch_model.dart';
 
 class ProductDetailsView extends StatelessWidget {
   const ProductDetailsView({super.key, required this.model});
 
-  final dynamic model;
+  final WatchModel model;
 
   @override
   Widget build(BuildContext context) {

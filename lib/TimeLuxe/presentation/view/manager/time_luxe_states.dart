@@ -8,6 +8,8 @@ class DecrementSuccessState extends TimeLuxeStates {}
 
 class ChangeBottomNavState extends TimeLuxeStates {}
 
+class ChangeBottomNavToHome extends TimeLuxeStates {}
+
 class GetUserLoadingState extends TimeLuxeStates {}
 
 class GetUserSuccessState extends TimeLuxeStates {}

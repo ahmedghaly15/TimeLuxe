@@ -7,7 +7,8 @@ import 'package:time_luxe/features/product_details/presentation/views/product_de
 import '../../../../TimeLuxe/presentation/view/manager/time_luxe_cubit.dart';
 import '../../../../core/global/app_colors.dart';
 import '../../../../core/global/app_text_styles.dart';
-import '../../../../core/models/bag_model.dart';
+
+import '../../../../core/models/watch_model.dart';
 import 'done_square.dart';
 
 class OrderItem extends StatelessWidget {
@@ -19,7 +20,7 @@ class OrderItem extends StatelessWidget {
   });
 
   final TimeLuxeCubit cubit;
-  final BagModel bagProduct;
+  final WatchModel bagProduct;
   final int index;
 
   @override

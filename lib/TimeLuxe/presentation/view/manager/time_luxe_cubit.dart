@@ -6,11 +6,11 @@ import 'package:time_luxe/TimeLuxe/presentation/view/manager/time_luxe_states.da
 import 'package:time_luxe/core/global/app_constants.dart';
 
 import 'package:time_luxe/core/global/helper.dart';
-import 'package:time_luxe/core/models/favorite_model.dart';
+
 import 'package:time_luxe/core/models/user_model.dart';
 import 'package:time_luxe/features/welcome/presentation/views/welcome_view.dart';
 
-import '../../../../core/models/bag_model.dart';
+import '../../../../core/models/watch_model.dart';
 import '../../../../core/network/local/cache_helper.dart';
 import '../../../../features/bag/presentation/widgets/bag_view_body.dart';
 import '../../../../features/home/presentation/widgets/home_body.dart';
@@ -77,6 +77,11 @@ class TimeLuxeCubit extends Cubit<TimeLuxeStates> {
     emit(ChangeBottomNavState());
   }
 
+  void changeBottomNavToHome() {
+    currentIndex = 0;
+    emit(ChangeBottomNavToHome());
+  }
+
   void getUserData(String? uId) {
     emit(GetUserLoadingState());
 
@@ -93,19 +98,19 @@ class TimeLuxeCubit extends Cubit<TimeLuxeStates> {
     });
   }
 
-  List<FavoriteModel> favorites = <FavoriteModel>[];
+  List<WatchModel> favorites = <WatchModel>[];
 
-  void addToFav(FavoriteModel favItem) {
+  void addToFav(WatchModel favItem) {
     favorites.add(favItem);
     emit(AddToFavoriteSuccessState());
   }
 
-  void removeFromFav(FavoriteModel favItem) {
+  void removeFromFav(WatchModel favItem) {
     favorites.remove(favItem);
     emit(RemoveFromFavoriteSuccessState());
   }
 
-  void addToBag(BagModel bagProduct) {
+  void addToBag(WatchModel bagProduct) {
     AppConstants.bagItems.add(bagProduct);
     emit(AddToBagSuccessState());
   }

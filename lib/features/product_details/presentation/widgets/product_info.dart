@@ -4,6 +4,7 @@ import 'package:reusable_components/reusable_components.dart';
 import '../../../../core/global/app_colors.dart';
 import '../../../../core/global/app_text_styles.dart';
 
+import '../../../../core/models/watch_model.dart';
 import 'color_dots_list.dart';
 
 class ProductInfo extends StatelessWidget {
@@ -12,7 +13,7 @@ class ProductInfo extends StatelessWidget {
     required this.model,
   });
 
-  final dynamic model;
+  final WatchModel model;
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +70,7 @@ class ProductInfo extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           Padding(
-            padding: const EdgeInsets.only(left: 27),
+            padding: const EdgeInsets.only(left: 35),
             child: Text(
               model.description!,
               style: AppTextStyles.textStyle14.copyWith(

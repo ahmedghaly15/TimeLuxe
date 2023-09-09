@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:reusable_components/reusable_components.dart';
-import 'package:time_luxe/component/custom_outlined_button.dart';
+import 'package:time_luxe/features/home/presentation/widgets/custom_outlined_button.dart';
+import 'package:time_luxe/core/global/app_assets.dart';
 
 class MyBanner extends StatelessWidget {
   const MyBanner({super.key});
@@ -16,7 +17,7 @@ class MyBanner extends StatelessWidget {
           decoration: const BoxDecoration(
             color: Colors.white,
             image: DecorationImage(
-              image: AssetImage('assets/images/home_watch_image.jpg'),
+              image: AssetImage(AppAssets.homeBanner),
               fit: BoxFit.cover,
             ),
           ),

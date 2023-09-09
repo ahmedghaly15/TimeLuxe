@@ -13,6 +13,7 @@ class TrendingProductsList extends StatelessWidget {
     return SizedBox(
       height: 172,
       child: ListView.separated(
+        physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.symmetric(horizontal: 22),
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) => TrendingProductItem(

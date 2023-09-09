@@ -10,7 +10,8 @@ import 'package:time_luxe/core/global/app_text_styles.dart';
 
 import 'package:time_luxe/core/widgets/custom_app_bar.dart';
 import 'package:time_luxe/features/bag/presentation/widgets/done_square.dart';
-import 'package:time_luxe/features/favorites/favorites_screen.dart';
+
+import 'package:time_luxe/features/favorites/presentation/views/favorites_view.dart';
 
 import '../../../../core/global/app_colors.dart';
 import 'bag_products_list.dart';
@@ -48,7 +49,7 @@ class BagViewBody extends StatelessWidget {
                   title: "Bag",
                   actions: GestureDetector(
                     onTap: () => CustomNavigator.navigateTo(
-                      screen: () => const FavoritesScreen(),
+                      screen: () => const FavoritesView(),
                     ),
                     child: const Icon(
                       Icons.favorite_border,
