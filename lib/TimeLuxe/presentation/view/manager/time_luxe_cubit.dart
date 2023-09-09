@@ -110,7 +110,7 @@ class TimeLuxeCubit extends Cubit<TimeLuxeStates> {
     emit(AddToBagSuccessState());
   }
 
-  void removeBagProduct(BagModel bagProduct, int index) {
+  void removeBagProduct(int index) {
     AppConstants.bagItems.removeAt(index);
     emit(RemoveFromBagSuccessState());
   }

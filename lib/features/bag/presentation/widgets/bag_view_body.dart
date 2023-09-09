@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -35,82 +36,86 @@ class BagViewBody extends StatelessWidget {
           ),
         ),
         child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              SizedBox(height: SizeConfig.screenHeight! * 0.05),
-              CustomAppBar(
-                padding: const EdgeInsets.only(left: 24, right: 48),
-                title: "Bag",
-                actions: GestureDetector(
-                  onTap: () => CustomNavigator.navigateTo(
-                    screen: () => const FavoritesScreen(),
-                  ),
-                  child: const Icon(
-                    Icons.favorite_border,
-                    color: Colors.white,
+          child: FadeInUp(
+            from: 20,
+            duration: const Duration(milliseconds: 500),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                SizedBox(height: SizeConfig.screenHeight! * 0.05),
+                CustomAppBar(
+                  padding: const EdgeInsets.only(left: 24, right: 48),
+                  title: "Bag",
+                  actions: GestureDetector(
+                    onTap: () => CustomNavigator.navigateTo(
+                      screen: () => const FavoritesScreen(),
+                    ),
+                    child: const Icon(
+                      Icons.favorite_border,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(height: 16),
-              CustomDivider(
-                color: Colors.white,
-                height: 0.5,
-                width: SizeConfig.screenWidth,
-              ),
-              const SizedBox(height: 39),
-              BagProductsList(cubit: cubit),
-              const SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.only(right: 15),
-                child: Row(
-                  children: <Widget>[
-                    const DoneSquare(),
-                    const SizedBox(width: 15),
-                    Text(
-                      "Choose all",
-                      style: AppTextStyles.textStyle20.copyWith(
-                        fontWeight: FontWeight.w500,
-                        color: Colors.white,
-                      ),
-                    ),
-                    const Spacer(),
-                    Text(
-                      "\$${cubit.countAllBagPrices().toStringAsFixed(1)}",
-                      style: AppTextStyles.textStyle20.copyWith(
-                        fontWeight: FontWeight.w500,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
+                const SizedBox(height: 16),
+                CustomDivider(
+                  color: Colors.white,
+                  height: 0.5,
+                  width: SizeConfig.screenWidth,
                 ),
-              ),
-              const SizedBox(height: 29),
-              Center(
-                child: Padding(
-                  padding: const EdgeInsets.only(bottom: 16),
-                  child: MyCustomButton(
-                    height: 59,
-                    width: SizeConfig.screenWidth! * 0.9,
-                    radius: 8,
-                    onPressed: () {
-                      // TODO: navigate to Checkout screen
-                    },
-                    hasPrefix: false,
-                    backgroundColor: AppColors.primaryColor,
-                    child: Center(
-                      child: Text(
-                        "Checkout",
-                        style: AppTextStyles.textStyle32.copyWith(
-                          fontSize: 23,
+                const SizedBox(height: 39),
+                BagProductsList(cubit: cubit),
+                const SizedBox(height: 20),
+                Padding(
+                  padding: const EdgeInsets.only(right: 15),
+                  child: Row(
+                    children: <Widget>[
+                      const DoneSquare(),
+                      const SizedBox(width: 15),
+                      Text(
+                        "Choose all",
+                        style: AppTextStyles.textStyle20.copyWith(
+                          fontWeight: FontWeight.w500,
                           color: Colors.white,
+                        ),
+                      ),
+                      const Spacer(),
+                      Text(
+                        "\$${cubit.countAllBagPrices().toStringAsFixed(1)}",
+                        style: AppTextStyles.textStyle20.copyWith(
+                          fontWeight: FontWeight.w500,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 29),
+                Center(
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 16),
+                    child: MyCustomButton(
+                      height: 59,
+                      width: SizeConfig.screenWidth! * 0.9,
+                      radius: 8,
+                      onPressed: () {
+                        // TODO: navigate to Checkout screen
+                      },
+                      hasPrefix: false,
+                      backgroundColor: AppColors.primaryColor,
+                      child: Center(
+                        child: Text(
+                          "Checkout",
+                          style: AppTextStyles.textStyle32.copyWith(
+                            fontSize: 23,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       );

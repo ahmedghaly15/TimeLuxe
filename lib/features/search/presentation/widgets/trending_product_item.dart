@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:reusable_components/reusable_components.dart';
+
 import 'package:time_luxe/features/product_details/presentation/views/product_details_view.dart';
 
 import '../../../../core/global/app_colors.dart';
@@ -17,6 +18,8 @@ class TrendingProductItem extends StatefulWidget {
   @override
   State<TrendingProductItem> createState() => _TrendingProductItemState();
 }
+
+// TODO: modify fav icon color and make it add the item to fav screen
 
 class _TrendingProductItemState extends State<TrendingProductItem> {
   Color favIconColor = Colors.white;
