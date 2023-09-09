@@ -1,4 +1,7 @@
 import 'package:get_it/get_it.dart';
+import 'package:time_luxe/TimeLuxe/data/time_luxe_repo_impl.dart';
+import 'package:time_luxe/TimeLuxe/domain/time_luxe_repo.dart';
+import 'package:time_luxe/TimeLuxe/presentation/view/manager/time_luxe_cubit.dart';
 import 'package:time_luxe/features/auth/forgot_password/data/forgot_password_repo_impl.dart';
 import 'package:time_luxe/features/auth/forgot_password/domain/forgot_password_repo.dart';
 import 'package:time_luxe/features/auth/forgot_password/presentation/cubit/forgot_password_view_cubit.dart';
@@ -37,6 +40,14 @@ class ServiceLocator {
 
     serviceLocator.registerFactory<ForgotPasswordViewCubit>(
       () => ForgotPasswordViewCubit(serviceLocator.get<ForgotPasswordRepo>()),
+    );
+
+    serviceLocator.registerLazySingleton<TimeLuxeRepo>(
+      () => TimeLuxeRepoImpl(),
+    );
+
+    serviceLocator.registerFactory<TimeLuxeCubit>(
+      () => TimeLuxeCubit(serviceLocator.get<TimeLuxeRepo>()),
     );
   }
 }

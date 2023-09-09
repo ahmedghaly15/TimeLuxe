@@ -41,4 +41,9 @@ abstract class AppTextStyles {
     fontSize: 13,
     fontWeight: FontWeight.normal,
   );
+
+  static const TextStyle textStyle12 = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.normal,
+  );
 }

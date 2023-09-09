@@ -69,7 +69,9 @@ class AppAssets {
   static const String ok = "assets/icons/ok.svg";
   static const String car = "assets/icons/car.svg";
   static const String chat = "assets/icons/chat.svg";
+  static const String done = "assets/icons/done.svg";
   static const String back = "assets/icons/back.svg";
+  static const String edit = "assets/icons/edit.svg";
   static const String bag = "assets/icons/bag.svg";
   static const String promoIcon = "assets/icons/promoIcon.svg";
   static const String userFollowingIcon = "assets/icons/userFollowingIcon.svg";
