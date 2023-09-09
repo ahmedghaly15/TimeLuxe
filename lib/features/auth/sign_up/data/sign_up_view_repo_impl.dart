@@ -22,14 +22,16 @@ class SignUpViewRepoImpl extends SignUpViewRepo {
 
   @override
   Future<void> firestoreCreateUSer({
-    String? name,
-    String? email,
-    String? uId,
+    required String name,
+    required String email,
+    required String uId,
   }) async {
     UserModel userModel = UserModel(
       name: name,
       email: email,
       uId: uId,
+      image:
+          'https://img.freepik.com/free-icon/user_318-159711.jpg?size=626&ext=jpg&ga=GA1.2.825316313.1674289475&semt=ais',
     );
     await FirebaseFirestore.instance
         .collection('users')

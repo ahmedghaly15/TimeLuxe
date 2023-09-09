@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:time_luxe/TimeLuxe/presentation/view/manager/time_luxe_cubit.dart';
 
 import '../../../../../../../core/network/local/cache_helper.dart';
 import '../../domain/sign_up_view_repo.dart';
@@ -39,10 +40,9 @@ class SignUpViewCubit extends Cubit<SignUpViewStates> {
         uId: value.user!.uid,
       );
       CacheHelper.saveData(key: 'uId', value: value.user!.uid);
-
-      // Todo: use getUserData method
-      // DelibirdAppCubit.getObject(context).getUserData(value.user!.uid);
+      TimeLuxeCubit.getObject(context).getUserData(value.user!.uid);
     }).catchError((error) {
+      debugPrint("ERROR: ${error.toString()}");
       if (error is FirebaseAuthException) {
         emit(SignUpErrorState(error.code.toString()));
       }
@@ -50,9 +50,9 @@ class SignUpViewCubit extends Cubit<SignUpViewStates> {
   }
 
   void firestoreCreateUser({
-    String? name,
-    String? email,
-    String? uId,
+    required String name,
+    required String email,
+    required String uId,
   }) {
     signUpViewRepo
         .firestoreCreateUSer(
@@ -62,20 +62,21 @@ class SignUpViewCubit extends Cubit<SignUpViewStates> {
     )
         .then((value) {
       emit(CreateUserSuccessState());
-      emit(SignUpSuccessState(uId!));
+      emit(SignUpSuccessState(uId));
     }).catchError((error) {
+      debugPrint("ERROR: ${error.toString()}");
       CreateUserErrorState(error.toString());
     });
   }
 
-  signInWithGoogle() {
+  signInWithGoogle(context) {
     emit(SignInWithGoogleLoadingState());
     signUpViewRepo.signInWithGoogle().then((value) {
       emit(SignInWithGoogleSuccessState(value.user!.uid));
       CacheHelper.saveData(key: 'uId', value: value.user!.uid);
-      // TODO: Do getUserData method
-      // DelibirdAppCubit.getObject(context).getUserData(value.user!.uid);
+      TimeLuxeCubit.getObject(context).getUserData(value.user!.uid);
     }).catchError((error) {
+      debugPrint("ERROR: ${error.toString()}");
       emit(SignInWithGoogleErrorState(error.toString()));
     });
   }

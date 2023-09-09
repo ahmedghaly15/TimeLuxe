@@ -4,6 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:time_luxe/features/auth/sign_in/presentation/cubit/sign_in_states.dart';
 
+import '../../../../../TimeLuxe/presentation/view/manager/time_luxe_cubit.dart';
+
 import '../../../../../core/network/local/cache_helper.dart';
 import '../../domain/sign_in_repo.dart';
 
@@ -32,23 +34,23 @@ class SignInViewCubit extends Cubit<SignInViewStates> {
         .then((value) {
       emit(SignInSuccessState(value.user!.uid));
       CacheHelper.saveData(key: 'uId', value: value.user!.uid);
-      // TODO: Do getUserData method
-      // DelibirdAppCubit.getObject(context).getUserData(value.user!.uid);
+      TimeLuxeCubit.getObject(context).getUserData(value.user!.uid);
     }).catchError((error) {
+      debugPrint("ERROR: ${error.toString()}");
       if (error is FirebaseAuthException) {
         emit(SignInErrorState(error.code.toString()));
       }
     });
   }
 
-  signInWithGoogle() {
+  signInWithGoogle(context) {
     emit(SignInWithGoogleLoadingState());
     signInViewRepo.signInWithGoogle().then((value) {
       emit(SignInWithGoogleSuccessState(value.user!.uid));
       CacheHelper.saveData(key: 'uId', value: value.user!.uid);
-      // TODO: Do getUserData method
-      // DelibirdAppCubit.getObject(context).getUserData(value.user!.uid);
+      TimeLuxeCubit.getObject(context).getUserData(value.user!.uid);
     }).catchError((error) {
+      debugPrint("ERROR: ${error.toString()}");
       emit(SignInWithGoogleErrorState(error.toString()));
     });
   }

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:time_luxe/core/global/app_colors.dart';
-import 'package:time_luxe/core/global/helper.dart';
-import 'package:time_luxe/TimeLuxe/presentation/view/time_luxe_app_view.dart';
-import 'package:time_luxe/features/welcome/presentation/views/welcome_view.dart';
 
 import '../../../../core/network/local/cache_helper.dart';
 import '../widgets/seconds_circles.dart';
+import '/TimeLuxe/presentation/view/time_luxe_app_view.dart';
+import '/core/global/app_colors.dart';
+import '/core/global/helper.dart';
+import '/features/welcome/presentation/views/welcome_view.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});

@@ -10,9 +10,9 @@ abstract class SignUpViewRepo {
   });
 
   Future<void> firestoreCreateUSer({
-    String? name,
-    String? email,
-    String? uId,
+    required String name,
+    required String email,
+    required String uId,
   });
 
   Future<UserCredential> signInWithGoogle();

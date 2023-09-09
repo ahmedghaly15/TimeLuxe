@@ -58,9 +58,9 @@ class _SocialButtonsState extends State<SocialButtons> {
               const Duration(seconds: 1),
               () {
                 if (widget.signInViewCubit == null) {
-                  widget.signUpViewCubit!.signInWithGoogle();
+                  widget.signUpViewCubit!.signInWithGoogle(context);
                 } else {
-                  widget.signInViewCubit!.signInWithGoogle();
+                  widget.signInViewCubit!.signInWithGoogle(context);
                 }
                 setState(() {
                   isGoogleButtonClicked = false;

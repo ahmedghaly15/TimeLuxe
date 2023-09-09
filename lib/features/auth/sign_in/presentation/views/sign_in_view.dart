@@ -19,7 +19,7 @@ class SignInView extends StatelessWidget {
         body: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: AppColors.firstGradientColors,
+              colors: AppColors.gradientColors,
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
             ),
