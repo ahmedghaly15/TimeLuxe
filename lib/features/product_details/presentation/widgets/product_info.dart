@@ -3,7 +3,7 @@ import 'package:reusable_components/reusable_components.dart';
 
 import '../../../../core/global/app_colors.dart';
 import '../../../../core/global/app_text_styles.dart';
-import '../../../../core/models/watch_model.dart';
+
 import 'color_dots_list.dart';
 
 class ProductInfo extends StatelessWidget {
@@ -12,7 +12,7 @@ class ProductInfo extends StatelessWidget {
     required this.model,
   });
 
-  final WatchModel model;
+  final dynamic model;
 
   @override
   Widget build(BuildContext context) {
@@ -33,11 +33,14 @@ class ProductInfo extends StatelessWidget {
           Center(
             child: Hero(
               tag: model.id!,
-              child: Image.asset(
-                model.imageUrl!,
-                fit: BoxFit.cover,
-                height: 257,
-                width: 269,
+              child: ClipRRect(
+                borderRadius: const BorderRadius.all(Radius.circular(64)),
+                child: Image.asset(
+                  model.image!,
+                  fit: BoxFit.cover,
+                  height: 257,
+                  width: 269,
+                ),
               ),
             ),
           ),

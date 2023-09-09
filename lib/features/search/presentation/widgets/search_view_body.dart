@@ -22,7 +22,7 @@ class SearchViewBody extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 32),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: AppColors.secondGradientColors,
+          colors: AppColors.gradientColors,
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
         ),
@@ -55,7 +55,7 @@ class SearchViewBody extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 16),
             child: BrandsList(),
           ),
-          SizedBox(height: SizeConfig.screenHeight! * 0.05),
+          SizedBox(height: SizeConfig.screenHeight! * 0.03),
           const Padding(
             padding: EdgeInsets.only(left: 16, bottom: 16),
             child: TitleText(title: "Trending Product"),

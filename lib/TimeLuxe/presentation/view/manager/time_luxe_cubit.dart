@@ -3,10 +3,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/TimeLuxe/domain/time_luxe_repo.dart';
 import 'package:time_luxe/TimeLuxe/presentation/view/manager/time_luxe_states.dart';
+import 'package:time_luxe/core/global/app_constants.dart';
+
 import 'package:time_luxe/core/global/helper.dart';
+import 'package:time_luxe/core/models/favorite_model.dart';
 import 'package:time_luxe/core/models/user_model.dart';
 import 'package:time_luxe/features/welcome/presentation/views/welcome_view.dart';
 
+import '../../../../core/models/bag_model.dart';
 import '../../../../core/network/local/cache_helper.dart';
 import '../../../../features/bag/presentation/widgets/bag_view_body.dart';
 import '../../../../features/home/presentation/widgets/home_body.dart';
@@ -20,7 +24,7 @@ class TimeLuxeCubit extends Cubit<TimeLuxeStates> {
 
   TimeLuxeRepo timeLuxeRepo;
 
-  int counter = 1;
+  int ordersCounter = 1;
 
   int currentIndex = 0;
 
@@ -28,13 +32,13 @@ class TimeLuxeCubit extends Cubit<TimeLuxeStates> {
   bool confirmPassVisibility = true;
 
   void increment() {
-    counter++;
+    ordersCounter++;
     emit(IncrementSuccessState());
   }
 
   void decrement() {
-    if (counter > 1) {
-      counter--;
+    if (ordersCounter > 1) {
+      ordersCounter--;
       emit(DecrementSuccessState());
     }
   }
@@ -87,6 +91,38 @@ class TimeLuxeCubit extends Cubit<TimeLuxeStates> {
     }).catchError((error) {
       GetUserErrorState(error.toString());
     });
+  }
+
+  List<FavoriteModel> favorites = <FavoriteModel>[];
+
+  void addToFav(FavoriteModel favItem) {
+    favorites.add(favItem);
+    emit(AddToFavoriteSuccessState());
+  }
+
+  void removeFromFav(FavoriteModel favItem) {
+    favorites.remove(favItem);
+    emit(RemoveFromFavoriteSuccessState());
+  }
+
+  void addToBag(BagModel bagProduct) {
+    AppConstants.bagItems.add(bagProduct);
+    emit(AddToBagSuccessState());
+  }
+
+  void removeBagProduct(BagModel bagProduct, int index) {
+    AppConstants.bagItems.removeAt(index);
+    emit(RemoveFromBagSuccessState());
+  }
+
+  double countAllBagPrices() {
+    double sum = 0;
+
+    for (int i = 0; i < AppConstants.bagItems.length; i++) {
+      sum += AppConstants.bagItems[i].price!;
+    }
+
+    return sum;
   }
 
   void signOut() {

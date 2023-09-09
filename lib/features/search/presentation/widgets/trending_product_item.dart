@@ -43,7 +43,7 @@ class _TrendingProductItemState extends State<TrendingProductItem> {
             Hero(
               tag: widget.model.id!,
               child: Image.asset(
-                widget.model.imageUrl!,
+                widget.model.image!,
                 fit: BoxFit.cover,
               ),
             ),

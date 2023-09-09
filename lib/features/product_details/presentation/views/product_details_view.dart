@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/core/global/app_assets.dart';
 import 'package:time_luxe/core/global/app_text_styles.dart';
-import 'package:time_luxe/core/models/watch_model.dart';
+
 import 'package:time_luxe/features/product_details/presentation/widgets/product_details_view_body.dart';
 
 import '../../../../core/global/app_colors.dart';
@@ -11,7 +11,7 @@ import '../../../../core/global/app_colors.dart';
 class ProductDetailsView extends StatelessWidget {
   const ProductDetailsView({super.key, required this.model});
 
-  final WatchModel model;
+  final dynamic model;
 
   @override
   Widget build(BuildContext context) {

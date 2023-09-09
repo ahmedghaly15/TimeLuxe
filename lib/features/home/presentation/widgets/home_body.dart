@@ -16,7 +16,7 @@ class HomeBody extends StatelessWidget {
         width: SizeConfig.screenWidth,
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: AppColors.firstGradientColors,
+            colors: AppColors.gradientColors,
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),

@@ -1,16 +1,16 @@
-class WatchModel {
+class FavoriteModel {
   int? id;
-  String? name;
-  String? image;
+  String name;
   String? description;
-  double? price;
+  String image;
+  double price;
 
-  WatchModel({
+  FavoriteModel({
     this.id,
-    this.name,
-    this.image,
+    required this.name,
     this.description =
         "The Lady-Datejust comes in a wealth of versions to perfectly reflect the different personalities of its wearers. The range of materials and colours of the Lady-Datejust is equalled only by the variety of bracelets and dials that add to its style.",
-    this.price,
+    required this.image,
+    required this.price,
   });
 }

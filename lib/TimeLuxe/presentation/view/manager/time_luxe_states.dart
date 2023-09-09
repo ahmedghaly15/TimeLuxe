@@ -17,6 +17,14 @@ class GetUserErrorState extends TimeLuxeStates {
   GetUserErrorState(this.error);
 }
 
+class AddToFavoriteSuccessState extends TimeLuxeStates {}
+
+class RemoveFromFavoriteSuccessState extends TimeLuxeStates {}
+
+class AddToBagSuccessState extends TimeLuxeStates {}
+
+class RemoveFromBagSuccessState extends TimeLuxeStates {}
+
 class SignOutSuccessState extends TimeLuxeStates {}
 
 class SignOutErrorState extends TimeLuxeStates {

@@ -72,6 +72,7 @@ class AppAssets {
   static const String done = "assets/icons/done.svg";
   static const String back = "assets/icons/back.svg";
   static const String edit = "assets/icons/edit.svg";
+  static const String deleteIcon = "assets/icons/deleteIcon.svg";
   static const String bag = "assets/icons/bag.svg";
   static const String promoIcon = "assets/icons/promoIcon.svg";
   static const String userFollowingIcon = "assets/icons/userFollowingIcon.svg";
@@ -92,4 +93,7 @@ class AppAssets {
       'assets/images/trending_products/yachtMaster.png';
 
   static const String searchWatch = 'assets/images/searchWatch.png';
+  static const String bag1 = 'assets/images/bag/bag1.png';
+  static const String bag2 = 'assets/images/bag/bag2.png';
+  static const String bag3 = 'assets/images/bag/bag3.png';
 }
