@@ -19,6 +19,20 @@ class GetUserErrorState extends TimeLuxeStates {
   GetUserErrorState(this.error);
 }
 
+class UserUpdateLoadingState extends TimeLuxeStates {}
+
+class UserUpdateErrorState extends TimeLuxeStates {}
+
+class ProfileImagePickedSuccessState extends TimeLuxeStates {}
+
+class ProfileImagePickedErrorState extends TimeLuxeStates {}
+
+class UploadingProfileImageLoadingState extends TimeLuxeStates {}
+
+class UploadProfileImageSuccessState extends TimeLuxeStates {}
+
+class UploadProfileImageErrorState extends TimeLuxeStates {}
+
 class AddToFavoriteSuccessState extends TimeLuxeStates {}
 
 class RemoveFromFavoriteSuccessState extends TimeLuxeStates {}

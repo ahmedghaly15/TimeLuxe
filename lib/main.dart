@@ -8,7 +8,7 @@ import 'package:reusable_components/reusable_components.dart';
 import '/TimeLuxe/presentation/view/manager/time_luxe_cubit.dart';
 import '/core/global/app_theme.dart';
 import '/features/splash/presnetation/view/splash_view.dart';
-import 'core/global/helper.dart';
+import 'core/utils/helper.dart';
 import 'core/network/local/cache_helper.dart';
 import 'core/utils/firebase_options.dart';
 import 'core/utils/my_bloc_observer.dart';

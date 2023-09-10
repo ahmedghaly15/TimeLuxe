@@ -5,7 +5,7 @@ import '../../../../core/network/local/cache_helper.dart';
 
 import '/TimeLuxe/presentation/view/time_luxe_app_view.dart';
 import '/core/global/app_colors.dart';
-import '/core/global/helper.dart';
+import '../../../../core/utils/helper.dart';
 import '/features/welcome/presentation/views/welcome_view.dart';
 
 class SplashView extends StatefulWidget {

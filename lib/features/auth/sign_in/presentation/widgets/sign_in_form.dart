@@ -9,6 +9,7 @@ import 'package:time_luxe/features/auth/forgot_password/presentation/views/forgo
 import 'package:time_luxe/features/auth/sign_in/presentation/widgets/reusable_pass_text_field.dart';
 
 import '../../../../../core/global/app_assets.dart';
+import '../../../../../core/widgets/my_circular_progress_indicator.dart';
 import 'reusable_text_form_field.dart';
 
 class SignInForm extends StatefulWidget {
@@ -118,10 +119,7 @@ class _SignInFormState extends State<SignInForm> {
                   ),
                 ),
               ),
-              fallback: (context) => const CustomCircularProgressIndicator(
-                color: AppColors.primaryColor,
-                backgroundColor: Colors.white,
-              ),
+              fallback: (context) => const MyCircularProgressIndicator(),
             ),
           ],
         ),

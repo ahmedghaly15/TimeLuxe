@@ -1,11 +1,14 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/TimeLuxe/domain/time_luxe_repo.dart';
 import 'package:time_luxe/TimeLuxe/presentation/view/manager/time_luxe_states.dart';
 import 'package:time_luxe/core/global/app_constants.dart';
 
-import 'package:time_luxe/core/global/helper.dart';
+import 'package:time_luxe/core/utils/helper.dart';
 
 import 'package:time_luxe/core/models/user_model.dart';
 import 'package:time_luxe/features/welcome/presentation/views/welcome_view.dart';
@@ -128,6 +131,70 @@ class TimeLuxeCubit extends Cubit<TimeLuxeStates> {
     }
 
     return sum;
+  }
+
+  File? profileImage;
+  ImagePicker picker = ImagePicker();
+
+  Future<void> getProfileImage({required ImageSource source}) async {
+    await timeLuxeRepo.getProfileImage(source: source).then((value) {
+      if (value != null) {
+        profileImage = File(value.path);
+        emit(ProfileImagePickedSuccessState());
+      } else {
+        debugPrint("No image selected");
+        emit(ProfileImagePickedErrorState());
+      }
+    });
+  }
+
+  void uploadProfileImage({
+    required String name,
+    required String email,
+    required BuildContext context,
+  }) {
+    emit(UploadingProfileImageLoadingState());
+    timeLuxeRepo.uploadProfileImage(profileImage: profileImage).then((value) {
+      value.ref.getDownloadURL().then((value) {
+        emit(UploadProfileImageSuccessState());
+        updateUser(
+          name: name,
+          email: email,
+          image: value,
+        );
+        CustomHelper.buildSnackBar(
+          context: context,
+          message: "Profile Image Updated Successfully",
+          state: SnackBarStates.success,
+          title: "Success",
+        );
+      }).catchError((error) {
+        emit(UploadProfileImageErrorState());
+      });
+    }).catchError((error) {
+      emit(UploadProfileImageErrorState());
+    });
+  }
+
+  void updateUser({
+    required String name,
+    String? email,
+    String? image,
+  }) {
+    emit(UserUpdateLoadingState());
+
+    UserModel userModel = UserModel(
+      name: name,
+      image: image ?? Helper.model!.image,
+      email: email ?? Helper.model!.email,
+      uId: Helper.model!.uId,
+    );
+
+    timeLuxeRepo.updateUser(userModel: userModel).then((value) {
+      getUserData(Helper.uId);
+    }).catchError((error) {
+      emit(UserUpdateErrorState());
+    });
   }
 
   void signOut() {

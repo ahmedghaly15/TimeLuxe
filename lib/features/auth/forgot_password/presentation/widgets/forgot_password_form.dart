@@ -1,6 +1,7 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:reusable_components/reusable_components.dart';
+import 'package:time_luxe/core/widgets/my_circular_progress_indicator.dart';
 import 'package:time_luxe/features/auth/forgot_password/presentation/cubit/forgot_password_view_cubit.dart';
 
 import 'package:time_luxe/features/auth/sign_in/presentation/widgets/reusable_text_form_field.dart';
@@ -73,10 +74,7 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
                 ),
               ),
             ),
-            fallback: (context) => const CustomCircularProgressIndicator(
-              color: AppColors.primaryColor,
-              backgroundColor: Colors.white,
-            ),
+            fallback: (context) => const MyCircularProgressIndicator(),
           ),
         ],
       ),

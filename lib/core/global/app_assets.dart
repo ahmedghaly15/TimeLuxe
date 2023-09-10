@@ -88,6 +88,7 @@ class AppAssets {
   static const String chat = "assets/icons/chat.svg";
   static const String done = "assets/icons/done.svg";
   static const String back = "assets/icons/back.svg";
+  static const String cameraIcon = "assets/icons/cameraIcon.svg";
   static const String edit = "assets/icons/edit.svg";
   static const String deleteIcon = "assets/icons/deleteIcon.svg";
   static const String bag = "assets/icons/bag.svg";

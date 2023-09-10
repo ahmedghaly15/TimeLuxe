@@ -5,6 +5,7 @@ import 'package:reusable_components/reusable_components.dart';
 import '../../../../../core/global/app_assets.dart';
 import '../../../../../core/global/app_colors.dart';
 import '../../../../../core/global/app_text_styles.dart';
+import '../../../../../core/widgets/my_circular_progress_indicator.dart';
 import '../../../sign_in/presentation/widgets/reusable_pass_text_field.dart';
 import '../../../sign_in/presentation/widgets/reusable_text_form_field.dart';
 import '../cubit/sign_up_view_cubit.dart';
@@ -152,10 +153,7 @@ class _SignUpFormState extends State<SignUpForm> {
                   ),
                 ),
               ),
-              fallback: (context) => const CustomCircularProgressIndicator(
-                color: AppColors.primaryColor,
-                backgroundColor: Colors.white,
-              ),
+              fallback: (context) => const MyCircularProgressIndicator(),
             ),
           ],
         ),

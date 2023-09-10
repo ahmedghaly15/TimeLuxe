@@ -11,7 +11,7 @@ import 'package:time_luxe/features/profile/presentation/widgets/sign_out_floatin
 
 import '../../../../core/global/app_assets.dart';
 import '../../../../core/global/app_colors.dart';
-import '../../../../core/global/helper.dart';
+import '../../../../core/utils/helper.dart';
 import '../../../../core/widgets/customized_divider.dart';
 import 'current_user_info.dart';
 import 'general_settings.dart';

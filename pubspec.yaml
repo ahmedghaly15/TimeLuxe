@@ -13,6 +13,7 @@ dependencies:
   conditional_builder_null_safety: ^0.0.6
   firebase_auth: ^4.7.1
   firebase_core: ^2.15.0
+  firebase_storage: ^11.2.6
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.3
@@ -23,6 +24,7 @@ dependencies:
   get_it: ^7.6.0
   google_fonts: ^5.1.0
   google_sign_in: ^6.1.4
+  image_picker: ^1.0.4
   reusable_components:
     git:
       url: https://github.com/ahmedghaly15/Reusable-Components-Package
@@ -40,6 +42,7 @@ flutter:
     - assets/icons/
     - assets/images/
     - assets/images/trending_products/
+    - assets/images/image_change/
     - assets/images/bag/
     - assets/logos/
 
