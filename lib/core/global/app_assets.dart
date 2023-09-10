@@ -102,6 +102,9 @@ class AppAssets {
   static const String rolex = 'assets/logos/rolex.png';
   static const String omega = 'assets/logos/omega.png';
   static const String swatch = 'assets/logos/swatch.png';
+  static const String paypal = 'assets/logos/paypal.svg';
+  static const String visa = 'assets/logos/visa.svg';
+  static const String mastercard = 'assets/logos/mastercard.svg';
 
   static const String ladyDateJust =
       'assets/images/trending_products/ladyDateJust.png';
@@ -113,4 +116,5 @@ class AppAssets {
   static const String bag1 = 'assets/images/bag/bag1.png';
   static const String bag2 = 'assets/images/bag/bag2.png';
   static const String bag3 = 'assets/images/bag/bag3.png';
+  static const String checkoutImage = 'assets/images/checkoutImage.png';
 }

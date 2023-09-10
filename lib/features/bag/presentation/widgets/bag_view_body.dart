@@ -10,10 +10,12 @@ import 'package:time_luxe/core/global/app_text_styles.dart';
 
 import 'package:time_luxe/core/widgets/custom_app_bar.dart';
 import 'package:time_luxe/features/bag/presentation/widgets/done_square.dart';
+import 'package:time_luxe/features/check_out/presentation/views/check_out_view.dart';
 
 import 'package:time_luxe/features/favorites/presentation/views/favorites_view.dart';
 
 import '../../../../core/global/app_colors.dart';
+import '../../../../core/widgets/customized_divider.dart';
 import 'bag_products_list.dart';
 
 class BagViewBody extends StatelessWidget {
@@ -24,6 +26,8 @@ class BagViewBody extends StatelessWidget {
     return BlocBuilder<TimeLuxeCubit, TimeLuxeStates>(
         builder: (context, state) {
       TimeLuxeCubit cubit = TimeLuxeCubit.getObject(context);
+      String totalPrice =
+          cubit.countAllBagPrices().toStringAsFixed(1).toString();
 
       return Container(
         height: SizeConfig.screenHeight,
@@ -58,11 +62,7 @@ class BagViewBody extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 16),
-                CustomDivider(
-                  color: Colors.white,
-                  height: 0.5,
-                  width: SizeConfig.screenWidth,
-                ),
+                const CustomizedDivider(),
                 const SizedBox(height: 39),
                 BagProductsList(cubit: cubit),
                 const SizedBox(height: 20),
@@ -81,7 +81,7 @@ class BagViewBody extends StatelessWidget {
                       ),
                       const Spacer(),
                       Text(
-                        "\$${cubit.countAllBagPrices().toStringAsFixed(1)}",
+                        "\$$totalPrice",
                         style: AppTextStyles.textStyle20.copyWith(
                           fontWeight: FontWeight.w500,
                           color: Colors.white,
@@ -98,9 +98,9 @@ class BagViewBody extends StatelessWidget {
                       height: 59,
                       width: SizeConfig.screenWidth! * 0.9,
                       radius: 8,
-                      onPressed: () {
-                        // TODO: navigate to Checkout screen
-                      },
+                      onPressed: () => CustomNavigator.navigateTo(
+                        screen: () => CheckOutView(subtotal: totalPrice),
+                      ),
                       hasPrefix: false,
                       backgroundColor: AppColors.primaryColor,
                       child: Center(

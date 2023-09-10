@@ -1,10 +1,11 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
-import 'package:reusable_components/reusable_components.dart';
+
+import 'package:time_luxe/core/widgets/fall_back_text.dart';
 
 import '../../../../TimeLuxe/presentation/view/manager/time_luxe_cubit.dart';
 import '../../../../core/global/app_constants.dart';
-import '../../../../core/global/app_text_styles.dart';
+
 import 'brand_name.dart';
 import 'order_item.dart';
 
@@ -43,17 +44,8 @@ class BagProductsList extends StatelessWidget {
           ],
         ),
       ),
-      fallback: (context) => Container(
-        margin: EdgeInsets.only(top: SizeConfig.screenHeight! * 0.3),
-        child: Center(
-          child: Text(
-            "No products in the Bag yet,\nExplore products to add one",
-            style: AppTextStyles.textStyle18.copyWith(
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            ),
-          ),
-        ),
+      fallback: (context) => const FallBackText(
+        text: "No products in the Bag yet,\nExplore products to add one",
       ),
     );
   }

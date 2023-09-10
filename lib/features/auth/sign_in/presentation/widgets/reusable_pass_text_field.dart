@@ -49,7 +49,7 @@ class ReusablePassTextField extends StatelessWidget {
       enabledBorderWidth: 2,
       hint: hint,
       hintStyle: AppTextStyles.textStyle16.copyWith(
-        color: const Color(0xFF676161).withOpacity(0.88),
+        color: AppColors.hintColor,
         fontWeight: FontWeight.w600,
       ),
       style: AppTextStyles.textStyle16.copyWith(fontWeight: FontWeight.w600),

@@ -12,6 +12,7 @@ import 'package:time_luxe/features/profile/presentation/widgets/sign_out_floatin
 import '../../../../core/global/app_assets.dart';
 import '../../../../core/global/app_colors.dart';
 import '../../../../core/global/helper.dart';
+import '../../../../core/widgets/customized_divider.dart';
 import 'current_user_info.dart';
 import 'general_settings.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
@@ -69,11 +70,7 @@ class ProfileViewBody extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 16),
-                    CustomDivider(
-                      color: Colors.white,
-                      height: 0.5,
-                      width: SizeConfig.screenWidth,
-                    ),
+                    const CustomizedDivider(),
                     SizedBox(height: SizeConfig.screenHeight! * 0.033),
                     CurrentUserInfo(user: user),
                     SizedBox(height: SizeConfig.screenHeight! * 0.041),
