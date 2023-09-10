@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:reusable_components/reusable_components.dart';
+import 'package:time_luxe/TimeLuxe/presentation/view/manager/time_luxe_cubit.dart';
 
 import '../../../../core/global/app_assets.dart';
 import '../../../../core/global/app_colors.dart';
@@ -29,7 +30,8 @@ class UserServices extends StatelessWidget {
       child: Row(
         children: <Widget>[
           UserService(
-            onTap: () {}, // TODO: navigate to Bag Screen
+            onTap: () =>
+                TimeLuxeCubit.getObject(context).changeBottomNavToBag(),
             title: 'My Orders',
             icon: AppAssets.orderApproveIcon,
           ),

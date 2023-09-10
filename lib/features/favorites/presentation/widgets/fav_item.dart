@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:reusable_components/reusable_components.dart';
+import 'package:time_luxe/core/global/app_constants.dart';
 
 import '../../../../TimeLuxe/presentation/view/manager/time_luxe_cubit.dart';
 import '../../../../core/global/app_colors.dart';
@@ -63,10 +64,20 @@ class FavItem extends StatelessWidget {
                   ),
                   const SizedBox(width: 25),
                   GestureDetector(
-                    onTap: () => cubit.addToBag(favItem),
-                    child: const Icon(
+                    onTap: () {
+                      if (AppConstants.bagItems
+                          .any((element) => element == favItem)) {
+                        cubit.removeBagProduct(favItem);
+                      } else {
+                        cubit.addToBag(favItem);
+                      }
+                    },
+                    child: Icon(
                       Icons.shopping_cart_rounded,
-                      color: Colors.white,
+                      color: AppConstants.bagItems
+                              .any((element) => element == favItem)
+                          ? AppColors.primaryColor
+                          : Colors.white,
                     ),
                   ),
                   const SizedBox(width: 10),

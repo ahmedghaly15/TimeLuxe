@@ -35,7 +35,7 @@ class OrderItem extends StatelessWidget {
             width: 66,
             color: const Color(0xFF74d592),
             child: GestureDetector(
-              onTap: () => cubit.removeBagProduct(index),
+              onTap: () => cubit.removeBagProduct(bagProduct),
               child: const Icon(
                 FontAwesomeIcons.solidTrashCan,
                 color: Colors.red,

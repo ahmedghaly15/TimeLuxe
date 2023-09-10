@@ -1,34 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:reusable_components/reusable_components.dart';
+import 'package:time_luxe/TimeLuxe/presentation/view/manager/time_luxe_cubit.dart';
 
 import 'package:time_luxe/features/product_details/presentation/views/product_details_view.dart';
 
 import '../../../../core/global/app_colors.dart';
+import '../../../../core/global/app_constants.dart';
 import '../../../../core/global/app_text_styles.dart';
 import '../../../../core/models/watch_model.dart';
 
-class TrendingProductItem extends StatefulWidget {
+class TrendingProductItem extends StatelessWidget {
   const TrendingProductItem({
     super.key,
     required this.model,
+    required this.cubit,
   });
 
   final WatchModel model;
+  final TimeLuxeCubit cubit;
 
-  @override
-  State<TrendingProductItem> createState() => _TrendingProductItemState();
-}
-
-// TODO: modify fav icon color and make it add the item to fav screen
-
-class _TrendingProductItemState extends State<TrendingProductItem> {
-  Color favIconColor = Colors.white;
-  Color cartIconColor = Colors.white;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => CustomNavigator.navigateTo(
-        screen: () => ProductDetailsView(model: widget.model),
+        screen: () => ProductDetailsView(model: model),
       ),
       child: Container(
         height: 173,
@@ -44,15 +39,15 @@ class _TrendingProductItemState extends State<TrendingProductItem> {
         child: Column(
           children: <Widget>[
             Hero(
-              tag: widget.model.id!,
+              tag: model.id!,
               child: Image.asset(
-                widget.model.image!,
+                model.image!,
                 fit: BoxFit.cover,
               ),
             ),
             const SizedBox(height: 8),
             Text(
-              widget.model.name!,
+              model.name!,
               style: AppTextStyles.textStyle15.copyWith(
                 color: Colors.white,
                 fontWeight: FontWeight.w600,
@@ -64,7 +59,7 @@ class _TrendingProductItemState extends State<TrendingProductItem> {
               child: Row(
                 children: <Widget>[
                   Text(
-                    "\$${widget.model.price!}",
+                    "\$${model.price!}",
                     style: AppTextStyles.textStyle15.copyWith(
                       color: Colors.white,
                       fontWeight: FontWeight.normal,
@@ -73,35 +68,37 @@ class _TrendingProductItemState extends State<TrendingProductItem> {
                   const Spacer(),
                   GestureDetector(
                     onTap: () {
-                      setState(() {
-                        if (cartIconColor == Colors.white) {
-                          cartIconColor = AppColors.lightGreen;
-                        } else {
-                          cartIconColor = Colors.white;
-                        }
-                      });
+                      if (AppConstants.bagItems
+                          .any((element) => element == model)) {
+                        cubit.removeBagProduct(model);
+                      } else {
+                        cubit.addToBag(model);
+                      }
                     },
                     child: Icon(
                       Icons.shopping_cart_rounded,
-                      color: cartIconColor,
+                      color: AppConstants.bagItems
+                              .any((element) => element == model)
+                          ? AppColors.primaryColor
+                          : Colors.white,
                       size: 19,
                     ),
                   ),
                   GestureDetector(
                     onTap: () {
-                      setState(() {
-                        if (favIconColor == Colors.white) {
-                          favIconColor = AppColors.lightGreen;
-                        } else {
-                          favIconColor = Colors.white;
-                        }
-                      });
+                      if (cubit.favorites.any((element) => element == model)) {
+                        cubit.removeFromFav(model);
+                      } else {
+                        cubit.addToFav(model);
+                      }
                     },
                     child: Icon(
-                      favIconColor == Colors.white
-                          ? Icons.favorite_border
-                          : Icons.favorite,
-                      color: favIconColor,
+                      cubit.favorites.any((element) => element == model)
+                          ? Icons.favorite
+                          : Icons.favorite_border,
+                      color: cubit.favorites.any((element) => element == model)
+                          ? Colors.red
+                          : Colors.white,
                       size: 19,
                     ),
                   ),

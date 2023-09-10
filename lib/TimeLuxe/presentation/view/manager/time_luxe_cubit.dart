@@ -85,6 +85,11 @@ class TimeLuxeCubit extends Cubit<TimeLuxeStates> {
     emit(ChangeBottomNavToHome());
   }
 
+  void changeBottomNavToBag() {
+    currentIndex = 2;
+    emit(ChangeBottomNavToHome());
+  }
+
   void getUserData(String? uId) {
     emit(GetUserLoadingState());
 
@@ -118,8 +123,8 @@ class TimeLuxeCubit extends Cubit<TimeLuxeStates> {
     emit(AddToBagSuccessState());
   }
 
-  void removeBagProduct(int index) {
-    AppConstants.bagItems.removeAt(index);
+  void removeBagProduct(WatchModel bagProduct) {
+    AppConstants.bagItems.remove(bagProduct);
     emit(RemoveFromBagSuccessState());
   }
 

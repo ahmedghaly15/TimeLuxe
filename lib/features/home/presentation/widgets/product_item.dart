@@ -48,7 +48,13 @@ class ProductItem extends StatelessWidget {
                 top: 0,
                 right: 7,
                 child: IconButton(
-                  onPressed: () => cubit.addToFav(model),
+                  onPressed: () {
+                    if (cubit.favorites.any((element) => element == model)) {
+                      cubit.removeFromFav(model);
+                    } else {
+                      cubit.addToFav(model);
+                    }
+                  },
                   icon: Icon(
                     Icons.favorite,
                     color: cubit.favorites.any((element) => element == model)
