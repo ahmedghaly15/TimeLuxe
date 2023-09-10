@@ -1,12 +1,13 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/core/global/app_text_styles.dart';
 
 import '../../../../core/global/app_assets.dart';
 import '../../../../core/global/app_colors.dart';
 import '../../../../core/widgets/customized_divider.dart';
+import 'checkout_app_bar.dart';
 import 'new_card_text_field.dart';
 import 'payment_methods.dart';
 
@@ -34,32 +35,7 @@ class CheckOutViewBody extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Container(
-                margin: EdgeInsets.only(
-                  top: SizeConfig.screenHeight! * 0.07,
-                  bottom: SizeConfig.screenHeight! * 0.02,
-                ),
-                child: Row(
-                  children: <Widget>[
-                    IconButton(
-                      padding: const EdgeInsets.only(left: 71, right: 40),
-                      icon: SvgPicture.asset(
-                        AppAssets.back,
-                        color: AppColors.primaryColor,
-                      ),
-                      onPressed: () => CustomNavigator.getBack(),
-                    ),
-                    const SizedBox(width: 10),
-                    Text(
-                      "Checkout",
-                      style: AppTextStyles.textStyle32.copyWith(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              const CheckoutAppBar(title: 'Checkout'),
               const CustomizedDivider(),
               Padding(
                 padding: const EdgeInsets.only(left: 18, top: 34, bottom: 80),

@@ -117,4 +117,5 @@ class AppAssets {
   static const String bag2 = 'assets/images/bag/bag2.png';
   static const String bag3 = 'assets/images/bag/bag3.png';
   static const String checkoutImage = 'assets/images/checkoutImage.png';
+  static const String visaCard = 'assets/images/visaCard.png';
 }

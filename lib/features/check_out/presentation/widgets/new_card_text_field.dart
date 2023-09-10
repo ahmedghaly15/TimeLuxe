@@ -16,11 +16,11 @@ class NewCardTextField extends StatefulWidget {
 class _NewCardTextFieldState extends State<NewCardTextField> {
   final TextEditingController textEditingController = TextEditingController();
 
-  @override
-  void dispose() {
-    textEditingController.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   textEditingController.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {

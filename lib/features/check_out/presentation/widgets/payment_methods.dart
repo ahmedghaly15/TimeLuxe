@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../core/global/app_assets.dart';
+import '/features/check_out/presentation/widgets/payment_method.dart';
 
 class PaymentMethods extends StatelessWidget {
   const PaymentMethods({
@@ -10,23 +10,14 @@ class PaymentMethods extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 18),
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 18),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          GestureDetector(
-            onTap: () {},
-            child: SvgPicture.asset(AppAssets.mastercard),
-          ),
-          GestureDetector(
-            onTap: () {},
-            child: SvgPicture.asset(AppAssets.visa),
-          ),
-          GestureDetector(
-            onTap: () {},
-            child: SvgPicture.asset(AppAssets.paypal),
-          ),
+          PaymentMethod(methodLogo: AppAssets.mastercard),
+          PaymentMethod(methodLogo: AppAssets.visa),
+          PaymentMethod(methodLogo: AppAssets.paypal),
         ],
       ),
     );
