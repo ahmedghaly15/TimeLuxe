@@ -19,6 +19,7 @@ TimeLuxe is a Flutter-based mobile application that serves as a watch store. It 
 - [Contributing](#contributing)
 
 ## Preview
+https://github.com/ahmedghaly15/TimeLuxe-App/assets/108659381/389e4345-ebeb-4834-a281-096087719241
 
 ## Getting Started
 
