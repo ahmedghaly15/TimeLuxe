@@ -35,7 +35,7 @@ Before running the application, ensure that you have the following software inst
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/TimeLuxe.git
+git clone https://github.com/ahmedghaly15/TimeLuxe-App
 ```
 
 2. Change into the project directory:

@@ -24,6 +24,9 @@ class _PaymentMethodState extends State<PaymentMethod> {
           });
           Future.delayed(const Duration(milliseconds: 700), () {
             CustomNavigator.navigateTo(screen: () => const MyCardView());
+            setState(() {
+            borderColor = Colors.transparent;
+          });
           });
         } else {
           setState(() {
