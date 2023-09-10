@@ -19,19 +19,20 @@ TimeLuxe is a Flutter-based mobile application that serves as a watch store. It 
 - [Contributing](#contributing)
 
 ## Preview
+
 https://github.com/ahmedghaly15/TimeLuxe-App/assets/108659381/389e4345-ebeb-4834-a281-096087719241
 
 ## Getting Started
 
 To get started with TimeLuxe, follow the steps outlined below.
 
-### Prerequisites
+### `Prerequisites`
 
 Before running the application, ensure that you have the following software installed on your machine:
 
 - Flutter SDK: [Install Flutter](https://flutter.dev/docs/get-started/install)
 
-### Installation
+### `Installation`
 
 1. Clone the repository:
 
@@ -61,31 +62,31 @@ The app should now be running on your connected device or emulator.
 
 ## Features
 
-### Authentication
+### `Authentication`
 
 TimeLuxe incorporates authentication functionality using Firebase. Users can sign in or sign up using their email and password. Additionally, users have the option to reset their password if they forgot it, utilizing Firebase's password reset feature.
 
-### Products
+### `Products`
 
 The app offers a wide range of good-quality products. Users can explore the home screen and search screen to discover various watch options.
 
-### Favorites
+### `Favorites`
 
 Users can add any product to their favorites list. This feature allows users to keep track of their preferred watches for future reference.
 
-### Shopping Bag
+### `Shopping Bag`
 
 Users can add products to their shopping bag. They can choose from different payment methods to complete their purchase.
 
-### Product Details
+### `Product Details`
 
 Users can view the details of any product by clicking on it. This feature allows users to access comprehensive information about the watches they are interested in.
 
-### Update Account
+### `Update Account`
 
 Users can easily update their account information at any time. This feature enables users to keep their personal details up to date.
 
-### Animations
+### `Animations`
 
 The app utilizes animations to ensure a smooth and delightful user experience. These animations enhance the overall usability and visual appeal of the app.
 
