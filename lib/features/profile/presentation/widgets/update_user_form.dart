@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/core/global/app_assets.dart';
@@ -21,7 +22,7 @@ class UpdateUserForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 28),
+      padding: EdgeInsets.symmetric(horizontal: 28.w),
       child: Form(
         key: formKey,
         child: Column(
@@ -46,7 +47,7 @@ class UpdateUserForm extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
               prefixIcon: Padding(
-                padding: const EdgeInsets.only(left: 14, right: 50),
+                padding: EdgeInsets.only(left: 14.w, right: 50.w),
                 child: SvgPicture.asset(AppAssets.iconsPersonIcon),
               ),
               validating: (String? val) {
@@ -56,7 +57,7 @@ class UpdateUserForm extends StatelessWidget {
                 return null;
               },
             ),
-            const SizedBox(height: 40),
+            SizedBox(height: SizeConfig.screenHeight! * 0.04),
             CustomTextFormField(
               backgroundColor: Colors.white.withOpacity(0),
               hint: emailController.text,
@@ -77,7 +78,7 @@ class UpdateUserForm extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
               prefixIcon: Padding(
-                padding: const EdgeInsets.only(left: 14, right: 50),
+                padding: EdgeInsets.only(left: 14.w, right: 50.w),
                 child: SvgPicture.asset(AppAssets.iconsDashiconsEmailAlt),
               ),
               validating: (String? val) {

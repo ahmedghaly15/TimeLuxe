@@ -31,19 +31,18 @@ class MyBanner extends StatelessWidget {
                 Text(
                   "New collections in\n2023",
                   style: AppTextStyles.textStyle32.copyWith(
-                    color: Colors.white,
                     fontWeight: FontWeight.w500,
                   ),
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 40),
+                SizedBox(height: SizeConfig.screenHeight! * 0.015),
                 CustomOutlinedButton(
                   onTap: () {
                     // To Do
                   },
                   text: "Shop Now",
                   color: Colors.white,
-                )
+                ),
               ],
             ),
           ],

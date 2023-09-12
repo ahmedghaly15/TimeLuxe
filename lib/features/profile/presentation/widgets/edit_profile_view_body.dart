@@ -2,6 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/TimeLuxe/presentation/view/manager/time_luxe_cubit.dart';
 import 'package:time_luxe/TimeLuxe/presentation/view/manager/time_luxe_states.dart';
@@ -73,10 +74,10 @@ class EditProfileViewBody extends StatelessWidget {
                 ConditionalBuilder(
                   condition: state is! UserUpdateLoadingState,
                   builder: (context) => Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 28),
+                    padding: EdgeInsets.symmetric(horizontal: 28.w),
                     child: MyCustomButton(
-                      height: 59,
-                      radius: 14,
+                      height: 49.h,
+                      radius: 14.r,
                       width: SizeConfig.screenWidth! * 0.9,
                       backgroundColor: AppColors.primaryColor,
                       onPressed: () {
@@ -105,6 +106,7 @@ class EditProfileViewBody extends StatelessWidget {
                   ),
                   fallback: (context) => const MyCircularProgressIndicator(),
                 ),
+                SizedBox(height: SizeConfig.screenHeight! * 0.04),
               ],
             ),
           ),

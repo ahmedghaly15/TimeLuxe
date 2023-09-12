@@ -35,50 +35,52 @@ class SearchViewBody extends StatelessWidget {
               end: Alignment.bottomCenter,
             ),
           ),
-          child: FadeInUp(
-            from: 20,
-            duration: const Duration(milliseconds: 500),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                SizedBox(height: SizeConfig.screenHeight! * 0.05),
-                SearchTextField(
-                  onTap: () {},
-                  hint: "Search",
-                ),
-                SizedBox(height: SizeConfig.screenHeight! * 0.03),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16.w),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      const TitleText(title: "Featured brands"),
-                      CustomTextButton(
-                        splashColor: AppColors.lightYellow,
-                        onTap: () {},
-                        text: "view more",
-                        textStyle: AppTextStyles.textStyle24.copyWith(
-                          color: AppColors.darkGreen,
-                        ),
-                      ),
-                    ],
+          child: SingleChildScrollView(
+            child: FadeInUp(
+              from: 20,
+              duration: const Duration(milliseconds: 500),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  SizedBox(height: SizeConfig.screenHeight! * 0.05),
+                  SearchTextField(
+                    onTap: () {},
+                    hint: "Search",
                   ),
-                ),
-                SizedBox(height: SizeConfig.screenHeight! * 0.05),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16.w),
-                  child: const BrandsList(),
-                ),
-                SizedBox(height: SizeConfig.screenHeight! * 0.03),
-                Padding(
-                  padding: EdgeInsets.only(left: 16.w, bottom: 16.h),
-                  child: const TitleText(title: "Trending Product"),
-                ),
-                TrendingProductsList(cubit: cubit),
-                const Spacer(flex: 6),
-                const ExploreRecommendations(),
-                const Spacer(flex: 1),
-              ],
+                  SizedBox(height: SizeConfig.screenHeight! * 0.03),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16.w),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        const TitleText(title: "Featured brands"),
+                        CustomTextButton(
+                          splashColor: AppColors.lightYellow,
+                          onTap: () {},
+                          text: "view more",
+                          textStyle: AppTextStyles.textStyle24.copyWith(
+                            color: AppColors.darkGreen,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: SizeConfig.screenHeight! * 0.05),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16.w),
+                    child: const BrandsList(),
+                  ),
+                  SizedBox(height: SizeConfig.screenHeight! * 0.03),
+                  Padding(
+                    padding: EdgeInsets.only(left: 16.w, bottom: 16.h),
+                    child: const TitleText(title: "Trending Product"),
+                  ),
+                  TrendingProductsList(cubit: cubit),
+                  SizedBox(height: SizeConfig.screenHeight! * 0.06),
+                  const ExploreRecommendations(),
+                  SizedBox(height: SizeConfig.screenHeight! * 0.01),
+                ],
+              ),
             ),
           ),
         );

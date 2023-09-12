@@ -25,84 +25,85 @@ class NotificationsViewBody extends StatelessWidget {
           end: Alignment.bottomCenter,
         ),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          SizedBox(height: SizeConfig.screenHeight! * 0.08),
-          Text(
-            "Stay in the Loop",
-            style: AppTextStyles.textStyle32,
-          ),
-          SizedBox(height: SizeConfig.screenHeight! * 0.015),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8.w),
-            child: Text(
-              "We'll send notifications to keep you updated on your orders",
-              style: AppTextStyles.textStyle15,
-              textAlign: TextAlign.center,
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            SizedBox(height: SizeConfig.screenHeight! * 0.08),
+            Text(
+              "Stay in the Loop",
+              style: AppTextStyles.textStyle32,
             ),
-          ),
-          const Spacer(flex: 6),
-          SvgPicture.asset(AppAssets.group1),
-          const Spacer(flex: 8),
-          MyCustomButton(
-            width: 320.w,
-            height: 49.h,
-            radius: 14.r,
-            backgroundColor: AppColors.darkGreen,
-            onPressed: () {
-              CustomHelper.buildSnackBar(
-                context: context,
-                message: "Notifications are turned on",
-                state: SnackBarStates.success,
-                title: "Success",
-              );
-              Future.delayed(
-                const Duration(milliseconds: 400),
-                () => CustomNavigator.navigateAndFinish(
-                  screen: () => const TimeLuxeAppView(),
-                ),
-              );
-            },
-            hasPrefix: false,
-            child: Center(
+            SizedBox(height: SizeConfig.screenHeight! * 0.015),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8.w),
               child: Text(
-                "Turn on Notifications",
-                style: AppTextStyles.textStyle20.copyWith(
-                  fontSize: 23.sp,
-                  fontWeight: FontWeight.normal,
-                  color: Colors.white,
+                "We'll send notifications to keep you updated on your orders",
+                style: AppTextStyles.textStyle15,
+                textAlign: TextAlign.center,
+              ),
+            ),
+            SizedBox(height: SizeConfig.screenHeight! * 0.08),
+            SvgPicture.asset(AppAssets.group1),
+            SizedBox(height: SizeConfig.screenHeight! * 0.1),
+            MyCustomButton(
+              width: 320.w,
+              height: 49.h,
+              radius: 14.r,
+              backgroundColor: AppColors.darkGreen,
+              onPressed: () {
+                CustomHelper.buildSnackBar(
+                  context: context,
+                  message: "Notifications are turned on",
+                  state: SnackBarStates.success,
+                  title: "Success",
+                );
+                Future.delayed(
+                  const Duration(milliseconds: 400),
+                  () => CustomNavigator.navigateAndFinish(
+                    screen: () => const TimeLuxeAppView(),
+                  ),
+                );
+              },
+              hasPrefix: false,
+              child: Center(
+                child: Text(
+                  "Turn on Notifications",
+                  style: AppTextStyles.textStyle20.copyWith(
+                    fontSize: 23.sp,
+                    fontWeight: FontWeight.normal,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
-          ),
-          SizedBox(height: SizeConfig.screenHeight! * 0.01),
-          MyCustomButton(
-            width: 320.w,
-            height: 49.h,
-            radius: 14.r,
-            backgroundColor: Colors.transparent,
-            border: Border.all(
-              color: Colors.white,
-              width: 2,
-            ),
-            onPressed: () => CustomNavigator.navigateAndFinish(
-              screen: () => const TimeLuxeAppView(),
-            ),
-            hasPrefix: false,
-            child: Center(
-              child: Text(
-                "Not Now",
-                style: AppTextStyles.textStyle20.copyWith(
-                  fontSize: 23.sp,
-                  fontWeight: FontWeight.normal,
-                  color: AppColors.darkGreen,
+            SizedBox(height: SizeConfig.screenHeight! * 0.015),
+            MyCustomButton(
+              width: 320.w,
+              height: 49.h,
+              radius: 14.r,
+              backgroundColor: Colors.transparent,
+              border: Border.all(
+                color: Colors.white,
+                width: 2,
+              ),
+              onPressed: () => CustomNavigator.navigateAndFinish(
+                screen: () => const TimeLuxeAppView(),
+              ),
+              hasPrefix: false,
+              child: Center(
+                child: Text(
+                  "Not Now",
+                  style: AppTextStyles.textStyle20.copyWith(
+                    fontSize: 23.sp,
+                    fontWeight: FontWeight.normal,
+                    color: AppColors.darkGreen,
+                  ),
                 ),
               ),
             ),
-          ),
-          const Spacer(flex: 1),
-        ],
+          ],
+        ),
       ),
     );
   }

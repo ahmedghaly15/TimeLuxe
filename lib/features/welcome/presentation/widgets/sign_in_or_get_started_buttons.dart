@@ -26,6 +26,7 @@ class SignInOrGetStartedButtons extends StatelessWidget {
           buttonTitle: "Sign In",
           style: AppTextStyles.textStyle20.copyWith(
             fontWeight: FontWeight.w600,
+            color: Colors.black,
           ),
           backgroundColor: const Color(0xFFD9D9D9),
         ),
@@ -56,7 +57,7 @@ class SignInOrGetStartedButtons extends StatelessWidget {
     return MyCustomButton(
       onPressed: onPressed,
       radius: 18.r,
-      height: 51.h,
+      height: 50.h,
       width: 135.w,
       backgroundColor: backgroundColor,
       hasPrefix: false,

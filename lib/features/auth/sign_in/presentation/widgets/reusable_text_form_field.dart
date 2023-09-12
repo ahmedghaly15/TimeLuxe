@@ -47,7 +47,10 @@ class ReusableTextFormField extends StatelessWidget {
         color: AppColors.hintColor,
         fontWeight: FontWeight.w600,
       ),
-      style: AppTextStyles.textStyle16.copyWith(fontWeight: FontWeight.w600),
+      style: AppTextStyles.textStyle16.copyWith(
+        fontWeight: FontWeight.w600,
+        color: Colors.black,
+      ),
       prefixIcon: Padding(
         padding: EdgeInsets.all(8.0.r),
         child: SvgPicture.asset(icon),

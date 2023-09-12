@@ -18,7 +18,7 @@ class OrLoginWith extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 10.w),
           child: Text(
             "Or login with",
-            style: AppTextStyles.textStyle16,
+            style: AppTextStyles.textStyle16.copyWith(color: Colors.black),
           ),
         ),
         buildDivider(),

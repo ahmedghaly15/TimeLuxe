@@ -21,7 +21,7 @@ class CustomizedAppBar extends StatelessWidget {
         ),
         Positioned(
           left: 15.w,
-          top: 40.w,
+          top: 30.w,
           child: IconButton(
             onPressed: () => CustomNavigator.getBack(),
             icon: Icon(
@@ -33,7 +33,7 @@ class CustomizedAppBar extends StatelessWidget {
         ),
         Positioned(
           left: 105.w,
-          top: 50.w,
+          top: 40.w,
           child: Text(
             "Find your account",
             style: AppTextStyles.textStyle20.copyWith(color: Colors.white),

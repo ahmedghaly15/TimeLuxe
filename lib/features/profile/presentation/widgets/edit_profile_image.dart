@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -30,16 +31,16 @@ class EditProfileImage extends StatelessWidget {
       children: <Widget>[
         CircleAvatar(
           backgroundColor: AppColors.primaryColor,
-          radius: 110,
+          radius: 110.r,
           backgroundImage: (profileImage == null
               ? NetworkImage(userModel.image!)
               : FileImage(profileImage!)) as ImageProvider,
         ),
         Padding(
-          padding: const EdgeInsets.only(bottom: 8.0),
+          padding: EdgeInsets.only(bottom: 8.0.h),
           child: CircleAvatar(
             backgroundColor: Colors.white,
-            radius: 28,
+            radius: 28.r,
             child: GestureDetector(
               onTap: () => Helper.buildBottomSheet(
                 type: "Profile",
@@ -54,8 +55,8 @@ class EditProfileImage extends StatelessWidget {
               child: SvgPicture.asset(
                 AppAssets.cameraIcon,
                 color: const Color(0xFF0FA958),
-                height: 35,
-                width: 35,
+                height: 35.h,
+                width: 35.h,
               ),
             ),
           ),

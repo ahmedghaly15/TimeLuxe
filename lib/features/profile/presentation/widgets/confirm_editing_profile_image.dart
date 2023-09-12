@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/TimeLuxe/presentation/view/manager/time_luxe_cubit.dart';
 
@@ -25,8 +26,8 @@ class ConfirmEditingProfileImage extends StatelessWidget {
     return Column(
       children: <Widget>[
         MyCustomButton(
-          radius: 32,
-          height: 40,
+          radius: 32.r,
+          height: 40.h,
           width: SizeConfig.screenWidth! * 0.5,
           backgroundColor: AppColors.primaryColor,
           onPressed: () => cubit.uploadProfileImage(

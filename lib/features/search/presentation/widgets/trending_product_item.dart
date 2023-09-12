@@ -27,8 +27,7 @@ class TrendingProductItem extends StatelessWidget {
         screen: () => ProductDetailsView(model: model),
       ),
       child: Container(
-        height: 150.h,
-        width: 110.w,
+        width: SizeConfig.screenWidth! * 0.35,
         decoration: BoxDecoration(
           color: Colors.transparent,
           border: Border.all(
@@ -44,6 +43,7 @@ class TrendingProductItem extends StatelessWidget {
               child: Image.asset(
                 model.image!,
                 fit: BoxFit.cover,
+                width: SizeConfig.screenWidth! * 0.35,
               ),
             ),
             const Spacer(flex: 1),

@@ -101,7 +101,7 @@ class CheckOutViewBody extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: SizeConfig.screenHeight! * 0.015),
+              SizedBox(height: SizeConfig.screenHeight! * 0.035),
             ],
           ),
         ),

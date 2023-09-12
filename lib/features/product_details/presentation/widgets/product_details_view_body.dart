@@ -27,7 +27,7 @@ class ProductDetailsViewBody extends StatelessWidget {
       child: Column(
         children: <Widget>[
           ProductInfo(model: model),
-          const Spacer(flex: 3),
+          const Spacer(flex: 2),
           const ChatAndAddToCartButton(),
           const Spacer(flex: 1),
         ],

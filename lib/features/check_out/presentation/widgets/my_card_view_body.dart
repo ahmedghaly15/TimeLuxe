@@ -57,6 +57,7 @@ class MyCardViewBody extends StatelessWidget {
                   ),
                 ),
               ),
+              SizedBox(height: SizeConfig.screenHeight! * 0.035),
             ],
           ),
         ),

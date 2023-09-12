@@ -26,51 +26,46 @@ class SignUpViewBody extends StatelessWidget {
         SignUpViewCubit cubit = SignUpViewCubit.getObject(context);
 
         return SingleChildScrollView(
-          child: SizedBox(
-            // To allow using SingleChildScrollView Widget
-            height: SizeConfig.screenHeight,
-            width: SizeConfig.screenWidth,
-
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                TitleText(
-                  title: "Let's Get Started",
-                  bottomPadding: 20.h,
-                ),
-                SignUpForm(cubit: cubit, state: state),
-                SizedBox(height: SizeConfig.screenHeight! * 0.035),
-                const OrLoginWith(),
-                SizedBox(height: SizeConfig.screenHeight! * 0.025),
-                SocialButtons(signUpViewCubit: cubit),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      "Do you have an account?",
-                      style: AppTextStyles.textStyle13,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              TitleText(
+                title: "Let's Get Started",
+                bottomPadding: 20.h,
+              ),
+              SignUpForm(cubit: cubit, state: state),
+              SizedBox(height: SizeConfig.screenHeight! * 0.035),
+              const OrLoginWith(),
+              SizedBox(height: SizeConfig.screenHeight! * 0.025),
+              SocialButtons(signUpViewCubit: cubit),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    "Do you have an account?",
+                    style:
+                        AppTextStyles.textStyle13.copyWith(color: Colors.black),
+                  ),
+                  const CustomVerticalDivider(
+                    width: 1,
+                    height: 16,
+                    margin: EdgeInsets.symmetric(horizontal: 4),
+                    color: Colors.black,
+                  ),
+                  CustomTextButton(
+                    onTap: () => CustomNavigator.navigateAndFinishAll(
+                      screen: () => const SignInView(),
                     ),
-                    const CustomVerticalDivider(
-                      width: 1,
-                      height: 16,
-                      margin: EdgeInsets.symmetric(horizontal: 4),
-                      color: Colors.black,
+                    text: "Sign in",
+                    textStyle: AppTextStyles.textStyle13.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.primaryColor,
                     ),
-                    CustomTextButton(
-                      onTap: () => CustomNavigator.navigateAndFinishAll(
-                        screen: () => const SignInView(),
-                      ),
-                      text: "Sign in",
-                      textStyle: AppTextStyles.textStyle13.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: AppColors.primaryColor,
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: SizeConfig.screenHeight! * 0.025),
-              ],
-            ),
+                  ),
+                ],
+              ),
+              SizedBox(height: SizeConfig.screenHeight! * 0.045),
+            ],
           ),
         );
       },

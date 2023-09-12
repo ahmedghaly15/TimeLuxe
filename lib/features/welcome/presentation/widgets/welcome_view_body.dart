@@ -18,7 +18,10 @@ class WelcomeViewBody extends StatelessWidget {
           fit: BoxFit.cover,
         ),
         Padding(
-          padding: EdgeInsets.all(20.0.w),
+          padding: EdgeInsets.symmetric(
+            horizontal: 20.0.w,
+            vertical: 30.h,
+          ),
           child: const WelcomeContainer(),
         ),
       ],

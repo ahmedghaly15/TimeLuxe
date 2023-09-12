@@ -39,7 +39,7 @@ class PopularProducts extends StatelessWidget {
           clipBehavior: Clip.hardEdge,
           gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 200,
-            mainAxisExtent: 230,
+            mainAxisExtent: 235,
             mainAxisSpacing: 26,
             crossAxisSpacing: 15,
             childAspectRatio: 3 / 2,

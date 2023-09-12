@@ -16,7 +16,7 @@ class TrendingProductsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 152.h,
+      height: 170.h,
       child: ListView.separated(
         physics: const BouncingScrollPhysics(),
         padding: EdgeInsets.symmetric(horizontal: 22.w),

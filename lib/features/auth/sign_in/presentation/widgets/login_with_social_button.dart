@@ -68,8 +68,8 @@ class LoginWithSocialButton extends StatelessWidget {
               child: Text(
                 text,
                 style: isActive
-                    ? AppTextStyles.textStyle16.copyWith(color: Colors.white)
-                    : AppTextStyles.textStyle16,
+                    ? AppTextStyles.textStyle16
+                    : AppTextStyles.textStyle16.copyWith(color: Colors.black),
               ),
             ),
           ),

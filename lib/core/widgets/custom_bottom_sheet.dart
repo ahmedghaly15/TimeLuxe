@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reusable_components/reusable_components.dart';
 
 class CustomBottomSheet extends StatelessWidget {
@@ -18,30 +19,30 @@ class CustomBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 8.0),
+      padding: EdgeInsets.only(bottom: 8.0.h),
       child: BottomSheet(
         enableDrag: true,
         onClosing: () => CustomNavigator.getBack(),
         builder: (context) {
           return ListView(
             shrinkWrap: true,
-            padding: const EdgeInsets.symmetric(
-              horizontal: 10,
-              vertical: 5,
+            padding: EdgeInsets.symmetric(
+              horizontal: 10.w,
+              vertical: 5.h,
             ),
             children: <Widget>[
-              const SizedBox(height: 8),
+              SizedBox(height: SizeConfig.screenHeight! * 0.008),
               Text(
                 "Pick $type Picture",
                 style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w500,
-                  color: Colors.white,
+                  color: Colors.black,
                   letterSpacing: 0.5,
                 ),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 10),
+              SizedBox(height: SizeConfig.screenHeight! * 0.01),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
@@ -50,12 +51,12 @@ class CustomBottomSheet extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
                       shape: const CircleBorder(),
-                      fixedSize: const Size(180, 130),
+                      fixedSize: Size(150.w, 130.h),
                     ),
                     child: Image.asset(
                       'assets/images/image_change/add_image.png',
-                      width: 180,
-                      height: 100,
+                      width: 180.w,
+                      height: 100.h,
                     ),
                   ),
                   ElevatedButton(
@@ -63,12 +64,12 @@ class CustomBottomSheet extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
                       shape: const CircleBorder(),
-                      fixedSize: const Size(180, 130),
+                      fixedSize: Size(150.w, 130.h),
                     ),
                     child: Image.asset(
                       'assets/images/image_change/camera.png',
-                      width: 180,
-                      height: 100,
+                      width: 180.w,
+                      height: 100.h,
                     ),
                   ),
                 ],

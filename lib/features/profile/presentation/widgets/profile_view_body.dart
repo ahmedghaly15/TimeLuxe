@@ -44,43 +44,45 @@ class ProfileViewBody extends StatelessWidget {
                 end: Alignment.bottomCenter,
               ),
             ),
-            child: FadeInUp(
-              from: 20,
-              duration: const Duration(milliseconds: 500),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  SizedBox(height: SizeConfig.screenHeight! * 0.05),
-                  CustomAppBar(
-                    padding: EdgeInsets.symmetric(horizontal: 16.w),
-                    title: "Profile",
-                    actions: Row(
-                      children: <Widget>[
-                        Icon(
-                          Icons.email_outlined,
-                          size: 35.w,
-                          color: Colors.white,
-                        ),
-                        SizedBox(width: SizeConfig.screenWidth! * 0.05),
-                        SvgPicture.asset(
-                          AppAssets.profileNotificationsIcon,
-                          color: AppColors.primaryColor,
-                        ),
-                      ],
+            child: SingleChildScrollView(
+              child: FadeInUp(
+                from: 20,
+                duration: const Duration(milliseconds: 500),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    SizedBox(height: SizeConfig.screenHeight! * 0.05),
+                    CustomAppBar(
+                      padding: EdgeInsets.symmetric(horizontal: 16.w),
+                      title: "Profile",
+                      actions: Row(
+                        children: <Widget>[
+                          Icon(
+                            Icons.email_outlined,
+                            size: 35.w,
+                            color: Colors.white,
+                          ),
+                          SizedBox(width: SizeConfig.screenWidth! * 0.05),
+                          SvgPicture.asset(
+                            AppAssets.profileNotificationsIcon,
+                            color: AppColors.primaryColor,
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  SizedBox(height: SizeConfig.screenHeight! * 0.02),
-                  const CustomizedDivider(),
-                  SizedBox(height: SizeConfig.screenHeight! * 0.025),
-                  CurrentUserInfo(user: user),
-                  SizedBox(height: SizeConfig.screenHeight! * 0.02),
-                  const UserServices(),
-                  SizedBox(height: SizeConfig.screenHeight! * 0.006),
-                  const SettingsTitle(title: "General Settings"),
-                  const GeneralSettings(),
-                  const SettingsTitle(title: "Other"),
-                  const OtherSettings(),
-                ],
+                    SizedBox(height: SizeConfig.screenHeight! * 0.02),
+                    const CustomizedDivider(),
+                    SizedBox(height: SizeConfig.screenHeight! * 0.025),
+                    CurrentUserInfo(user: user),
+                    SizedBox(height: SizeConfig.screenHeight! * 0.02),
+                    const UserServices(),
+                    SizedBox(height: SizeConfig.screenHeight! * 0.006),
+                    const SettingsTitle(title: "General Settings"),
+                    const GeneralSettings(),
+                    const SettingsTitle(title: "Other"),
+                    const OtherSettings(),
+                  ],
+                ),
               ),
             ),
           ),
