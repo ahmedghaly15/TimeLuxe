@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:time_luxe/TimeLuxe/presentation/view/manager/time_luxe_cubit.dart';
 
 import '../../../../core/global/app_constants.dart';
@@ -15,16 +16,16 @@ class TrendingProductsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 172,
+      height: 152.h,
       child: ListView.separated(
         physics: const BouncingScrollPhysics(),
-        padding: const EdgeInsets.symmetric(horizontal: 22),
+        padding: EdgeInsets.symmetric(horizontal: 22.w),
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) => TrendingProductItem(
           cubit: cubit,
           model: AppConstants.trendingProducts[index],
         ),
-        separatorBuilder: (context, index) => const SizedBox(width: 26),
+        separatorBuilder: (context, index) => SizedBox(width: 26.w),
         itemCount: AppConstants.trendingProducts.length,
       ),
     );

@@ -14,6 +14,7 @@ class BrandsList extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       padding: EdgeInsets.zero,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           BrandCircle(image: AppAssets.breitling),
           BrandCircle(image: AppAssets.omega),

@@ -1,5 +1,6 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/core/widgets/my_circular_progress_indicator.dart';
 import 'package:time_luxe/features/auth/forgot_password/presentation/cubit/forgot_password_view_cubit.dart';
@@ -59,9 +60,9 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
               alignment: AlignmentDirectional.centerEnd,
               child: MyCustomButton(
                 backgroundColor: AppColors.primaryColor,
-                height: 40,
+                height: 35.h,
                 width: SizeConfig.screenWidth! * 0.35,
-                radius: 14,
+                radius: 14.r,
                 hasPrefix: false,
                 onPressed: () => resetPassword(context),
                 child: Center(

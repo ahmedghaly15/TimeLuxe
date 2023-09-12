@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reusable_components/reusable_components.dart';
 
 import '../../../../../core/global/app_colors.dart';
@@ -19,20 +20,20 @@ class CustomizedAppBar extends StatelessWidget {
           color: AppColors.primaryColor,
         ),
         Positioned(
-          left: 15,
-          top: 40,
+          left: 15.w,
+          top: 40.w,
           child: IconButton(
             onPressed: () => CustomNavigator.getBack(),
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back_ios,
               color: Colors.white,
-              size: 25,
+              size: 25.w,
             ),
           ),
         ),
         Positioned(
-          left: 105,
-          top: 50,
+          left: 105.w,
+          top: 50.w,
           child: Text(
             "Find your account",
             style: AppTextStyles.textStyle20.copyWith(color: Colors.white),

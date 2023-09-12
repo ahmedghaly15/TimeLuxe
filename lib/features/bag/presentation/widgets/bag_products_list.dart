@@ -1,5 +1,7 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:reusable_components/reusable_components.dart';
 
 import 'package:time_luxe/core/widgets/fall_back_text.dart';
 
@@ -22,17 +24,17 @@ class BagProductsList extends StatelessWidget {
     return ConditionalBuilder(
       condition: AppConstants.bagItems.isNotEmpty,
       builder: (context) => Padding(
-        padding: const EdgeInsets.only(bottom: 20),
+        padding: EdgeInsets.only(bottom: 20.h),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
             const BrandName(),
-            const SizedBox(height: 32),
+            SizedBox(height: SizeConfig.screenHeight! * 0.032),
             Column(
               children: List.generate(
                 AppConstants.bagItems.length,
                 (index) => Padding(
-                  padding: const EdgeInsets.only(bottom: 10),
+                  padding: EdgeInsets.only(bottom: 10.h),
                   child: OrderItem(
                     cubit: cubit,
                     bagProduct: AppConstants.bagItems[index],

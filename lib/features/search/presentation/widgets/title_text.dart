@@ -14,9 +14,7 @@ class TitleText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
-      style: AppTextStyles.textStyle24.copyWith(
-        color: Colors.white,
-      ),
+      style: AppTextStyles.textStyle24,
     );
   }
 }

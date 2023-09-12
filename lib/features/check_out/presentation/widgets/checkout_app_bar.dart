@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:reusable_components/reusable_components.dart';
 
@@ -23,20 +24,25 @@ class CheckoutAppBar extends StatelessWidget {
       ),
       child: Row(
         children: <Widget>[
-          IconButton(
-            padding: const EdgeInsets.only(left: 71, right: 40),
-            icon: SvgPicture.asset(
-              AppAssets.back,
-              color: AppColors.primaryColor,
+          Container(
+            margin: EdgeInsets.only(left: 50.w),
+            child: IconButton(
+              padding: EdgeInsets.zero,
+              icon: SvgPicture.asset(
+                AppAssets.back,
+                color: AppColors.primaryColor,
+              ),
+              onPressed: () => CustomNavigator.getBack(),
             ),
-            onPressed: () => CustomNavigator.getBack(),
           ),
-          const SizedBox(width: 10),
-          Text(
-            title,
-            style: AppTextStyles.textStyle32.copyWith(
-              color: Colors.white,
-              fontWeight: FontWeight.w500,
+          SizedBox(width: SizeConfig.screenWidth! * 0.1),
+          Expanded(
+            child: Text(
+              title,
+              style: AppTextStyles.textStyle32.copyWith(
+                color: Colors.white,
+                fontWeight: FontWeight.w500,
+              ),
             ),
           ),
         ],

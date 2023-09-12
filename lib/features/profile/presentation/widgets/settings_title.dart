@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/global/app_text_styles.dart';
 
@@ -13,12 +14,11 @@ class SettingsTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: Text(
         title,
         style: AppTextStyles.textStyle24.copyWith(
           fontWeight: FontWeight.w600,
-          color: Colors.white,
         ),
       ),
     );

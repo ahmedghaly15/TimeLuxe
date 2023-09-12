@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:reusable_components/reusable_components.dart';
 
@@ -31,12 +32,12 @@ class ProductDetailsView extends StatelessWidget {
       title: Text(
         "Back",
         style: AppTextStyles.textStyle24.copyWith(
-          color: Colors.white,
           fontWeight: FontWeight.w600,
+          color: Colors.white,
         ),
       ),
       leading: IconButton(
-        padding: const EdgeInsets.only(left: 20),
+        padding: EdgeInsets.only(left: 20.w),
         icon: SvgPicture.asset(
           AppAssets.back,
           color: AppColors.primaryColor,

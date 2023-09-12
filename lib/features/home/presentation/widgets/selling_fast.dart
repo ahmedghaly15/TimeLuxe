@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/TimeLuxe/presentation/view/manager/time_luxe_cubit.dart';
@@ -22,14 +23,14 @@ class SellingFast extends StatelessWidget {
           children: <Widget>[
             Text(
               "Selling fast ",
-              style: AppTextStyles.textStyle27.copyWith(color: Colors.white),
+              style: AppTextStyles.textStyle27,
             ),
             SvgPicture.asset(AppAssets.fireEmoji),
           ],
         ),
-        const SizedBox(height: 18),
+        SizedBox(height: SizeConfig.screenHeight! * 0.018),
         SizedBox(
-          height: SizeConfig.screenHeight! * 0.26,
+          height: 195.h,
           child: ListView.separated(
             padding: EdgeInsets.zero,
             physics: const BouncingScrollPhysics(),
@@ -38,7 +39,7 @@ class SellingFast extends StatelessWidget {
               cubit: cubit,
               model: AppConstants.sellingFast[index],
             ),
-            separatorBuilder: (context, index) => const SizedBox(width: 10),
+            separatorBuilder: (context, index) => SizedBox(width: 10.w),
             itemCount: AppConstants.sellingFast.length,
           ),
         ),

@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/core/global/app_text_styles.dart';
@@ -38,34 +39,36 @@ class CheckOutViewBody extends StatelessWidget {
               const CheckoutAppBar(title: 'Checkout'),
               const CustomizedDivider(),
               Padding(
-                padding: const EdgeInsets.only(left: 18, top: 34, bottom: 80),
+                padding: EdgeInsets.only(
+                  left: 18.w,
+                  top: 34.h,
+                  bottom: 50.h,
+                ),
                 child: Text(
                   "Select Your Payment Method",
                   style: AppTextStyles.textStyle24.copyWith(
-                    color: Colors.white,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
               const PaymentMethods(),
-              const SizedBox(height: 60),
+              SizedBox(height: SizeConfig.screenHeight! * 0.055),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 18),
+                padding: EdgeInsets.symmetric(horizontal: 18.w),
                 child: Image.asset(AppAssets.checkoutImage),
               ),
-              const SizedBox(height: 54),
+              SizedBox(height: SizeConfig.screenHeight! * 0.055),
               const NewCardTextField(),
-              const SizedBox(height: 17),
+              SizedBox(height: SizeConfig.screenHeight! * 0.017),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 18),
+                padding: EdgeInsets.symmetric(horizontal: 18.w),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text(
                       "Subtotal",
                       style: AppTextStyles.textStyle27.copyWith(
-                        color: Colors.white,
-                        fontSize: 23,
+                        fontSize: 23.sp,
                       ),
                     ),
                     Text(
@@ -78,27 +81,27 @@ class CheckOutViewBody extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 48),
+              SizedBox(height: SizeConfig.screenHeight! * 0.065),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 18),
+                padding: EdgeInsets.symmetric(horizontal: 18.w),
                 child: MyCustomButton(
-                  height: 59,
+                  height: 49.h,
                   width: SizeConfig.screenWidth! * 0.9,
                   backgroundColor: AppColors.primaryColor,
-                  radius: 8,
+                  radius: 8.r,
                   onPressed: () {},
                   hasPrefix: false,
                   child: Center(
                     child: Text(
                       "Buy Now",
                       style: AppTextStyles.textStyle27.copyWith(
-                        color: Colors.white,
-                        fontSize: 23,
+                        fontSize: 23.sp,
                       ),
                     ),
                   ),
                 ),
               ),
+              SizedBox(height: SizeConfig.screenHeight! * 0.015),
             ],
           ),
         ),

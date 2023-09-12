@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reusable_components/reusable_components.dart';
+import 'package:time_luxe/core/global/app_text_styles.dart';
 
 import 'package:time_luxe/core/models/watch_model.dart';
 import 'package:time_luxe/features/product_details/presentation/views/product_details_view.dart';
@@ -27,14 +29,11 @@ class ProductItem extends StatelessWidget {
         children: <Widget>[
           Stack(
             children: <Widget>[
-              Container(
-                width: 180,
-                height: 170,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                ),
+              SizedBox(
+                width: 180.w,
+                height: 140.h,
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(18),
+                  borderRadius: BorderRadius.circular(18.r),
                   child: Hero(
                     tag: model.id!,
                     child: Image.asset(
@@ -45,8 +44,7 @@ class ProductItem extends StatelessWidget {
                 ),
               ),
               Positioned(
-                top: 0,
-                right: 7,
+                right: 7.w,
                 child: IconButton(
                   onPressed: () {
                     if (cubit.favorites.any((element) => element == model)) {
@@ -65,23 +63,19 @@ class ProductItem extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 10),
+          SizedBox(height: SizeConfig.screenHeight! * 0.01),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
                 model.name!,
-                style: const TextStyle(
-                  fontSize: 15,
-                  color: Colors.white,
+                style: AppTextStyles.textStyle15.copyWith(
                   fontWeight: FontWeight.w400,
                 ),
               ),
               Text(
                 "\$${model.price!}",
-                style: const TextStyle(
-                  fontSize: 15,
-                  color: Colors.white,
+                style: AppTextStyles.textStyle15.copyWith(
                   fontWeight: FontWeight.w400,
                 ),
               ),

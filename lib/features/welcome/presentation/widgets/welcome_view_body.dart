@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'welcome_container.dart';
 
@@ -16,9 +17,9 @@ class WelcomeViewBody extends StatelessWidget {
           'assets/images/watch_background.png',
           fit: BoxFit.cover,
         ),
-        const Padding(
-          padding: EdgeInsets.all(25.0),
-          child: WelcomeContainer(),
+        Padding(
+          padding: EdgeInsets.all(20.0.w),
+          child: const WelcomeContainer(),
         ),
       ],
     );

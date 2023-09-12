@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/global/app_colors.dart';
 import '../../../../core/global/app_text_styles.dart';
@@ -28,7 +29,7 @@ class ProfileIconTextButton extends StatelessWidget {
       icon: Icon(
         icon,
         color: AppColors.primaryColor,
-        size: 24,
+        size: 24.w,
       ),
       onPressed: onPressed,
     );

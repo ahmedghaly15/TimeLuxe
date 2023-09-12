@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/TimeLuxe/presentation/view/manager/time_luxe_cubit.dart';
 
@@ -26,8 +27,8 @@ class TrendingProductItem extends StatelessWidget {
         screen: () => ProductDetailsView(model: model),
       ),
       child: Container(
-        height: 173,
-        width: 115,
+        height: 150.h,
+        width: 110.w,
         decoration: BoxDecoration(
           color: Colors.transparent,
           border: Border.all(
@@ -45,7 +46,7 @@ class TrendingProductItem extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            const SizedBox(height: 8),
+            const Spacer(flex: 1),
             Text(
               model.name!,
               style: AppTextStyles.textStyle15.copyWith(
@@ -55,13 +56,12 @@ class TrendingProductItem extends StatelessWidget {
             ),
             const Spacer(flex: 2),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              padding: EdgeInsets.symmetric(horizontal: 8.0.w),
               child: Row(
                 children: <Widget>[
                   Text(
                     "\$${model.price!}",
                     style: AppTextStyles.textStyle15.copyWith(
-                      color: Colors.white,
                       fontWeight: FontWeight.normal,
                     ),
                   ),
@@ -81,7 +81,7 @@ class TrendingProductItem extends StatelessWidget {
                               .any((element) => element == model)
                           ? AppColors.primaryColor
                           : Colors.white,
-                      size: 19,
+                      size: 19.w,
                     ),
                   ),
                   GestureDetector(
@@ -99,7 +99,7 @@ class TrendingProductItem extends StatelessWidget {
                       color: cubit.favorites.any((element) => element == model)
                           ? Colors.red
                           : Colors.white,
-                      size: 19,
+                      size: 19.w,
                     ),
                   ),
                 ],

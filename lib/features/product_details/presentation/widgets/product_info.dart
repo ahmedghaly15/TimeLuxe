@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reusable_components/reusable_components.dart';
 
 import '../../../../core/global/app_colors.dart';
@@ -18,68 +19,70 @@ class ProductInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: SizeConfig.screenHeight! * 0.7,
+      height: SizeConfig.screenHeight! * 0.72,
       width: SizeConfig.screenWidth,
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         color: AppColors.grey,
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(50.0),
-          bottomRight: Radius.circular(50.0),
+          bottomLeft: Radius.circular(50.0.r),
+          bottomRight: Radius.circular(50.0.r),
         ),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          const SizedBox(height: 65),
-          Center(
-            child: Hero(
-              tag: model.id!,
-              child: ClipRRect(
-                borderRadius: const BorderRadius.all(Radius.circular(64)),
-                child: Image.asset(
-                  model.image!,
-                  fit: BoxFit.cover,
-                  height: 257,
-                  width: 269,
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            SizedBox(height: SizeConfig.screenHeight! * 0.065),
+            Center(
+              child: Hero(
+                tag: model.id!,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(64.r)),
+                  child: Image.asset(
+                    model.image!,
+                    fit: BoxFit.cover,
+                    height: 210.h,
+                    width: 260.w,
+                  ),
                 ),
               ),
             ),
-          ),
-          const SizedBox(height: 21),
-          const ColorDotsList(),
-          Padding(
-            padding: const EdgeInsets.only(left: 16),
-            child: Text(
-              model.name!,
-              style: AppTextStyles.textStyle24.copyWith(
-                color: Colors.white,
-                fontWeight: FontWeight.w600,
+            SizedBox(height: SizeConfig.screenHeight! * 0.021),
+            const ColorDotsList(),
+            Padding(
+              padding: EdgeInsets.only(left: 16.w),
+              child: Text(
+                model.name!,
+                style: AppTextStyles.textStyle24.copyWith(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
-          ),
-          const SizedBox(height: 10),
-          Padding(
-            padding: const EdgeInsets.only(left: 16),
-            child: Text(
-              "\$${model.price!}",
-              style: AppTextStyles.textStyle15.copyWith(
-                color: Colors.white,
-                fontWeight: FontWeight.w900,
+            SizedBox(height: SizeConfig.screenHeight! * 0.01),
+            Padding(
+              padding: EdgeInsets.only(left: 16.w),
+              child: Text(
+                "\$${model.price!}",
+                style: AppTextStyles.textStyle15.copyWith(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w900,
+                ),
               ),
             ),
-          ),
-          const SizedBox(height: 12),
-          Padding(
-            padding: const EdgeInsets.only(left: 35),
-            child: Text(
-              model.description!,
-              style: AppTextStyles.textStyle14.copyWith(
-                color: Colors.white,
-                fontWeight: FontWeight.normal,
+            SizedBox(height: SizeConfig.screenHeight! * 0.012),
+            Padding(
+              padding: EdgeInsets.only(left: 16.w),
+              child: Text(
+                model.description!,
+                style: AppTextStyles.textStyle14.copyWith(
+                  color: Colors.white,
+                  fontWeight: FontWeight.normal,
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

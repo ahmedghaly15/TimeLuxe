@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/TimeLuxe/presentation/view/manager/time_luxe_cubit.dart';
 
@@ -14,18 +15,18 @@ class UserServices extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 90,
+      height: 85.h,
       width: SizeConfig.screenWidth,
-      margin: const EdgeInsets.symmetric(horizontal: 9.0),
-      padding: const EdgeInsets.only(
-        right: 18,
-        left: 18,
-        top: 13,
-        bottom: 7,
+      margin: EdgeInsets.symmetric(horizontal: 9.0.w),
+      padding: EdgeInsets.only(
+        right: 18.w,
+        left: 18.w,
+        top: 12.h,
+        bottom: 7.h,
       ),
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         color: AppColors.primaryColor,
-        borderRadius: BorderRadius.all(Radius.circular(8)),
+        borderRadius: BorderRadius.all(Radius.circular(8.r)),
       ),
       child: Row(
         children: <Widget>[
@@ -36,10 +37,10 @@ class UserServices extends StatelessWidget {
             icon: AppAssets.orderApproveIcon,
           ),
           const Spacer(flex: 1),
-          const CustomVerticalDivider(
+          CustomVerticalDivider(
             color: Colors.white,
-            width: 1,
-            height: 76,
+            width: 1.w,
+            height: 76.h,
           ),
           const Spacer(flex: 2),
           UserService(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/features/check_out/presentation/views/my_card_view.dart';
@@ -25,8 +26,8 @@ class _PaymentMethodState extends State<PaymentMethod> {
           Future.delayed(const Duration(milliseconds: 700), () {
             CustomNavigator.navigateTo(screen: () => const MyCardView());
             setState(() {
-            borderColor = Colors.transparent;
-          });
+              borderColor = Colors.transparent;
+            });
           });
         } else {
           setState(() {
@@ -36,9 +37,10 @@ class _PaymentMethodState extends State<PaymentMethod> {
       },
       child: Container(
         decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(8.r)),
           border: Border.all(
             color: borderColor,
-            width: borderColor == Colors.red ? 2 : 1,
+            width: borderColor == Colors.red ? 3 : 0,
           ),
         ),
         child: SvgPicture.asset(widget.methodLogo),

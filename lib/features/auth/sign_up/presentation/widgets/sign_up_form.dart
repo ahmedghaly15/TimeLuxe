@@ -1,5 +1,6 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reusable_components/reusable_components.dart';
 
 import '../../../../../core/global/app_assets.dart';
@@ -139,9 +140,9 @@ class _SignUpFormState extends State<SignUpForm> {
               condition: widget.state is! SignUpLoadingState,
               builder: (context) => MyCustomButton(
                 backgroundColor: AppColors.primaryColor,
-                height: 59,
-                width: 375,
-                radius: 14,
+                height: 49.h,
+                width: 320.w,
+                radius: 14.r,
                 hasPrefix: false,
                 onPressed: () => signUp(context),
                 child: Center(

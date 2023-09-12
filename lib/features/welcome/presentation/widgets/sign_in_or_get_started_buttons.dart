@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/core/global/app_colors.dart';
 import 'package:time_luxe/core/global/app_text_styles.dart';
@@ -16,49 +17,55 @@ class SignInOrGetStartedButtons extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        MyCustomButton(
+        welcomeButton(
           onPressed: () {
             CustomNavigator.navigateTo(
               screen: () => const SignInView(),
             );
           },
-          radius: 18,
-          height: 61,
-          width: SizeConfig.screenWidth! * 0.36,
+          buttonTitle: "Sign In",
+          style: AppTextStyles.textStyle20.copyWith(
+            fontWeight: FontWeight.w600,
+          ),
           backgroundColor: const Color(0xFFD9D9D9),
-          hasPrefix: false,
-          child: Center(
-              child: Text(
-            "Sign in",
-            style: AppTextStyles.textStyle20.copyWith(
-              fontWeight: FontWeight.w600,
-            ),
-          )),
         ),
-        const SizedBox(
-          width: 24,
-        ),
-        MyCustomButton(
+        SizedBox(width: SizeConfig.screenWidth! * 0.03),
+        welcomeButton(
+          buttonTitle: "Get Started",
+          style: AppTextStyles.textStyle20.copyWith(
+            fontWeight: FontWeight.w600,
+            color: Colors.white,
+          ),
+          backgroundColor: AppColors.primaryColor,
           onPressed: () {
             CustomNavigator.navigateTo(
               screen: () => const SignUpView(),
             );
           },
-          radius: 18,
-          height: 61,
-          width: SizeConfig.screenWidth! * 0.36,
-          backgroundColor: AppColors.primaryColor,
-          hasPrefix: false,
-          child: Center(
-              child: Text(
-            "Get Started",
-            style: AppTextStyles.textStyle20.copyWith(
-              color: Colors.white,
-              fontWeight: FontWeight.w600,
-            ),
-          )),
-        )
+        ),
       ],
+    );
+  }
+
+  MyCustomButton welcomeButton({
+    required String buttonTitle,
+    required Color backgroundColor,
+    required VoidCallback onPressed,
+    required TextStyle style,
+  }) {
+    return MyCustomButton(
+      onPressed: onPressed,
+      radius: 18.r,
+      height: 51.h,
+      width: 135.w,
+      backgroundColor: backgroundColor,
+      hasPrefix: false,
+      child: Center(
+        child: Text(
+          buttonTitle,
+          style: style,
+        ),
+      ),
     );
   }
 }

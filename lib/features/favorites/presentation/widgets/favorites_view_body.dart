@@ -2,6 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/TimeLuxe/presentation/view/manager/time_luxe_cubit.dart';
 import 'package:time_luxe/TimeLuxe/presentation/view/manager/time_luxe_states.dart';
@@ -24,7 +25,7 @@ class FavoritesViewBody extends StatelessWidget {
       return Container(
         height: SizeConfig.screenHeight,
         width: SizeConfig.screenWidth,
-        padding: const EdgeInsets.only(top: 32),
+        padding: EdgeInsets.symmetric(vertical: 24.h),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: AppColors.gradientColors,
@@ -54,7 +55,7 @@ class FavoritesViewBody extends StatelessWidget {
                       cubit: cubit,
                     ),
                     separatorBuilder: (context, index) =>
-                        const SizedBox(height: 64),
+                        SizedBox(height: SizeConfig.screenHeight! * 0.064),
                     itemCount: cubit.favorites.length,
                   ),
                   fallback: (context) => const FallBackText(

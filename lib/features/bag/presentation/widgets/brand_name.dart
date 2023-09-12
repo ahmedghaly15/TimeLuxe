@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reusable_components/reusable_components.dart';
 
 import 'package:time_luxe/features/bag/presentation/widgets/done_square.dart';
 
@@ -19,11 +20,10 @@ class _BrandNameState extends State<BrandName> {
     return Row(
       children: <Widget>[
         const DoneSquare(),
-        const SizedBox(width: 16),
+        SizedBox(width: SizeConfig.screenWidth! * 0.039),
         Text(
           "rolex".toUpperCase(),
           style: AppTextStyles.textStyle18.copyWith(
-            color: Colors.white,
             fontWeight: FontWeight.w600,
           ),
         ),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:reusable_components/reusable_components.dart';
 
 import 'sign_in_or_get_started_buttons.dart';
 
@@ -13,56 +15,50 @@ class WelcomeContainer extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         Container(
-          width: 385,
-          height: 327,
+          width: 385.w,
+          height: 255.h,
           decoration: BoxDecoration(
             color: Colors.white.withOpacity(0.78),
-            borderRadius: BorderRadius.circular(30),
+            borderRadius: BorderRadius.circular(30.r),
           ),
           child: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 15.w),
             child: Column(
               children: [
-                const Text(
+                Text(
                   "Welcome to time",
                   style: TextStyle(
-                    fontSize: 32,
+                    fontSize: 32.sp,
                     fontWeight: FontWeight.w800,
                   ),
                 ),
-                const Text(
+                Text(
                   "luxe",
                   style: TextStyle(
-                    fontSize: 32,
+                    fontSize: 32.sp,
                     fontWeight: FontWeight.w800,
                   ),
                 ),
-                const SizedBox(
-                  height: 12,
-                ),
-                const Text(
+                SizedBox(height: SizeConfig.screenHeight! * 0.01),
+                Text(
                   "Get exclusive limited watches that only\n you have! Made by famous brands in\n the world ",
                   style: TextStyle(
-                    fontSize: 15,
+                    fontSize: 15.sp,
                     fontWeight: FontWeight.w200,
                   ),
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(
-                  height: 28,
-                ),
+                SizedBox(height: SizeConfig.screenHeight! * 0.028),
                 Container(
-                  height: 4,
-                  width: 34,
+                  height: 4.h,
+                  width: 34.w,
                   decoration: BoxDecoration(
                     color: Colors.green,
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(10.r),
                   ),
                   child: const Divider(color: Colors.green),
                 ),
-                const SizedBox(
-                  height: 26,
-                ),
+                SizedBox(height: SizeConfig.screenHeight! * 0.026),
                 const SignInOrGetStartedButtons(),
               ],
             ),

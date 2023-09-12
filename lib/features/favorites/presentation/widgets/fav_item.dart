@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/core/global/app_constants.dart';
 
@@ -21,11 +22,11 @@ class FavItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: Row(
         children: <Widget>[
           ClipRRect(
-            borderRadius: const BorderRadius.all(Radius.circular(25)),
+            borderRadius: BorderRadius.all(Radius.circular(25.r)),
             child: GestureDetector(
               onTap: () => CustomNavigator.navigateTo(
                 screen: () => ProductDetailsView(model: favItem),
@@ -35,8 +36,8 @@ class FavItem extends StatelessWidget {
                 child: Image.asset(
                   favItem.image!,
                   fit: BoxFit.cover,
-                  height: 152,
-                  width: 159,
+                  height: 132.h,
+                  width: 139.w,
                 ),
               ),
             ),
@@ -49,20 +50,20 @@ class FavItem extends StatelessWidget {
                 favItem.name!,
                 style: AppTextStyles.textStyle24.copyWith(
                   fontWeight: FontWeight.w900,
-                  color: Colors.white,
                 ),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
-              const SizedBox(height: 16),
+              SizedBox(height: SizeConfig.screenHeight! * 0.016),
               Row(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   Text(
                     "\$${favItem.price!}",
                     style: AppTextStyles.textStyle20.copyWith(
                         fontWeight: FontWeight.w900, color: Colors.white),
                   ),
-                  const SizedBox(width: 25),
+                  SizedBox(width: SizeConfig.screenWidth! * 0.055),
                   GestureDetector(
                     onTap: () {
                       if (AppConstants.bagItems
@@ -80,7 +81,7 @@ class FavItem extends StatelessWidget {
                           : Colors.white,
                     ),
                   ),
-                  const SizedBox(width: 10),
+                  SizedBox(width: SizeConfig.screenWidth! * 0.02),
                   GestureDetector(
                     onTap: () => cubit.removeFromFav(favItem),
                     child: const Icon(

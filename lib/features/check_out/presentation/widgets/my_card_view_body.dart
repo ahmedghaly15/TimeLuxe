@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/core/global/app_assets.dart';
 import 'package:time_luxe/features/check_out/presentation/widgets/my_card_form.dart';
@@ -32,26 +33,25 @@ class MyCardViewBody extends StatelessWidget {
             children: <Widget>[
               const CheckoutAppBar(title: 'My Card'),
               const CustomizedDivider(),
-              const SizedBox(height: 24),
+              SizedBox(height: SizeConfig.screenHeight! * 0.025),
               Image.asset(AppAssets.visaCard),
-              const SizedBox(height: 32),
+              SizedBox(height: SizeConfig.screenHeight! * 0.032),
               const MyCardForm(),
-              const SizedBox(height: 25),
+              SizedBox(height: SizeConfig.screenHeight! * 0.025),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 18),
+                padding: EdgeInsets.symmetric(horizontal: 18.w),
                 child: MyCustomButton(
-                  height: 59,
+                  height: 49.h,
                   width: SizeConfig.screenWidth! * 0.9,
                   backgroundColor: AppColors.primaryColor,
-                  radius: 8,
+                  radius: 8.r,
                   onPressed: () {},
                   hasPrefix: false,
                   child: Center(
                     child: Text(
                       "Pay Now",
                       style: AppTextStyles.textStyle27.copyWith(
-                        color: Colors.white,
-                        fontSize: 23,
+                        fontSize: 23.sp,
                       ),
                     ),
                   ),

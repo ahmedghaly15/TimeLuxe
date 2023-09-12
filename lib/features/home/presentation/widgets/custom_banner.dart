@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:reusable_components/reusable_components.dart';
+import 'package:time_luxe/core/global/app_text_styles.dart';
 import 'package:time_luxe/features/home/presentation/widgets/custom_outlined_button.dart';
 import 'package:time_luxe/core/global/app_assets.dart';
 
@@ -15,7 +16,6 @@ class MyBanner extends StatelessWidget {
           width: SizeConfig.screenWidth,
           height: SizeConfig.screenHeight! * 0.25,
           decoration: const BoxDecoration(
-            color: Colors.white,
             image: DecorationImage(
               image: AssetImage(AppAssets.homeBanner),
               fit: BoxFit.cover,
@@ -28,11 +28,10 @@ class MyBanner extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
+                Text(
                   "New collections in\n2023",
-                  style: TextStyle(
+                  style: AppTextStyles.textStyle32.copyWith(
                     color: Colors.white,
-                    fontSize: 32,
                     fontWeight: FontWeight.w500,
                   ),
                   textAlign: TextAlign.center,
@@ -44,7 +43,6 @@ class MyBanner extends StatelessWidget {
                   },
                   text: "Shop Now",
                   color: Colors.white,
-                  textColor: Colors.white,
                 )
               ],
             ),

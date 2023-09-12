@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/features/splash/presnetation/widgets/seconds_circles.dart';
 
 import '../../../../core/network/local/cache_helper.dart';
@@ -42,7 +45,7 @@ class _SplashViewState extends State<SplashView> {
                     offset: const Offset(9, 5),
                   )
                 ],
-                fontSize: 50,
+                fontSize: 50.sp,
                 fontWeight: FontWeight.w400,
               ),
             ),
@@ -56,13 +59,11 @@ class _SplashViewState extends State<SplashView> {
                     offset: const Offset(2, 5),
                   )
                 ],
-                fontSize: 65,
+                fontSize: 65.sp,
                 fontWeight: FontWeight.w900,
               ),
             ),
-            const SizedBox(
-              height: 12,
-            ),
+            SizedBox(height: SizeConfig.screenHeight! * 0.01),
             const SecondsCircles(),
           ],
         ),
@@ -71,30 +72,23 @@ class _SplashViewState extends State<SplashView> {
   }
 
   Future<void> moveToNextView() {
-    return Future.delayed(const Duration(seconds: 5), () {
+    return Future.delayed(const Duration(seconds: 3), () {
       Helper.uId = CacheHelper.getStringData(key: 'uId');
 
       if (Helper.uId != null) {
-        navigateAndReplace(const TimeLuxeAppView());
+        moveToNext(const TimeLuxeAppView());
       } else {
-        navigateAndReplace(const WelcomeView());
+        moveToNext(const WelcomeView());
       }
     });
   }
 
-  Future<dynamic> navigateAndReplace(Widget screen) {
-    return Navigator.pushReplacement(
-      context,
-      PageRouteBuilder(
-        transitionDuration: const Duration(milliseconds: 500),
-        pageBuilder: (_, __, ___) => screen,
-        transitionsBuilder: (_, Animation<double> animation, __, Widget child) {
-          return FadeTransition(
-            opacity: animation,
-            child: child,
-          );
-        },
-      ),
+  void moveToNext(Widget screen) {
+    CustomNavigator.navigateAndFinish(
+      screen: () => screen,
+      curve: Curves.easeIn,
+      transition: Transition.fadeIn,
+      duration: const Duration(seconds: 1),
     );
   }
 }

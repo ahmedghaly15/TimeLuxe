@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/core/global/app_assets.dart';
@@ -19,12 +20,12 @@ class CurrentUserInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: EdgeInsets.symmetric(horizontal: 20.w),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           CircleAvatar(
-            radius: 45,
+            radius: 45.r,
             backgroundImage: NetworkImage(user.image!),
             backgroundColor: AppColors.primaryColor,
           ),
@@ -36,16 +37,13 @@ class CurrentUserInfo extends StatelessWidget {
                 userName(),
                 style: AppTextStyles.textStyle24.copyWith(
                   fontWeight: FontWeight.w500,
-                  color: Colors.white,
                 ),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
               Text(
                 user.email!,
-                style: AppTextStyles.textStyle13.copyWith(
-                  color: Colors.white,
-                ),
+                style: AppTextStyles.textStyle13,
               ),
             ],
           ),

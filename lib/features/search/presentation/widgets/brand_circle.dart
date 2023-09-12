@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/global/app_colors.dart';
 
@@ -13,9 +14,9 @@ class BrandCircle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 78,
-      height: 78,
-      margin: const EdgeInsets.only(left: 8),
+      width: 72.w,
+      height: 72.w,
+      margin: EdgeInsets.only(left: 8.w),
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         color: Colors.transparent,
@@ -28,7 +29,7 @@ class BrandCircle extends StatelessWidget {
         child: Image.asset(
           image,
           fit: BoxFit.cover,
-          width: 60,
+          width: 60.w,
         ),
       ),
     );

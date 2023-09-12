@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:time_luxe/core/global/app_text_styles.dart';
 
 class CustomOutlinedButton extends StatelessWidget {
   const CustomOutlinedButton({
@@ -6,12 +7,11 @@ class CustomOutlinedButton extends StatelessWidget {
     required this.onTap,
     required this.text,
     required this.color,
-    required this.textColor,
   });
 
   final String text;
   final Color color;
-  final Color textColor;
+
   final VoidCallback onTap;
 
   @override
@@ -28,8 +28,7 @@ class CustomOutlinedButton extends StatelessWidget {
         child: Center(
           child: Text(
             text,
-            style: TextStyle(
-              color: textColor,
+            style: AppTextStyles.textStyle20.copyWith(
               fontSize: 20,
               fontWeight: FontWeight.w600,
             ),

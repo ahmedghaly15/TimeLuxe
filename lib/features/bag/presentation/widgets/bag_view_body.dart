@@ -1,6 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/TimeLuxe/presentation/view/manager/time_luxe_cubit.dart';
@@ -32,7 +33,7 @@ class BagViewBody extends StatelessWidget {
       return Container(
         height: SizeConfig.screenHeight,
         width: SizeConfig.screenWidth,
-        padding: const EdgeInsets.only(top: 32),
+        padding: EdgeInsets.only(top: 24.h),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: AppColors.gradientColors,
@@ -49,7 +50,7 @@ class BagViewBody extends StatelessWidget {
               children: <Widget>[
                 SizedBox(height: SizeConfig.screenHeight! * 0.05),
                 CustomAppBar(
-                  padding: const EdgeInsets.only(left: 24, right: 48),
+                  padding: EdgeInsets.only(left: 24.w, right: 48.w),
                   title: "Bag",
                   actions: GestureDetector(
                     onTap: () => CustomNavigator.navigateTo(
@@ -61,22 +62,21 @@ class BagViewBody extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: SizeConfig.screenHeight! * 0.016),
                 const CustomizedDivider(),
-                const SizedBox(height: 39),
+                SizedBox(height: SizeConfig.screenHeight! * 0.039),
                 BagProductsList(cubit: cubit),
-                const SizedBox(height: 20),
+                SizedBox(height: SizeConfig.screenHeight! * 0.02),
                 Padding(
-                  padding: const EdgeInsets.only(right: 15),
+                  padding: EdgeInsets.only(right: 15.w),
                   child: Row(
                     children: <Widget>[
                       const DoneSquare(),
-                      const SizedBox(width: 15),
+                      SizedBox(width: SizeConfig.screenWidth! * 0.039),
                       Text(
                         "Choose all",
                         style: AppTextStyles.textStyle20.copyWith(
                           fontWeight: FontWeight.w500,
-                          color: Colors.white,
                         ),
                       ),
                       const Spacer(),
@@ -84,20 +84,19 @@ class BagViewBody extends StatelessWidget {
                         "\$$totalPrice",
                         style: AppTextStyles.textStyle20.copyWith(
                           fontWeight: FontWeight.w500,
-                          color: Colors.white,
                         ),
                       ),
                     ],
                   ),
                 ),
-                const SizedBox(height: 29),
+                SizedBox(height: SizeConfig.screenHeight! * 0.029),
                 Center(
                   child: Padding(
-                    padding: const EdgeInsets.only(bottom: 16),
+                    padding: EdgeInsets.only(bottom: 16.h),
                     child: MyCustomButton(
-                      height: 59,
+                      height: 49.h,
                       width: SizeConfig.screenWidth! * 0.9,
-                      radius: 8,
+                      radius: 8.r,
                       onPressed: () => CustomNavigator.navigateTo(
                         screen: () => CheckOutView(subtotal: totalPrice),
                       ),
@@ -107,8 +106,7 @@ class BagViewBody extends StatelessWidget {
                         child: Text(
                           "Checkout",
                           style: AppTextStyles.textStyle32.copyWith(
-                            fontSize: 23,
-                            color: Colors.white,
+                            fontSize: 23.sp,
                           ),
                         ),
                       ),

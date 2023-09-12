@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../../core/global/app_assets.dart';
@@ -13,12 +14,12 @@ class ChatAndAddToCartButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 54,
-      width: 372,
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      decoration: const BoxDecoration(
+      height: 44.h,
+      width: 332.w,
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      decoration: BoxDecoration(
         color: AppColors.primaryColor,
-        borderRadius: BorderRadius.all(Radius.circular(19)),
+        borderRadius: BorderRadius.all(Radius.circular(19.r)),
       ),
       child: Row(
         children: <Widget>[
@@ -33,7 +34,7 @@ class ChatAndAddToCartButton extends StatelessWidget {
             text: "Add to Cart",
             icon: SvgPicture.asset(
               AppAssets.bag,
-              height: 24,
+              height: 20.h,
               color: Colors.white,
             ),
           ),

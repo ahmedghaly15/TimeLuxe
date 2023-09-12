@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reusable_components/reusable_components.dart';
 
 import '../../../../core/global/app_colors.dart';
@@ -16,16 +17,16 @@ class NewCardTextField extends StatefulWidget {
 class _NewCardTextFieldState extends State<NewCardTextField> {
   final TextEditingController textEditingController = TextEditingController();
 
-  // @override
-  // void dispose() {
-  //   textEditingController.dispose();
-  //   super.dispose();
-  // }
+  @override
+  void dispose() {
+    textEditingController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 18),
+      padding: EdgeInsets.symmetric(horizontal: 18.w),
       child: CustomTextFormField(
         backgroundColor: Colors.white.withOpacity(0),
         hint: "Or add a new card",

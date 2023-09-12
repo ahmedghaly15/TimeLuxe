@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reusable_components/reusable_components.dart';
 
 import '../../../../core/global/app_colors.dart';
@@ -20,11 +21,11 @@ class _MyCardFormState extends State<MyCardForm> {
   final TextEditingController cardHolderController = TextEditingController();
   final TextEditingController cvvNumberController = TextEditingController();
 
-  // @override
-  // void dispose() {
-  //   disposeControllers();
-  //   super.dispose();
-  // }
+  @override
+  void dispose() {
+    disposeControllers();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +36,7 @@ class _MyCardFormState extends State<MyCardForm> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(bottom: 16),
+              padding: EdgeInsets.only(bottom: 12.h),
               child: CustomTextFormField(
                 backgroundColor: Colors.white.withOpacity(0),
                 hint: "Enter Card Number",
@@ -53,7 +54,7 @@ class _MyCardFormState extends State<MyCardForm> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(bottom: 16),
+              padding: EdgeInsets.only(bottom: 12.h),
               child: CustomTextFormField(
                 backgroundColor: Colors.white.withOpacity(0),
                 hint: "Expiration Date",
@@ -71,7 +72,7 @@ class _MyCardFormState extends State<MyCardForm> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(bottom: 16),
+              padding: EdgeInsets.only(bottom: 12.h),
               child: CustomTextFormField(
                 backgroundColor: Colors.white.withOpacity(0),
                 hint: "Cardholder Now",
@@ -89,7 +90,7 @@ class _MyCardFormState extends State<MyCardForm> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(bottom: 16),
+              padding: EdgeInsets.only(bottom: 12.h),
               child: CustomTextFormField(
                 backgroundColor: Colors.white.withOpacity(0),
                 hint: "Cvv Number",

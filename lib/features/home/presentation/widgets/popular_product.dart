@@ -1,5 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/TimeLuxe/presentation/view/manager/time_luxe_cubit.dart';
 import 'package:time_luxe/core/global/app_constants.dart';
 import 'package:time_luxe/features/home/presentation/widgets/product_item.dart';
@@ -18,19 +20,16 @@ class PopularProducts extends StatelessWidget {
       children: [
         Text(
           "Popular products",
-          style: AppTextStyles.textStyle27.copyWith(color: Colors.white),
+          style: AppTextStyles.textStyle27,
         ),
-        const SizedBox(height: 18),
+        SizedBox(height: SizeConfig.screenHeight! * 0.018),
         GridView.builder(
           itemBuilder: (context, index) => ProductItem(
             cubit: cubit,
             model: AppConstants.popularProducts[index],
           ),
           itemCount: AppConstants.popularProducts.length,
-          padding: const EdgeInsets.symmetric(
-            horizontal: 10,
-            vertical: 25,
-          ),
+          padding: EdgeInsets.symmetric(horizontal: 10.w),
           scrollDirection: Axis.vertical,
           reverse: false,
           primary: true,
@@ -40,8 +39,8 @@ class PopularProducts extends StatelessWidget {
           clipBehavior: Clip.hardEdge,
           gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 200,
-            mainAxisExtent: 220,
-            mainAxisSpacing: 20,
+            mainAxisExtent: 230,
+            mainAxisSpacing: 26,
             crossAxisSpacing: 15,
             childAspectRatio: 3 / 2,
           ),

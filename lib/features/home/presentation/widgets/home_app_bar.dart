@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:time_luxe/core/global/app_assets.dart';
+import 'package:time_luxe/core/global/app_text_styles.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({super.key});
@@ -8,15 +10,13 @@ class HomeAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      padding: EdgeInsets.symmetric(horizontal: 16.0.w),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Text(
+          Text(
             "Dipstore. ",
-            style: TextStyle(
-              fontSize: 32,
-              fontWeight: FontWeight.w600,
+            style: AppTextStyles.textStyle32.copyWith(
               color: Colors.white,
             ),
           ),

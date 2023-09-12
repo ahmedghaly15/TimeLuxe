@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:reusable_components/reusable_components.dart';
 
@@ -41,10 +42,15 @@ class TimeLuxeApp extends StatelessWidget {
     return BlocProvider(
       create: (context) =>
           serviceLocator.get<TimeLuxeCubit>()..getUserData(Helper.uId),
-      child: GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: AppTheme.appTheme(),
-        home: const SplashView(),
+      child: ScreenUtilInit(
+        designSize: const Size(360, 690),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: (context, child) => GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: AppTheme.appTheme(),
+          home: const SplashView(),
+        ),
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/features/auth/sign_in/presentation/views/sign_in_view.dart';
 import 'package:time_luxe/features/auth/sign_up/presentation/cubit/sign_up_view_cubit.dart';
@@ -35,7 +36,7 @@ class SignUpViewBody extends StatelessWidget {
               children: <Widget>[
                 TitleText(
                   title: "Let's Get Started",
-                  bottomPadding: SizeConfig.screenHeight! * 0.03,
+                  bottomPadding: 20.h,
                 ),
                 SignUpForm(cubit: cubit, state: state),
                 SizedBox(height: SizeConfig.screenHeight! * 0.035),
@@ -45,7 +46,7 @@ class SignUpViewBody extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    const Text(
+                    Text(
                       "Do you have an account?",
                       style: AppTextStyles.textStyle13,
                     ),

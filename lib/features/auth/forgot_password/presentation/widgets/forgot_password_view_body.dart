@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/features/auth/forgot_password/presentation/cubit/forgot_password_view_cubit.dart';
 import 'package:time_luxe/features/auth/forgot_password/presentation/widgets/forgot_password_form.dart';
@@ -22,16 +23,16 @@ class ForgotPasswordViewBody extends StatelessWidget {
           children: <Widget>[
             const CustomizedAppBar(),
             Container(
-              margin: const EdgeInsets.only(top: 35.0),
-              padding: const EdgeInsets.symmetric(horizontal: 24),
-              child: const Text(
+              margin: EdgeInsets.only(top: 30.0.h),
+              padding: EdgeInsets.symmetric(horizontal: 24.w),
+              child: Text(
                 "Enter the email associated with your account to change your password.",
                 style: AppTextStyles.textStyle18,
               ),
             ),
             SizedBox(height: SizeConfig.screenHeight! * 0.03),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
+              padding: EdgeInsets.symmetric(horizontal: 24.w),
               child: ForgotPasswordForm(state: state),
             ),
           ],

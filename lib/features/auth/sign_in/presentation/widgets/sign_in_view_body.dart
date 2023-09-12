@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/core/global/app_text_styles.dart';
 import 'package:time_luxe/features/auth/sign_in/presentation/widgets/sign_in_form.dart';
@@ -34,7 +35,7 @@ class SignInViewBody extends StatelessWidget {
               children: <Widget>[
                 TitleText(
                   title: "Please Sign in",
-                  bottomPadding: SizeConfig.screenHeight! * 0.05,
+                  bottomPadding: 35.h,
                 ),
                 SignInForm(cubit: cubit, state: state),
                 SizedBox(height: SizeConfig.screenHeight! * 0.05),
@@ -45,14 +46,14 @@ class SignInViewBody extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    const Text(
+                    Text(
                       "Don't have an account?",
                       style: AppTextStyles.textStyle13,
                     ),
-                    const CustomVerticalDivider(
-                      width: 1,
-                      height: 16,
-                      margin: EdgeInsets.symmetric(horizontal: 4),
+                    CustomVerticalDivider(
+                      width: 1.w,
+                      height: 16.h,
+                      margin: EdgeInsets.symmetric(horizontal: 4.w),
                       color: Colors.black,
                     ),
                     CustomTextButton(
@@ -67,7 +68,7 @@ class SignInViewBody extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: SizeConfig.screenHeight! * 0.025),
+                SizedBox(height: SizeConfig.screenHeight! * 0.04),
               ],
             ),
           ),

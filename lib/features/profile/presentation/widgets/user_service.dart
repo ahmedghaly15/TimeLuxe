@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:reusable_components/reusable_components.dart';
 
 import '../../../../core/global/app_text_styles.dart';
 
@@ -24,11 +26,11 @@ class UserService extends StatelessWidget {
           child: SvgPicture.asset(
             icon,
             color: Colors.white,
-            height: 44,
-            width: 44,
+            height: 44.w,
+            width: 44.w,
           ),
         ),
-        const SizedBox(height: 7),
+        SizedBox(height: SizeConfig.screenHeight! * 0.007),
         Text(
           title,
           style: AppTextStyles.textStyle16.copyWith(

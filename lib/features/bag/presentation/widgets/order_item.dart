@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:reusable_components/reusable_components.dart';
@@ -31,31 +32,31 @@ class OrderItem extends StatelessWidget {
         motion: const ScrollMotion(),
         children: <Widget>[
           Container(
-            height: 90,
-            width: 66,
+            height: 70.h,
+            width: 66.w,
             color: const Color(0xFF74d592),
             child: GestureDetector(
               onTap: () => cubit.removeBagProduct(bagProduct),
-              child: const Icon(
+              child: Icon(
                 FontAwesomeIcons.solidTrashCan,
                 color: Colors.red,
-                size: 25,
+                size: 25.w,
               ),
             ),
           ),
         ],
       ),
       child: Padding(
-        padding: const EdgeInsets.only(right: 15),
+        padding: EdgeInsets.only(right: 15.w),
         child: Row(
           children: <Widget>[
             const DoneSquare(),
-            const SizedBox(width: 19),
+            SizedBox(width: SizeConfig.screenWidth! * 0.039),
             SizedBox(
-              height: 90,
-              width: 66,
+              height: 70.h,
+              width: 50.w,
               child: ClipRRect(
-                borderRadius: const BorderRadius.all(Radius.circular(10)),
+                borderRadius: BorderRadius.all(Radius.circular(10.r)),
                 child: GestureDetector(
                   onTap: () => CustomNavigator.navigateTo(
                     screen: () => ProductDetailsView(model: bagProduct),
@@ -73,25 +74,21 @@ class OrderItem extends StatelessWidget {
               children: <Widget>[
                 Text(
                   bagProduct.name ?? "No Name",
-                  style: AppTextStyles.textStyle12.copyWith(
-                    color: Colors.white,
-                  ),
+                  style: AppTextStyles.textStyle12,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
                 Text(
                   "Color: ${(bagProduct.color) ?? "No Color"}",
                   style: AppTextStyles.textStyle12.copyWith(
-                    fontSize: 10,
+                    fontSize: 10.sp,
                     fontWeight: FontWeight.normal,
-                    color: Colors.white,
                   ),
                 ),
-                const SizedBox(height: 5),
+                SizedBox(height: SizeConfig.screenHeight! * 0.005),
                 Text(
                   "\$${(bagProduct.price) ?? "No Price"}",
-                  style:
-                      AppTextStyles.textStyle12.copyWith(color: Colors.white),
+                  style: AppTextStyles.textStyle12,
                 ),
               ],
             ),
@@ -99,20 +96,20 @@ class OrderItem extends StatelessWidget {
             GestureDetector(
               onTap: () => cubit.decrement(),
               child: Container(
-                height: 24,
-                width: 24,
+                height: 22.w,
+                width: 22.w,
                 decoration: BoxDecoration(
                   color: Colors.transparent,
                   border: Border.all(color: Colors.white, width: 3),
                 ),
-                child: const Icon(
+                child: Icon(
                   Icons.remove,
                   color: Colors.white,
-                  size: 18,
+                  size: 15.w,
                 ),
               ),
             ),
-            const SizedBox(width: 10),
+            SizedBox(width: SizeConfig.screenWidth! * 0.022),
             Text(
               "${cubit.ordersCounter}",
               style: AppTextStyles.textStyle20.copyWith(
@@ -120,13 +117,13 @@ class OrderItem extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-            const SizedBox(width: 10),
+            SizedBox(width: SizeConfig.screenWidth! * 0.022),
             GestureDetector(
               onTap: () => cubit.increment(),
-              child: const Icon(
+              child: Icon(
                 Icons.add_box,
                 color: AppColors.primaryColor,
-                size: 33,
+                size: 33.w,
               ),
             ),
           ],

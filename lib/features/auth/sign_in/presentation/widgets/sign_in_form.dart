@@ -1,5 +1,6 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/core/global/app_colors.dart';
 import 'package:time_luxe/core/global/app_text_styles.dart';
@@ -43,7 +44,7 @@ class _SignInFormState extends State<SignInForm> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24),
+      padding: EdgeInsets.symmetric(horizontal: 22.w),
       child: Form(
         key: _formKey,
         child: Column(
@@ -105,9 +106,9 @@ class _SignInFormState extends State<SignInForm> {
               condition: widget.state is! SignInLoadingState,
               builder: (context) => MyCustomButton(
                 backgroundColor: AppColors.primaryColor,
-                height: 59,
-                width: 375,
-                radius: 14,
+                height: 49.h,
+                width: 320.w,
+                radius: 14.r,
                 hasPrefix: false,
                 onPressed: () => signIn(context),
                 child: Center(

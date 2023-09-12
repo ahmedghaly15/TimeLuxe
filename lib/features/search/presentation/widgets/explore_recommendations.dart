@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reusable_components/reusable_components.dart';
 
 import '../../../../core/global/app_assets.dart';
@@ -16,8 +17,8 @@ class ExploreRecommendations extends StatelessWidget {
       children: <Widget>[
         Image.asset(AppAssets.searchWatch),
         Positioned(
-          left: 34,
-          top: 17,
+          left: 34.w,
+          top: 3.h,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -25,11 +26,10 @@ class ExploreRecommendations extends StatelessWidget {
               Text(
                 "You'll love These",
                 style: AppTextStyles.textStyle16.copyWith(
-                  color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 5),
+              SizedBox(height: SizeConfig.screenHeight! * 0.005),
               Text(
                 "Check out your recommendations",
                 style: AppTextStyles.textStyle16.copyWith(
@@ -37,11 +37,11 @@ class ExploreRecommendations extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 10),
+              SizedBox(height: SizeConfig.screenHeight! * 0.01),
               MyCustomButton(
-                height: 37,
-                width: 108,
-                radius: 25,
+                height: 27.h,
+                width: 108.w,
+                radius: 25.r,
                 backgroundColor: AppColors.primaryColor,
                 onPressed: () {},
                 hasPrefix: false,
@@ -49,7 +49,6 @@ class ExploreRecommendations extends StatelessWidget {
                   child: Text(
                     "Explore",
                     style: AppTextStyles.textStyle16.copyWith(
-                      color: Colors.white,
                       fontWeight: FontWeight.w600,
                     ),
                   ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reusable_components/reusable_components.dart';
 
 import '../../../../../core/global/app_text_styles.dart';
@@ -10,28 +11,27 @@ class OrLoginWith extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       children: <Widget>[
-        Expanded(
-          child: CustomDivider(
-            color: Colors.black,
-            height: 1,
-          ),
-        ),
+        buildDivider(),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10),
+          padding: EdgeInsets.symmetric(horizontal: 10.w),
           child: Text(
             "Or login with",
             style: AppTextStyles.textStyle16,
           ),
         ),
-        Expanded(
-          child: CustomDivider(
-            color: Colors.black,
-            height: 1,
-          ),
-        ),
+        buildDivider(),
       ],
+    );
+  }
+
+  Expanded buildDivider() {
+    return Expanded(
+      child: CustomDivider(
+        color: Colors.black,
+        height: 0.5.h,
+      ),
     );
   }
 }

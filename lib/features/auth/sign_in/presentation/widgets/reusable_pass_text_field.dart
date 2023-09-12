@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:reusable_components/reusable_components.dart';
 
@@ -38,10 +39,10 @@ class ReusablePassTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomTextFormField(
       backgroundColor: Colors.white.withOpacity(0),
-      height: 50,
-      contentPadding: const EdgeInsets.symmetric(
-        horizontal: 16,
-        vertical: 8,
+      height: 40.h,
+      contentPadding: EdgeInsets.symmetric(
+        horizontal: 16.w,
+        vertical: 8.h,
       ),
       cursorColor: AppColors.primaryColor,
       focusedBorderColor: AppColors.primaryColor,
@@ -54,7 +55,7 @@ class ReusablePassTextField extends StatelessWidget {
       ),
       style: AppTextStyles.textStyle16.copyWith(fontWeight: FontWeight.w600),
       prefixIcon: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(8.0.r),
         child: SvgPicture.asset(prefixIcon),
       ),
       prefixIconColor: Colors.white,

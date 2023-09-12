@@ -1,6 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/TimeLuxe/presentation/view/manager/time_luxe_cubit.dart';
@@ -32,56 +33,54 @@ class ProfileViewBody extends StatelessWidget {
 
       return Stack(
         children: <Widget>[
-          SingleChildScrollView(
-            child: Container(
-              height: SizeConfig.screenHeight,
-              width: SizeConfig.screenWidth,
-              padding: const EdgeInsets.symmetric(vertical: 32),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: AppColors.gradientColors,
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                ),
+          Container(
+            height: SizeConfig.screenHeight,
+            width: SizeConfig.screenWidth,
+            padding: EdgeInsets.symmetric(vertical: 22.h),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: AppColors.gradientColors,
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
               ),
-              child: FadeInUp(
-                from: 20,
-                duration: const Duration(milliseconds: 500),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    SizedBox(height: SizeConfig.screenHeight! * 0.05),
-                    CustomAppBar(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                      title: "Profile",
-                      actions: Row(
-                        children: <Widget>[
-                          const Icon(
-                            Icons.email_outlined,
-                            size: 35,
-                            color: Colors.white,
-                          ),
-                          const SizedBox(width: 21),
-                          SvgPicture.asset(
-                            AppAssets.profileNotificationsIcon,
-                            color: AppColors.primaryColor,
-                          ),
-                        ],
-                      ),
+            ),
+            child: FadeInUp(
+              from: 20,
+              duration: const Duration(milliseconds: 500),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  SizedBox(height: SizeConfig.screenHeight! * 0.05),
+                  CustomAppBar(
+                    padding: EdgeInsets.symmetric(horizontal: 16.w),
+                    title: "Profile",
+                    actions: Row(
+                      children: <Widget>[
+                        Icon(
+                          Icons.email_outlined,
+                          size: 35.w,
+                          color: Colors.white,
+                        ),
+                        SizedBox(width: SizeConfig.screenWidth! * 0.05),
+                        SvgPicture.asset(
+                          AppAssets.profileNotificationsIcon,
+                          color: AppColors.primaryColor,
+                        ),
+                      ],
                     ),
-                    const SizedBox(height: 16),
-                    const CustomizedDivider(),
-                    SizedBox(height: SizeConfig.screenHeight! * 0.033),
-                    CurrentUserInfo(user: user),
-                    SizedBox(height: SizeConfig.screenHeight! * 0.041),
-                    const UserServices(),
-                    SizedBox(height: SizeConfig.screenHeight! * 0.016),
-                    const SettingsTitle(title: "General Settings"),
-                    const GeneralSettings(),
-                    const SettingsTitle(title: "Other"),
-                    const OtherSettings(),
-                  ],
-                ),
+                  ),
+                  SizedBox(height: SizeConfig.screenHeight! * 0.02),
+                  const CustomizedDivider(),
+                  SizedBox(height: SizeConfig.screenHeight! * 0.025),
+                  CurrentUserInfo(user: user),
+                  SizedBox(height: SizeConfig.screenHeight! * 0.02),
+                  const UserServices(),
+                  SizedBox(height: SizeConfig.screenHeight! * 0.006),
+                  const SettingsTitle(title: "General Settings"),
+                  const GeneralSettings(),
+                  const SettingsTitle(title: "Other"),
+                  const OtherSettings(),
+                ],
               ),
             ),
           ),

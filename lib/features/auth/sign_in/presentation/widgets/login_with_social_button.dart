@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:reusable_components/reusable_components.dart';
 
@@ -26,8 +27,8 @@ class LoginWithSocialButton extends StatelessWidget {
       child: Stack(
         children: <Widget>[
           AnimatedPositioned(
-            height: 48,
-            width: isActive ? 305 : 0,
+            height: 40.h,
+            width: isActive ? 300.w : 0,
             duration: const Duration(milliseconds: 300),
             curve: Curves.fastOutSlowIn,
             child: Container(
@@ -35,7 +36,7 @@ class LoginWithSocialButton extends StatelessWidget {
                 color: isActive
                     ? AppColors.primaryColor
                     : AppColors.authScaffoldBackgroundColor,
-                borderRadius: const BorderRadius.all(Radius.circular(14)),
+                borderRadius: BorderRadius.all(Radius.circular(14.r)),
                 border: isActive
                     ? Border.all(
                         color: AppColors.primaryColor,
@@ -49,16 +50,16 @@ class LoginWithSocialButton extends StatelessWidget {
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(bottom: 16),
+            margin: EdgeInsets.only(bottom: 12.h),
             child: MyCustomButton(
               onPressed: onPressed,
-              height: 48,
-              width: 305,
+              height: 40.h,
+              width: 300.w,
               border: Border.all(
                 color: Colors.white,
                 width: 2,
               ),
-              radius: 14,
+              radius: 14.r,
               hasPrefix: true,
               prefixWidget: SvgPicture.asset(
                 icon,

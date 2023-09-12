@@ -1,6 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reusable_components/reusable_components.dart';
 import 'package:time_luxe/TimeLuxe/presentation/view/manager/time_luxe_cubit.dart';
 import 'package:time_luxe/TimeLuxe/presentation/view/manager/time_luxe_states.dart';
@@ -32,27 +33,30 @@ class HomeBody extends StatelessWidget {
             from: 20,
             duration: const Duration(milliseconds: 500),
             child: Padding(
-              padding: const EdgeInsets.only(top: 36.0),
+              padding: EdgeInsets.only(top: 36.0.h),
               child: Column(
                 children: [
                   const HomeAppBar(),
                   // ********************************************
-                  const SizedBox(height: 18),
+                  SizedBox(height: SizeConfig.screenHeight! * 0.018),
                   // ********************************************
                   const MyBanner(),
                   // ********************************************
-                  const SizedBox(height: 18),
+                  SizedBox(height: SizeConfig.screenHeight! * 0.018),
                   // ********************************************
                   Padding(
-                    padding: const EdgeInsets.only(left: 16.0),
+                    padding: EdgeInsets.only(left: 16.0.w),
                     child: SellingFast(cubit: cubit),
                   ),
                   // ********************************************
-                  const SizedBox(height: 18),
+                  SizedBox(height: SizeConfig.screenHeight! * 0.018),
                   // ********************************************
                   Padding(
-                    padding:
-                        const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                    padding: EdgeInsets.only(
+                      left: 16.w,
+                      right: 16.w,
+                      bottom: 16.h,
+                    ),
                     child: PopularProducts(cubit: cubit),
                   ),
                 ],
